@@ -5,26 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EnduroPace Privacy Policy</title>
   <style>
+    :root {
+      --background: #0b0d0f;
+      --surface: #14171a;
+      --border: #2a2f33;
+      --text: #f5f7f8;
+      --secondary: #a7b0b7;
+      --green: #61d13d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      max-width: 820px;
+      max-width: 920px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 40px 20px 64px;
       line-height: 1.6;
-      color: #1f2933;
-      background: #ffffff;
+      color: var(--text);
+      background: var(--background);
     }
-    nav a {
-      margin-right: 16px;
-      color: #0f766e;
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 24px 0 36px;
+    }
+
+    nav a,
+    a {
+      color: var(--green);
       text-decoration: none;
       font-weight: 600;
     }
+
+    nav a:hover,
+    a:hover {
+      text-decoration: underline;
+    }
+
     h1, h2 {
-      color: #111827;
+      color: var(--text);
+    }
+
+    p, li {
+      color: var(--secondary);
+    }
+
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      margin: 20px 0;
+    }
+
+    .section h2 {
+      margin-top: 0;
+    }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 0.92rem;
+      color: var(--secondary);
     }
   </style>
 </head>
+
 <body>
   <h1>EnduroPace Privacy Policy</h1>
 
@@ -37,31 +89,89 @@
 
   <p><strong>Effective date:</strong> August 2026</p>
 
-  <h2>Overview</h2>
-  <p>
-    EnduroPace is designed as a privacy-first endurance pace planning app.
-    The app does not require an account and does not collect personal data.
-  </p>
+  <div class="section">
+    <h2>Overview</h2>
+    <p>
+      EnduroPace is designed as a privacy-first endurance planning and performance app.
+      No account or login is required to use the app.
+    </p>
+  </div>
 
-  <h2>Data Collection</h2>
-  <p>
-    EnduroPace does not collect, sell, or share personal data.
-  </p>
+  <div class="section">
+    <h2>Data Collection</h2>
+    <p>
+      EnduroPace does not transmit your calculator data, saved plans, Race Day Plans,
+      Performance Lab measurements, or app settings to the developer.
+    </p>
 
-  <h2>Local Storage</h2>
-  <p>
-    Calculations happen locally on your device. Saved run and bike plans are stored locally
-    on your device using device storage. This information is not sent to a server.
-  </p>
+    <p>
+      EnduroPace does not sell or share personal information with advertisers or
+      third-party data brokers.
+    </p>
+  </div>
 
-  <h2>Third-Party Analytics and Advertising</h2>
-  <p>
-    EnduroPace does not use third-party analytics or advertising services.
-  </p>
+  <div class="section">
+    <h2>Local Storage</h2>
+    <p>
+      EnduroPace calculations are performed locally on your device.
+    </p>
 
-  <h2>Contact</h2>
-  <p>
-    For privacy questions, contact: <a href="mailto:mmagri@gmail.com">mmagri@gmail.com</a>
-  </p>
+    <p>
+      Information that may be stored locally on your device includes:
+    </p>
+
+    <ul>
+      <li>Run, Bike, and Swim calculator state.</li>
+      <li>Brick, Duathlon, and Triathlon calculator state.</li>
+      <li>Saved calculator plans.</li>
+      <li>Race Day Planner plans, including race details and pacing strategy.</li>
+      <li>Run threshold pace measurements.</li>
+      <li>Bike FTP measurements.</li>
+      <li>Swim CSS measurements.</li>
+      <li>Performance Lab measurement history.</li>
+      <li>App settings and unit preferences.</li>
+    </ul>
+
+    <p>
+      This locally stored information is used to support app functionality and is not
+      transmitted to an EnduroPace server.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Deleting Local Data</h2>
+
+    <p>
+      Saved calculator plans can be cleared from Settings within EnduroPace.
+      Race Day Plans can be deleted from Race Day Planner.
+    </p>
+
+    <p>
+      Removing the app from your device may also remove locally stored EnduroPace data,
+      subject to normal iOS device and backup behavior.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Third-Party Analytics and Advertising</h2>
+
+    <p>
+      EnduroPace does not use third-party advertising services or third-party analytics
+      services within the app.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Contact</h2>
+
+    <p>
+      For privacy questions, contact
+      <a href="mailto:mmagri@gmail.com">mmagri@gmail.com</a>.
+    </p>
+  </div>
+
+  <footer>
+    This Privacy Policy may be updated as EnduroPace adds new features or services.
+  </footer>
 </body>
 </html>
