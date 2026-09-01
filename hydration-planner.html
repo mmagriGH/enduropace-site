@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Learn how EnduroPace turns a measured Sweat Test into an individualized hydration planning target."
+  />
+  <title>Hydration Planner Guide | EnduroPace</title>
+
+  <style>
+    :root {
+      --background: #0b0d0f;
+      --surface: #14171a;
+      --surface-secondary: #1a1e21;
+      --border: #2a2f33;
+      --text: #f5f7f8;
+      --secondary: #a7b0b7;
+      --run: #61d13d;
+      --sweat: #1fc7b8;
+      --warning: #ff9f43;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--background);
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--text);
+    }
+
+    h1 {
+      font-size: 2.55rem;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    p,
+    li {
+      color: var(--secondary);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 24px 0 32px;
+    }
+
+    nav a,
+    a {
+      color: var(--sweat);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover,
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .tagline {
+      margin-top: 0;
+      color: var(--secondary);
+      font-size: 1.12rem;
+    }
+
+    .hero {
+      padding: 28px;
+      border-radius: 20px;
+      margin: 28px 0 20px;
+      border: 1px solid var(--border);
+      background: linear-gradient(
+        135deg,
+        rgba(31, 199, 184, 0.14),
+        rgba(97, 209, 61, 0.05)
+      );
+    }
+
+    .hero h2 {
+      margin-top: 0;
+    }
+
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 20px 0 30px;
+    }
+
+    .quick-links a {
+      display: block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
+    }
+
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      margin: 18px 0;
+    }
+
+    .hydration {
+      border-top: 3px solid var(--sweat);
+    }
+
+    .warning-section {
+      border-top: 3px solid var(--warning);
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.8rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+      color: var(--sweat);
+    }
+
+    .formula,
+    .example,
+    .note,
+    .warning {
+      padding: 15px 16px;
+      border-radius: 12px;
+      margin: 14px 0;
+      background: var(--surface-secondary);
+      border: 1px solid var(--border);
+    }
+
+    .formula strong,
+    .example strong,
+    .note strong,
+    .warning strong {
+      color: var(--text);
+    }
+
+    .metric {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      color: var(--text);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      color: var(--secondary);
+    }
+
+    th,
+    td {
+      padding: 10px 8px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--text);
+    }
+
+    footer {
+      margin-top: 44px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 0.92rem;
+      color: var(--secondary);
+    }
+
+    @media (max-width: 680px) {
+      h1 {
+        font-size: 2.15rem;
+      }
+
+      .quick-links {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Hydration Planner</h1>
+
+  <p class="tagline">
+    Turn a measured Sweat Test into a practical fluid strategy for training and race day.
+  </p>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="performance-lab.html">Performance Lab</a>
+    <a href="hydration-planner.html">Hydration Planner</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="support.html">Support</a>
+    <a href="release-notes.html">Release Notes</a>
+  </nav>
+
+  <div class="hero">
+    <h2>Measure first. Plan second.</h2>
+
+    <p>
+      EnduroPace begins with a measured Sweat Test rather than assuming that every
+      athlete loses fluid at the same rate.
+    </p>
+
+    <p>
+      The Hydration Planner then combines your measured sweat rate, expected duration,
+      and selected Fluid Replacement percentage to build an hourly target and a simple
+      drinking schedule.
+    </p>
+  </div>
+
+  <div class="quick-links">
+    <a href="#source">Measured Sweat Rate</a>
+    <a href="#replacement">Fluid Replacement</a>
+    <a href="#calculation">How the Plan is Calculated</a>
+    <a href="#schedule">Drinking Schedule</a>
+    <a href="#balance">Fluid Balance Context</a>
+    <a href="#conditions">Conditions Matter</a>
+  </div>
+
+  <section class="section hydration" id="source">
+    <div class="eyebrow">Step 1</div>
+    <h2>Start with a measured Sweat Test</h2>
+
+    <p>
+      The Hydration Planner uses the sweat rate from one of your saved Sweat Tests.
+      Sweat rate represents the estimated amount of fluid lost per hour during that
+      specific test.
+    </p>
+
+    <p>
+      The test also preserves useful context such as activity, temperature, humidity,
+      and whether the session was performed indoors or outdoors.
+    </p>
+
+    <div class="note">
+      <strong>A Sweat Test is a measurement, not automatically a drinking prescription.</strong>
+      EnduroPace keeps the measured sweat rate separate from the fluid strategy you
+      choose to build from it.
+    </div>
+
+    <p>
+      Learn how to perform the measurement on the
+      <a href="performance-lab.html#sweat-rate">Performance Lab Sweat Test guide</a>.
+    </p>
+  </section>
+
+  <section class="section hydration" id="replacement">
+    <div class="eyebrow">Step 2</div>
+    <h2>Choose Fluid Replacement</h2>
+
+    <p>
+      Fluid Replacement determines what percentage of the selected measured sweat
+      rate EnduroPace uses to calculate the planned fluid target.
+    </p>
+
+    <div class="formula">
+      <strong>Example:</strong><br />
+      Measured sweat rate =
+      <span class="metric">1,407 mL/hour</span><br />
+      Fluid Replacement =
+      <span class="metric">67%</span>
+    </div>
+
+    <div class="formula">
+      <span class="metric">
+        1,407 × 0.67 ≈ 943 mL/hour
+      </span>
+    </div>
+
+    <p>
+      EnduroPace currently uses 67% as an editable starting point. It is not intended
+      to be a universal prescription.
+    </p>
+
+    <p>
+      Athletes may need to adjust the target based on experience, thirst,
+      gastrointestinal tolerance, intensity, fluid availability, and expected
+      conditions.
+    </p>
+
+    <div class="warning">
+      <strong>Measured loss does not mean 100% must always be replaced during exercise.</strong>
+      The planner allows the athlete to adjust the strategy while preventing a target
+      above 100% of the selected measured sweat rate.
+    </div>
+  </section>
+
+  <section class="section hydration" id="calculation">
+    <div class="eyebrow">Calculation</div>
+    <h2>How is the Hydration Plan calculated?</h2>
+
+    <h3>Planned Fluid Target</h3>
+
+    <div class="formula">
+      <span class="metric">
+        Planned fluid/hour = measured sweat rate × Fluid Replacement
+      </span>
+    </div>
+
+    <h3>Estimated Sweat Loss</h3>
+
+    <div class="formula">
+      <span class="metric">
+        Estimated sweat loss = measured sweat rate × expected duration
+      </span>
+    </div>
+
+    <h3>Total Planned Fluid</h3>
+
+    <div class="formula">
+      <span class="metric">
+        Total planned fluid = planned fluid/hour × expected duration
+      </span>
+    </div>
+
+    <h3>Modeled Unreplaced Fluid</h3>
+
+    <div class="formula">
+      <span class="metric">
+        Modeled unreplaced fluid = estimated sweat loss − total planned fluid
+      </span>
+    </div>
+
+    <div class="note">
+      These values are planning estimates. They assume that the measured sweat rate
+      remains reasonably representative of the planned activity.
+    </div>
+  </section>
+
+  <section class="section hydration" id="schedule">
+    <div class="eyebrow">Execution</div>
+    <h2>Drinking Schedule</h2>
+
+    <p>
+      The hourly target can be translated into a simple 15-, 20-, or 30-minute
+      drinking interval.
+    </p>
+
+    <div class="formula">
+      <span class="metric">
+        Fluid per interval =
+        planned fluid/hour × interval minutes ÷ 60
+      </span>
+    </div>
+
+    <div class="example">
+      <strong>Example:</strong><br />
+      Planned target =
+      <span class="metric">943 mL/hour</span><br />
+      Interval =
+      <span class="metric">20 minutes</span><br /><br />
+
+      <span class="metric">
+        943 × 20 ÷ 60 ≈ 314 mL every 20 minutes
+      </span>
+    </div>
+  </section>
+
+  <section class="section warning-section" id="balance">
+    <div class="eyebrow" style="color: var(--warning);">Context</div>
+    <h2>Fluid Balance and the 2% attention indicator</h2>
+
+    <p>
+      EnduroPace compares modeled unreplaced fluid with the body mass recorded at the
+      start of the selected Sweat Test.
+    </p>
+
+    <div class="formula">
+      <span class="metric">
+        Modeled fluid deficit % ≈ unreplaced fluid (L) ÷ pre-test body mass (kg) × 100
+      </span>
+    </div>
+
+    <p>
+      Because approximately one liter of water has a mass of about one kilogram, this
+      provides useful planning context.
+    </p>
+
+    <p>
+      When the modeled value exceeds 2% of the pre-test body mass, EnduroPace displays
+      an ATTENTION message so the athlete can review the expected duration, selected
+      Sweat Test, and Fluid Replacement.
+    </p>
+
+    <div class="warning">
+      <strong>This is not a prediction of exact race-day body-weight change.</strong>
+      Actual body mass during prolonged exercise is affected by more than fluid balance
+      alone.
+    </div>
+  </section>
+
+  <section class="section hydration" id="conditions">
+    <div class="eyebrow">Context</div>
+    <h2>Conditions matter</h2>
+
+    <p>
+      Sweat rate can change substantially with:
+    </p>
+
+    <ul>
+      <li>temperature</li>
+      <li>humidity</li>
+      <li>sport</li>
+      <li>exercise intensity</li>
+      <li>clothing and equipment</li>
+      <li>heat acclimation</li>
+      <li>indoor versus outdoor training</li>
+    </ul>
+
+    <p>
+      For that reason, EnduroPace stores multiple Sweat Tests and allows you to select
+      the test that best represents the planned activity.
+    </p>
+
+    <div class="note">
+      <strong>EnduroPace does not currently apply an automatic weather multiplier.</strong>
+      A measured sweat rate is not silently increased or reduced because a planned
+      event is hotter, cooler, or more humid. Instead, the conditions remain visible
+      so the athlete can choose a more representative Sweat Test.
+    </div>
+  </section>
+
+  <section class="section hydration">
+    <div class="eyebrow">Units</div>
+    <h2>Metric and imperial display</h2>
+
+    <p>
+      EnduroPace stores measurements canonically and can display hydration values as
+      milliliters, liters, or fluid ounces.
+    </p>
+
+    <p>
+      Changing the display unit does not change the physical Sweat Test or Hydration Plan.
+    </p>
+  </section>
+
+  <footer>
+    <strong>Important:</strong>
+    EnduroPace is a planning and educational tool. Sweat rate and hydration requirements
+    can vary between athletes and between sessions. Hydration planning should be adjusted
+    using experience, conditions, tolerance, and event logistics.
+  </footer>
+
+</body>
+</html>
