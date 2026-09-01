@@ -7,6 +7,7 @@
     name="description"
     content="Learn how to manually test Run Threshold Pace, Bike FTP, Swim CSS, lactate-threshold heart rate, and sweat rate with EnduroPace Performance Lab."
   />
+
   <title>Performance Lab Guide | EnduroPace</title>
 
   <style>
@@ -17,11 +18,13 @@
       --border: #2a2f33;
       --text: #f5f7f8;
       --secondary: #a7b0b7;
+
       --run: #61d13d;
       --bike: #f5b942;
       --swim: #42a5f5;
       --brick: #ff7a45;
       --triathlon: #a970ff;
+      --sweat: #1fc7b8;
     }
 
     * {
@@ -97,9 +100,11 @@
       border-radius: 20px;
       margin: 28px 0 20px;
       border: 1px solid var(--border);
+
       background: linear-gradient(
         135deg,
         rgba(255, 122, 69, 0.12),
+        rgba(31, 199, 184, 0.08),
         rgba(66, 165, 245, 0.08),
         rgba(97, 209, 61, 0.07)
       );
@@ -145,7 +150,7 @@
     }
 
     .hydration {
-      border-top: 3px solid var(--brick);
+      border-top: 3px solid var(--sweat);
     }
 
     .optional {
@@ -173,7 +178,7 @@
     }
 
     .hydration-text {
-      color: var(--brick);
+      color: var(--sweat);
     }
 
     .optional-text {
@@ -195,7 +200,9 @@
       padding: 15px 16px;
       border-radius: 12px;
       margin: 14px 0;
+
       background: var(--surface-secondary);
+
       border: 1px solid var(--border);
     }
 
@@ -207,7 +214,14 @@
     }
 
     .metric {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        monospace;
+
       color: var(--text);
     }
 
@@ -283,12 +297,16 @@
   <nav>
     <a href="index.html">Home</a>
     <a href="performance-lab.html">Performance Lab</a>
+    <a href="hydration-planner.html">Hydration Planner</a>
     <a href="privacy.html">Privacy Policy</a>
     <a href="support.html">Support</a>
     <a href="release-notes.html">Release Notes</a>
   </nav>
 
+  <!-- HERO -->
+
   <div class="hero">
+
     <h2>Measure what matters.</h2>
 
     <p>
@@ -298,44 +316,65 @@
     </p>
 
     <p>
-      These are field-test estimates, not laboratory diagnoses. The most useful result
-      is a repeatable result measured under similar conditions over time.
+      These are field-test estimates, not laboratory diagnoses.
+      The most useful result is a repeatable result measured
+      under similar conditions over time.
     </p>
+
   </div>
 
+  <!-- QUICK LINKS -->
+
   <div class="quick-links">
+
     <a href="#run-threshold">Run Threshold Pace</a>
+
     <a href="#bike-ftp">Bike FTP</a>
+
     <a href="#swim-css">Swim CSS</a>
+
     <a href="#sweat-rate">Sweat Rate</a>
+
+    <a href="#hydration-planning">
+      From Sweat Test to Hydration
+    </a>
+
     <a href="#lthr">Threshold Heart Rate</a>
+
     <a href="#future-tests">Additional Lab Metrics</a>
+
   </div>
 
   <!-- RUN THRESHOLD PACE -->
 
-  <section class="section run" id="run-threshold">
+  <section
+    class="section run"
+    id="run-threshold"
+  >
 
-    <div class="eyebrow run-text">Run</div>
+    <div class="eyebrow run-text">
+      Run
+    </div>
 
     <h2>Threshold Pace</h2>
 
     <p>
-      Threshold Pace is an estimate of the fastest running pace you can sustain for a
-      prolonged hard effort without rapidly accumulating fatigue.
+      Threshold Pace is an estimate of the fastest running pace you can sustain
+      for a prolonged hard effort without rapidly accumulating fatigue.
     </p>
 
     <p>
-      It is useful as a reference point for threshold workouts, race planning,
-      and pace-based training zones.
+      It is useful as a reference point for threshold workouts,
+      race planning, and pace-based training zones.
     </p>
 
     <h3>Manual 30-Minute Field Test</h3>
 
     <ol class="steps">
+
       <li>
-        Choose a flat, uninterrupted route, track, or treadmill and perform the test
-        when reasonably rested.
+        Choose a flat, uninterrupted route, track, or treadmill
+        and perform the test when reasonably rested.
       </li>
 
       <li>
@@ -343,7 +382,8 @@
       </li>
 
       <li>
-        Include a few short strides or faster efforts near the end of the warm-up.
+        Include a few short strides or faster efforts near the end
+        of the warm-up.
       </li>
 
       <li>
@@ -351,17 +391,18 @@
       </li>
 
       <li>
-        Run at the hardest pace you believe you can sustain evenly for the entire
-        30 minutes.
+        Run at the hardest pace you believe you can sustain evenly
+        for the entire 30 minutes.
       </li>
 
       <li>
-        Avoid sprinting the first few minutes. The effort should feel hard but controlled.
+        Avoid sprinting the first few minutes.
+        The effort should feel hard but controlled.
       </li>
 
       <li>
-        Ideally, you should still be able to maintain or slightly increase your pace
-        during the final 5–10 minutes.
+        Ideally, you should still be able to maintain or slightly increase
+        your pace during the final 5–10 minutes.
       </li>
 
       <li>
@@ -371,24 +412,34 @@
       <li>
         Use that average pace as your estimated Threshold Pace.
       </li>
+
     </ol>
 
     <div class="formula">
-      <strong>Manual Calculation</strong><br /><br />
+
+      <strong>Manual Calculation</strong>
+
+      <br /><br />
 
       <span class="metric">
         Threshold Pace ≈ average pace for the full 30-minute time trial
       </span>
+
     </div>
 
     <div class="example">
-      <strong>Example</strong><br /><br />
+
+      <strong>Example</strong>
+
+      <br /><br />
 
       If your average pace during the 30-minute test is:
 
       <br /><br />
 
-      <span class="metric">7:40 per mile</span>
+      <span class="metric">
+        7:40 per mile
+      </span>
 
       <br /><br />
 
@@ -396,28 +447,40 @@
 
       <br /><br />
 
-      <span class="metric">7:40 / mile</span>
+      <span class="metric">
+        7:40 / mile
+      </span>
+
     </div>
 
     <div class="note">
+
       <strong>Repeatability matters.</strong>
-      Use similar terrain and conditions when retesting. Wind, hills, heat, fatigue,
-      poor pacing, and accumulated training stress can materially affect the result.
+
+      Use similar terrain and conditions when retesting.
+      Wind, hills, heat, fatigue, poor pacing,
+      and accumulated training stress can materially affect the result.
+
     </div>
 
   </section>
 
   <!-- BIKE FTP -->
 
-  <section class="section bike" id="bike-ftp">
+  <section
+    class="section bike"
+    id="bike-ftp"
+  >
 
-    <div class="eyebrow bike-text">Bike</div>
+    <div class="eyebrow bike-text">
+      Bike
+    </div>
 
     <h2>Functional Threshold Power (FTP)</h2>
 
     <p>
-      Functional Threshold Power is a practical estimate of the highest cycling power
-      you can sustain for a prolonged steady hard effort.
+      Functional Threshold Power is a practical estimate of the highest cycling
+      power you can sustain for a prolonged steady hard effort.
     </p>
 
     <p>
@@ -430,7 +493,8 @@
     <ol class="steps">
 
       <li>
-        Use a power meter or smart trainer capable of recording reliable average power.
+        Use a power meter or smart trainer capable of recording
+        reliable average power.
       </li>
 
       <li>
@@ -438,12 +502,13 @@
       </li>
 
       <li>
-        Include several short cadence pickups or harder efforts during the warm-up.
+        Include several short cadence pickups or harder efforts
+        during the warm-up.
       </li>
 
       <li>
-        Optionally perform a hard 5-minute effort before the test, followed by
-        approximately 10 minutes of easy recovery.
+        Optionally perform a hard 5-minute effort before the test,
+        followed by approximately 10 minutes of easy recovery.
       </li>
 
       <li>
@@ -451,8 +516,8 @@
       </li>
 
       <li>
-        Ride at the highest power you believe you can sustain evenly for the full
-        20 minutes.
+        Ride at the highest power you believe you can sustain evenly
+        for the full 20 minutes.
       </li>
 
       <li>
@@ -470,21 +535,30 @@
     </ol>
 
     <div class="formula">
-      <strong>Manual Calculation</strong><br /><br />
+
+      <strong>Manual Calculation</strong>
+
+      <br /><br />
 
       <span class="metric">
         FTP ≈ 20-minute average power × 0.95
       </span>
+
     </div>
 
     <div class="example">
-      <strong>Example</strong><br /><br />
+
+      <strong>Example</strong>
+
+      <br /><br />
 
       20-minute average power:
 
       <br /><br />
 
-      <span class="metric">250 W</span>
+      <span class="metric">
+        250 W
+      </span>
 
       <br /><br />
 
@@ -492,7 +566,9 @@
 
       <br /><br />
 
-      <span class="metric">250 × 0.95 = 237.5 W</span>
+      <span class="metric">
+        250 × 0.95 = 237.5 W
+      </span>
 
       <br /><br />
 
@@ -500,23 +576,36 @@
 
       <br /><br />
 
-      <span class="metric">≈ 238 W</span>
+      <span class="metric">
+        ≈ 238 W
+      </span>
+
     </div>
 
     <div class="note">
+
       <strong>The 95% method is an estimate.</strong>
-      Different protocols, indoor versus outdoor testing, cooling, fatigue,
-      athlete physiology, and pacing can produce different FTP estimates.
+
+      Different protocols, indoor versus outdoor testing,
+      cooling, fatigue, athlete physiology, and pacing
+      can produce different FTP estimates.
+
       Use the same protocol when comparing results over time.
+
     </div>
 
   </section>
 
   <!-- SWIM CSS -->
 
-  <section class="section swim" id="swim-css">
+  <section
+    class="section swim"
+    id="swim-css"
+  >
 
-    <div class="eyebrow swim-text">Swim</div>
+    <div class="eyebrow swim-text">
+      Swim
+    </div>
 
     <h2>Critical Swim Speed (CSS)</h2>
 
@@ -525,8 +614,8 @@
     </p>
 
     <p>
-      CSS is normally expressed as pace per 100 meters or pace per 100 yards and can
-      be used as an anchor for threshold-oriented swim training.
+      CSS is normally expressed as pace per 100 meters or pace per 100 yards
+      and can be used as an anchor for threshold-oriented swim training.
     </p>
 
     <h3>Manual 400 / 200 CSS Test</h3>
@@ -534,11 +623,13 @@
     <ol class="steps">
 
       <li>
-        Warm up thoroughly with easy swimming, drills, and several short faster efforts.
+        Warm up thoroughly with easy swimming, drills,
+        and several short faster efforts.
       </li>
 
       <li>
-        Swim a 400-meter or 400-yard time trial at the fastest even effort you can sustain.
+        Swim a 400-meter or 400-yard time trial
+        at the fastest even effort you can sustain.
       </li>
 
       <li>
@@ -570,28 +661,38 @@
       </li>
 
       <li>
-        The result is your CSS pace in seconds per 100 of the same pool unit.
+        The result is your CSS pace in seconds per 100
+        of the same pool unit.
       </li>
 
     </ol>
 
     <div class="formula">
-      <strong>Manual Calculation</strong><br /><br />
+
+      <strong>Manual Calculation</strong>
+
+      <br /><br />
 
       <span class="metric">
         CSS pace / 100 =
         (400 time in seconds − 200 time in seconds) ÷ 2
       </span>
+
     </div>
 
     <div class="example">
-      <strong>Example</strong><br /><br />
+
+      <strong>Example</strong>
+
+      <br /><br />
 
       400 time:
 
       <br />
 
-      <span class="metric">6:40 = 400 seconds</span>
+      <span class="metric">
+        6:40 = 400 seconds
+      </span>
 
       <br /><br />
 
@@ -599,7 +700,9 @@
 
       <br />
 
-      <span class="metric">3:10 = 190 seconds</span>
+      <span class="metric">
+        3:10 = 190 seconds
+      </span>
 
       <br /><br />
 
@@ -620,33 +723,44 @@
       <span class="metric">
         1:45 per 100
       </span>
+
     </div>
 
     <div class="warning">
+
       <strong>Keep units consistent.</strong>
+
       A test performed in a yard pool produces CSS per 100 yards.
       A test performed in a meter pool produces CSS per 100 meters.
+
       Do not mix the two.
+
     </div>
 
   </section>
 
   <!-- SWEAT RATE -->
 
-  <section class="section hydration" id="sweat-rate">
+  <section
+    class="section hydration"
+    id="sweat-rate"
+  >
 
-    <div class="eyebrow hydration-text">Hydration</div>
+    <div class="eyebrow hydration-text">
+      Sweat
+    </div>
 
     <h2>Sweat Rate Test</h2>
 
     <p>
-      Sweat rate estimates how much fluid you lose per hour under a specific combination
-      of sport, intensity, temperature, humidity, clothing, and environment.
+      Sweat rate estimates how much fluid you lose per hour
+      under a specific combination of sport, intensity,
+      temperature, humidity, clothing, and environment.
     </p>
 
     <p>
-      It can be one of the most useful inputs for building an individualized race-day
-      hydration strategy.
+      It can be one of the most useful measurements
+      for building an individualized race-day hydration strategy.
     </p>
 
     <h3>Manual Sweat Test</h3>
@@ -658,7 +772,8 @@
       </li>
 
       <li>
-        Weigh yourself with minimal dry clothing immediately before exercising.
+        Weigh yourself with minimal dry clothing
+        immediately before exercising.
       </li>
 
       <li>
@@ -671,8 +786,8 @@
       </li>
 
       <li>
-        Exercise at an intensity reasonably similar to the training or racing
-        conditions you want to evaluate.
+        Exercise at an intensity reasonably similar to the training
+        or racing conditions you want to evaluate.
       </li>
 
       <li>
@@ -680,7 +795,8 @@
       </li>
 
       <li>
-        If you urinate during the test, measure or reasonably estimate that volume.
+        If you urinate during the test,
+        measure or reasonably estimate that volume.
       </li>
 
       <li>
@@ -688,7 +804,8 @@
       </li>
 
       <li>
-        Weigh yourself again using the same clothing conditions as before the test.
+        Weigh yourself again using the same clothing conditions
+        as before the test.
       </li>
 
       <li>
@@ -702,7 +819,10 @@
     </ol>
 
     <div class="formula">
-      <strong>Metric Calculation</strong><br /><br />
+
+      <strong>Metric Calculation</strong>
+
+      <br /><br />
 
       <span class="metric">
         Sweat loss (L) ≈
@@ -718,16 +838,22 @@
         Sweat rate (L/hour) =
         sweat loss ÷ exercise duration in hours
       </span>
+
     </div>
 
     <div class="example">
-      <strong>Example</strong><br /><br />
+
+      <strong>Example</strong>
+
+      <br /><br />
 
       Pre-exercise weight:
 
       <br />
 
-      <span class="metric">70.0 kg</span>
+      <span class="metric">
+        70.0 kg
+      </span>
 
       <br /><br />
 
@@ -735,7 +861,9 @@
 
       <br />
 
-      <span class="metric">69.4 kg</span>
+      <span class="metric">
+        69.4 kg
+      </span>
 
       <br /><br />
 
@@ -743,7 +871,9 @@
 
       <br />
 
-      <span class="metric">0.50 L</span>
+      <span class="metric">
+        0.50 L
+      </span>
 
       <br /><br />
 
@@ -751,7 +881,9 @@
 
       <br />
 
-      <span class="metric">0 L</span>
+      <span class="metric">
+        0 L
+      </span>
 
       <br /><br />
 
@@ -759,7 +891,9 @@
 
       <br />
 
-      <span class="metric">1 hour</span>
+      <span class="metric">
+        1 hour
+      </span>
 
       <br /><br />
 
@@ -780,38 +914,169 @@
       <span class="metric">
         1.10 L/hour
       </span>
+
     </div>
 
     <div class="note">
-      <strong>Do not treat one sweat test as universal.</strong>
-      Repeat the test in different seasons, temperatures, humidity levels,
-      sports, and intensities.
+
+      <strong>Do not treat one Sweat Test as universal.</strong>
+
+      Repeat the test in different seasons, temperatures,
+      humidity levels, sports, and intensities.
+
     </div>
 
     <div class="note">
-      Your sweat rate during a hot outdoor run may be very different from your
-      sweat rate during an indoor bike session.
+
+      Your sweat rate during a hot outdoor run may be very different
+      from your sweat rate during an indoor bike session.
+
     </div>
 
     <div class="warning">
+
       <strong>Sweat rate is not automatically your drinking target.</strong>
-      Hydration strategy also depends on event duration, thirst, gastrointestinal
-      tolerance, access to fluids, sodium loss, intensity, and environmental conditions.
+
+      Hydration strategy also depends on event duration,
+      thirst, gastrointestinal tolerance, access to fluids,
+      sodium loss, intensity, and environmental conditions.
+
     </div>
+
+  </section>
+
+  <!-- SWEAT TEST TO HYDRATION -->
+
+  <section
+    class="section hydration"
+    id="hydration-planning"
+  >
+
+    <div class="eyebrow hydration-text">
+      From Measurement to Strategy
+    </div>
+
+    <h2>From Sweat Test to Hydration Plan</h2>
+
+    <p>
+      Performance Lab measures your sweat rate.
+      Hydration Planner uses that measurement as the starting point
+      for building a practical fluid strategy.
+    </p>
+
+    <p>
+      EnduroPace intentionally keeps the measurement
+      and the race-day strategy separate.
+    </p>
+
+    <div class="test-grid">
+
+      <div class="mini-card">
+
+        <h3>Performance Lab</h3>
+
+        <p>
+          Measures how much fluid you lost per hour during a specific
+          sport, effort, temperature, humidity, clothing setup,
+          and environment.
+        </p>
+
+      </div>
+
+      <div class="mini-card">
+
+        <h3>Hydration Planner</h3>
+
+        <p>
+          Combines the measured sweat rate with expected duration
+          and your selected Fluid Replacement percentage
+          to create an hourly fluid target and drinking schedule.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="note">
+
+      <strong>
+        Your measured sweat rate does not change
+        when you build a Hydration Plan.
+      </strong>
+
+      The Hydration Plan is a strategy derived from the measurement.
+
+    </div>
+
+    <h3>Example</h3>
+
+    <div class="example">
+
+      Measured sweat rate:
+
+      <br />
+
+      <span class="metric">
+        1,407 mL/hour
+      </span>
+
+      <br /><br />
+
+      Fluid Replacement:
+
+      <br />
+
+      <span class="metric">
+        67%
+      </span>
+
+      <br /><br />
+
+      Planned fluid target:
+
+      <br />
+
+      <span class="metric">
+        1,407 × 0.67 ≈ 943 mL/hour
+      </span>
+
+      <br /><br />
+
+      At a 20-minute drinking interval:
+
+      <br />
+
+      <span class="metric">
+        ≈ 314 mL every 20 minutes
+      </span>
+
+    </div>
+
+    <p>
+      <a href="hydration-planner.html">
+        Learn how EnduroPace calculates your Hydration Plan →
+      </a>
+    </p>
 
   </section>
 
   <!-- THRESHOLD HEART RATE -->
 
-  <section class="section run" id="lthr">
+  <section
+    class="section run"
+    id="lthr"
+  >
 
-    <div class="eyebrow run-text">Run / Heart Rate</div>
+    <div class="eyebrow run-text">
+      Run / Heart Rate
+    </div>
 
     <h2>Lactate-Threshold Heart Rate (LTHR)</h2>
 
     <p>
-      If you wear a reliable heart-rate monitor during the same 30-minute running
-      threshold test, you can also estimate your running threshold heart rate.
+      If you wear a reliable heart-rate monitor during the same
+      30-minute running threshold test,
+      you can also estimate your running threshold heart rate.
     </p>
 
     <h3>Manual LTHR Test</h3>
@@ -819,7 +1084,8 @@
     <ol class="steps">
 
       <li>
-        Complete the same continuous 30-minute running time trial described above.
+        Complete the same continuous 30-minute running time trial
+        described above.
       </li>
 
       <li>
@@ -841,17 +1107,24 @@
     </ol>
 
     <div class="formula">
-      <strong>Manual Calculation</strong><br /><br />
+
+      <strong>Manual Calculation</strong>
+
+      <br /><br />
 
       <span class="metric">
         Running LTHR ≈
         average heart rate during the final 20 minutes
         of the 30-minute test
       </span>
+
     </div>
 
     <div class="example">
-      <strong>Example</strong><br /><br />
+
+      <strong>Example</strong>
+
+      <br /><br />
 
       Average heart rate during the final 20 minutes:
 
@@ -870,32 +1143,41 @@
       <span class="metric">
         ≈ 168 bpm
       </span>
+
     </div>
 
     <div class="note">
-      Wrist optical heart-rate sensors can be affected by fit, temperature,
-      cadence, and arm movement. A chest strap often provides cleaner data
-      for hard field tests.
+
+      Wrist optical heart-rate sensors can be affected
+      by fit, temperature, cadence, and arm movement.
+
+      A chest strap often provides cleaner data for hard field tests.
+
     </div>
 
   </section>
 
   <!-- FUTURE PERFORMANCE LAB TESTS -->
 
-  <section class="section optional" id="future-tests">
+  <section
+    class="section optional"
+    id="future-tests"
+  >
 
-    <div class="eyebrow optional-text">Performance Lab Expansion</div>
+    <div class="eyebrow optional-text">
+      Performance Lab Expansion
+    </div>
 
     <h2>Additional Useful Performance Metrics</h2>
 
     <p>
-      Performance Lab can expand beyond the core threshold tests without becoming
-      a collection of unrelated calculators.
+      Performance Lab can expand beyond the core threshold tests
+      without becoming a collection of unrelated calculators.
     </p>
 
     <p>
-      The strongest additions are measurements that directly improve training zones,
-      race pacing, hydration, or race-day planning.
+      The strongest additions are measurements that directly improve
+      training zones, race pacing, hydration, or race-day planning.
     </p>
 
     <div class="test-grid">
@@ -905,13 +1187,14 @@
         <h3>Aerobic Decoupling</h3>
 
         <p>
-          Compare pace or power against heart rate during a long steady aerobic effort.
+          Compare pace or power against heart rate
+          during a long steady aerobic effort.
         </p>
 
         <p>
-          Increasing heart rate while pace or power remains relatively constant can
-          indicate cardiac drift caused by heat, dehydration, fatigue,
-          or limited aerobic durability.
+          Increasing heart rate while pace or power remains relatively
+          constant can indicate cardiac drift caused by heat,
+          dehydration, fatigue, or limited aerobic durability.
         </p>
 
       </div>
@@ -925,8 +1208,8 @@
         </p>
 
         <p>
-          This is especially useful for tracking climbing-oriented cycling performance
-          over time.
+          This is especially useful for tracking climbing-oriented
+          cycling performance over time.
         </p>
 
         <p class="metric">
@@ -940,13 +1223,14 @@
         <h3>Swim Efficiency</h3>
 
         <p>
-          Track swimming pace together with stroke count or stroke rate during
-          a repeatable test set.
+          Track swimming pace together with stroke count or stroke rate
+          during a repeatable test set.
         </p>
 
         <p>
-          The goal is not simply fewer strokes. The goal is maintaining speed using
-          efficient and repeatable mechanics.
+          The goal is not simply fewer strokes.
+          The goal is maintaining speed using efficient
+          and repeatable mechanics.
         </p>
 
       </div>
@@ -956,12 +1240,13 @@
         <h3>Environmental Sweat Profiles</h3>
 
         <p>
-          Save multiple sweat tests by sport and environmental conditions.
+          Save multiple Sweat Tests by sport and environmental conditions.
         </p>
 
         <p>
-          This allows a future Race Day Planner to use the most relevant hydration
-          estimate instead of relying on one universal sweat-rate number.
+          This allows Hydration Planner and Race Day Planner
+          to use the most relevant measured sweat rate
+          instead of relying on one universal number.
         </p>
 
       </div>
@@ -974,64 +1259,95 @@
 
   <section class="section optional">
 
-    <div class="eyebrow optional-text">Testing Quality</div>
+    <div class="eyebrow optional-text">
+      Testing Quality
+    </div>
 
     <h2>How to Get Better Data</h2>
 
     <table>
 
       <thead>
+
         <tr>
-          <th>Do</th>
-          <th>Avoid</th>
+
+          <th>
+            Do
+          </th>
+
+          <th>
+            Avoid
+          </th>
+
         </tr>
+
       </thead>
 
       <tbody>
 
         <tr>
+
           <td>
             Retest using the same protocol.
           </td>
+
           <td>
-            Comparing results from different protocols as if they are identical.
+            Comparing results from different protocols
+            as if they are identical.
           </td>
+
         </tr>
 
         <tr>
+
           <td>
             Test when reasonably rested.
           </td>
+
           <td>
-            Testing immediately after a very hard training block or poor recovery.
+            Testing immediately after a very hard training block
+            or poor recovery.
           </td>
+
         </tr>
 
         <tr>
+
           <td>
             Use consistent equipment and units.
           </td>
+
           <td>
-            Mixing meters and yards or different power sources without context.
+            Mixing meters and yards or different power sources
+            without context.
           </td>
+
         </tr>
 
         <tr>
+
           <td>
-            Record heat, humidity, terrain, and other relevant conditions.
+            Record heat, humidity, terrain,
+            and other relevant conditions.
           </td>
+
           <td>
-            Assuming environmental conditions do not affect performance.
+            Assuming environmental conditions
+            do not affect performance.
           </td>
+
         </tr>
 
         <tr>
+
           <td>
             Track trends across several tests.
           </td>
+
           <td>
             Overreacting to one unusually good or bad result.
           </td>
+
         </tr>
 
       </tbody>
@@ -1040,16 +1356,21 @@
 
   </section>
 
+  <!-- FOOTER -->
+
   <footer>
+
     <strong>Important:</strong>
-    Performance Lab field tests involve hard exercise and are intended for
-    training and planning purposes.
 
-    Stop the test if you experience chest pain, faintness, unusual shortness
-    of breath, or other concerning symptoms.
+    Performance Lab field tests involve hard exercise
+    and are intended for training and planning purposes.
 
-    EnduroPace does not provide medical diagnosis or replace individualized
-    medical or coaching advice.
+    Stop the test if you experience chest pain, faintness,
+    unusual shortness of breath, or other concerning symptoms.
+
+    EnduroPace does not provide medical diagnosis
+    or replace individualized medical or coaching advice.
+
   </footer>
 
 </body>
