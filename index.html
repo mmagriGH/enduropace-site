@@ -10,7 +10,7 @@
 
   <meta
     name="description"
-    content="EnduroPace endurance planning and performance tools for running, cycling, swimming, and multisport."
+    content="EnduroPace endurance planning and performance tools for running, cycling, swimming, multisport, Performance Lab testing, hydration planning, and race-day strategy."
   />
 
   <title>EnduroPace</title>
@@ -29,6 +29,7 @@
       --swim: #42a5f5;
       --brick: #ff7a45;
       --triathlon: #a970ff;
+      --sweat: #1fc7b8;
     }
 
     * {
@@ -101,6 +102,7 @@
       background: linear-gradient(
         135deg,
         rgba(97, 209, 61, 0.11),
+        rgba(31, 199, 184, 0.07),
         rgba(169, 112, 255, 0.08)
       );
 
@@ -158,6 +160,10 @@
       border-top: 3px solid var(--brick);
     }
 
+    .hydration {
+      border-top: 3px solid var(--sweat);
+    }
+
     .planner {
       border-top: 3px solid var(--triathlon);
     }
@@ -170,6 +176,10 @@
       display: inline-block;
       margin-top: 8px;
       color: var(--brick);
+    }
+
+    .hydration .card-link {
+      color: var(--sweat);
     }
 
     footer {
@@ -209,6 +219,7 @@
   <nav>
     <a href="index.html">Home</a>
     <a href="performance-lab.html">Performance Lab</a>
+    <a href="hydration-planner.html">Hydration Planner</a>
     <a href="privacy.html">Privacy Policy</a>
     <a href="support.html">Support</a>
     <a href="release-notes.html">Release Notes</a>
@@ -227,7 +238,8 @@
 
     <p>
       Calculate individual sports, build Brick, Duathlon, and Triathlon strategies,
-      track key performance anchors, and organize your next race with Race Day Planner.
+      measure key performance anchors, build an individualized hydration strategy,
+      and organize your next race with Race Day Planner.
     </p>
 
   </div>
@@ -298,9 +310,8 @@
       <h2>Performance Lab</h2>
 
       <p>
-        Learn how to measure Run Threshold Pace,
-        Bike FTP, Swim CSS, lactate-threshold heart rate,
-        and sweat rate using repeatable field tests.
+        Measure and track Run Threshold Pace, Bike FTP, Swim CSS,
+        lactate-threshold heart rate, and sweat rate using repeatable field tests.
       </p>
 
       <a
@@ -312,6 +323,26 @@
 
     </div>
 
+    <!-- HYDRATION PLANNER -->
+
+    <div class="card hydration">
+
+      <h2>Hydration Planner</h2>
+
+      <p>
+        Turn a measured Sweat Test into a practical fluid strategy using expected
+        duration, Fluid Replacement, and a 15-, 20-, or 30-minute drinking schedule.
+      </p>
+
+      <a
+        class="card-link"
+        href="hydration-planner.html"
+      >
+        Open Hydration Planner Guide →
+      </a>
+
+    </div>
+
     <!-- RACE DAY PLANNER -->
 
     <div class="card planner">
@@ -319,9 +350,9 @@
       <h2>Race Day Planner</h2>
 
       <p>
-        Combine your race details, multisport pacing strategy,
-        transitions, and target finish time
-        into one saved race-day plan.
+        Combine race details, pacing strategy, transitions,
+        performance data, hydration, and eventually fueling
+        into one race-day planning experience.
       </p>
 
     </div>
@@ -341,7 +372,8 @@
       EnduroPace does not require an account.
       Calculations happen locally on your device,
       and app settings, saved plans, Race Day Plans,
-      and Performance Lab measurements are designed
+      Performance Lab measurements, Sweat Tests,
+      and hydration preferences are designed
       to remain stored locally on your device.
     </p>
 
