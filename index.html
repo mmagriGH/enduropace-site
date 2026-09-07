@@ -1,396 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
-  <meta
-    name="description"
-    content="EnduroPace endurance planning and performance tools for running, cycling, swimming, multisport, Performance Lab testing, hydration planning, and race-day strategy."
-  />
-
-  <title>EnduroPace</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EnduroPace Support & Privacy</title>
   <style>
     :root {
-      --background: #0b0d0f;
-      --surface: #14171a;
-      --surface-secondary: #1a1e21;
-      --border: #2a2f33;
-      --text: #f5f7f8;
-      --secondary: #a7b0b7;
-
-      --run: #61d13d;
-      --bike: #f5b942;
-      --swim: #42a5f5;
-      --brick: #ff7a45;
-      --triathlon: #a970ff;
-      --sweat: #1fc7b8;
-    }
-
-    * {
-      box-sizing: border-box;
+      color-scheme: light dark;
+      --accent: #c9400d;
+      --card: rgba(127, 127, 127, 0.10);
+      --muted: #6b7280;
     }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-
-      max-width: 920px;
-
-      margin: 0 auto;
-
-      padding: 40px 20px 64px;
-
       line-height: 1.6;
-
-      color: var(--text);
-
-      background: var(--background);
+      max-width: 760px;
+      margin: 40px auto;
+      padding: 0 20px 48px;
     }
 
     h1,
-    h2,
-    h3 {
-      color: var(--text);
+    h2 {
+      color: var(--accent);
     }
 
     h1 {
-      font-size: 2.7rem;
-      margin-bottom: 8px;
+      margin-bottom: 0;
+      color: inherit;
+      font-style: italic;
+      letter-spacing: -0.02em;
     }
 
-    .tagline {
-      margin-top: 0;
-      color: var(--secondary);
-      font-size: 1.15rem;
+    .brand-pace {
+      color: #ff6a00;
     }
 
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-
-      margin: 24px 0 36px;
+    h2 {
+      margin-top: 32px;
     }
 
-    nav a,
-    a {
-      color: var(--run);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    nav a:hover,
-    a:hover {
-      text-decoration: underline;
-    }
-
-    p {
-      color: var(--secondary);
-    }
-
-    .hero {
-      padding: 28px;
-      margin: 28px 0;
-
-      border-radius: 20px;
-
-      background: linear-gradient(
-        135deg,
-        rgba(97, 209, 61, 0.11),
-        rgba(31, 199, 184, 0.07),
-        rgba(169, 112, 255, 0.08)
-      );
-
-      border: 1px solid var(--border);
-    }
-
-    .hero h2 {
-      margin-top: 0;
-      font-size: 1.8rem;
-    }
-
-    .grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-      gap: 16px;
-
-      margin-top: 20px;
+    .subtitle {
+      color: var(--muted);
+      margin-top: 4px;
     }
 
     .card {
-      background: var(--surface);
-
-      border: 1px solid var(--border);
-
-      border-radius: 18px;
-
-      padding: 22px;
+      background: var(--card);
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 18px;
     }
 
-    .card h2,
-    .card h3 {
-      margin-top: 0;
-    }
-
-    .run {
-      border-top: 3px solid var(--run);
-    }
-
-    .bike {
-      border-top: 3px solid var(--bike);
-    }
-
-    .swim {
-      border-top: 3px solid var(--swim);
-    }
-
-    .multi {
-      border-top: 3px solid var(--triathlon);
-    }
-
-    .performance {
-      border-top: 3px solid var(--brick);
-    }
-
-    .hydration {
-      border-top: 3px solid var(--sweat);
-    }
-
-    .planner {
-      border-top: 3px solid var(--triathlon);
-    }
-
-    .privacy {
-      border-top: 3px solid var(--swim);
-    }
-
-    .card-link {
-      display: inline-block;
-      margin-top: 8px;
-      color: var(--brick);
-    }
-
-    .hydration .card-link {
-      color: var(--sweat);
+    a {
+      color: var(--accent);
     }
 
     footer {
-      margin-top: 48px;
-
-      padding-top: 24px;
-
-      border-top: 1px solid var(--border);
-
-      font-size: 0.92rem;
-
-      color: var(--secondary);
-    }
-
-    @media (max-width: 680px) {
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 2.2rem;
-      }
-
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: 0.9rem;
     }
   </style>
 </head>
 
 <body>
+  <h1>Enduro<span class="brand-pace">Pace</span></h1>
+  <p class="subtitle">Support & Privacy</p>
 
-  <h1>EnduroPace</h1>
+  <div class="card">
+    <h2>About EnduroPace</h2>
+    <p>
+      EnduroPace is an endurance race-planning and performance app for running,
+      cycling, swimming, triathlon, duathlon, and brick workouts. It combines
+      pacing, Performance Lab measurements, race conditions, hydration, sodium,
+      fueling, and race-day timeline planning.
+    </p>
+  </div>
 
-  <p class="tagline">
-    Endurance planning and performance tools for Run, Bike, Swim, and Multisport.
+  <h2>Support</h2>
+  <p>
+    For support questions, feedback, or issues with EnduroPace, contact
+    <a href="mailto:mmagri@gmail.com">mmagri@gmail.com</a>.
+  </p>
+  <p>
+    When contacting support, include a brief description of the issue and the
+    device/iOS version you are using. Please do not send sensitive personal or
+    health information unless it is necessary for your support request.
   </p>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="performance-lab.html">Performance Lab</a>
-    <a href="hydration-planner.html">Hydration Planner</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="support.html">Support</a>
-    <a href="release-notes.html">Release Notes</a>
-  </nav>
+  <h2>Privacy</h2>
+  <p><strong>Effective date:</strong> September 7, 2026</p>
 
-  <!-- HERO -->
+  <p>
+    EnduroPace is designed around a local-first experience. App settings, saved
+    calculator plans, Race Day Plans, and Performance Lab measurements are
+    stored using the app's local persistence stores on your device.
+  </p>
 
-  <div class="hero">
+  <p>
+    EnduroPace does not require an account to use the current app experience.
+    You control saved plans and can delete them from the app.
+  </p>
 
-    <h2>Plan. Perform. Progress.</h2>
+  <h2>Optional Anonymous Usage Analytics</h2>
+  <p>
+    Anonymous product-usage analytics are <strong>off by default</strong>.
+    You can enable or disable them at any time in EnduroPace settings.
+  </p>
 
-    <p>
-      EnduroPace helps runners, cyclists, swimmers, and multisport athletes
-      turn distance, time, pace, speed, and performance targets into a clear plan.
-    </p>
+  <p>
+    When enabled, EnduroPace sends product-usage events through TelemetryDeck to
+    help improve the app. EnduroPace filters custom event properties through a
+    strict allowlist before they are sent. Custom event properties do not
+    include race names, locations, dates and times, body data, performance
+    values, fuel product names, notes, contact information, or user identifiers.
+  </p>
 
-    <p>
-      Calculate individual sports, build Brick, Duathlon, and Triathlon strategies,
-      measure key performance anchors, build an individualized hydration strategy,
-      and organize your next race with Race Day Planner.
-    </p>
+  <h2>Internet Access</h2>
+  <p>
+    Core calculations and locally saved planning data do not require continuous
+    internet access. Internet access is required when you open EnduroPace web
+    resources, support/privacy links, App Store links, and when optional
+    analytics are enabled.
+  </p>
 
-  </div>
+  <h2>Advertising</h2>
+  <p>
+    EnduroPace does not include advertising networks in the current app.
+  </p>
 
-  <!-- MAIN FEATURES -->
+  <h2>Children's Privacy</h2>
+  <p>
+    The current EnduroPace app does not require an account and is not designed
+    to collect personal information from children.
+  </p>
 
-  <div class="grid">
-
-    <!-- RUN -->
-
-    <div class="card run">
-
-      <h2>Run</h2>
-
-      <p>
-        Calculate pace, finish time, and distance.
-        Build splits, review pace zones and race estimates,
-        and save run plans.
-      </p>
-
-    </div>
-
-    <!-- BIKE -->
-
-    <div class="card bike">
-
-      <h2>Bike</h2>
-
-      <p>
-        Calculate speed, ride time, and distance.
-        Build bike splits, compare ride estimates,
-        and save bike plans.
-      </p>
-
-    </div>
-
-    <!-- SWIM -->
-
-    <div class="card swim">
-
-      <h2>Swim</h2>
-
-      <p>
-        Calculate swim pace, time, and distance in meters or yards.
-        Build standard or custom splits and save swim plans.
-      </p>
-
-    </div>
-
-    <!-- MULTISPORT -->
-
-    <div class="card multi">
-
-      <h2>Multisport</h2>
-
-      <p>
-        Plan Brick, Duathlon, and Triathlon events with independent discipline
-        targets, transitions, race presets, custom distances,
-        and complete target finish times.
-      </p>
-
-    </div>
-
-    <!-- PERFORMANCE LAB -->
-
-    <div class="card performance">
-
-      <h2>Performance Lab</h2>
-
-      <p>
-        Measure and track Run Threshold Pace, Bike FTP, Swim CSS,
-        lactate-threshold heart rate, and sweat rate using repeatable field tests.
-      </p>
-
-      <a
-        class="card-link"
-        href="performance-lab.html"
-      >
-        Open Performance Lab Guide →
-      </a>
-
-    </div>
-
-    <!-- HYDRATION PLANNER -->
-
-    <div class="card hydration">
-
-      <h2>Hydration Planner</h2>
-
-      <p>
-        Turn a measured Sweat Test into a practical fluid strategy using expected
-        duration, Fluid Replacement, and a 15-, 20-, or 30-minute drinking schedule.
-      </p>
-
-      <a
-        class="card-link"
-        href="hydration-planner.html"
-      >
-        Open Hydration Planner Guide →
-      </a>
-
-    </div>
-
-    <!-- RACE DAY PLANNER -->
-
-    <div class="card planner">
-
-      <h2>Race Day Planner</h2>
-
-      <p>
-        Combine race details, pacing strategy, transitions,
-        performance data, hydration, and eventually fueling
-        into one race-day planning experience.
-      </p>
-
-    </div>
-
-  </div>
-
-  <!-- PRIVACY -->
-
-  <div
-    class="card privacy"
-    style="margin-top: 20px;"
-  >
-
-    <h2>Privacy First</h2>
-
-    <p>
-      EnduroPace does not require an account.
-      Calculations happen locally on your device,
-      and app settings, saved plans, Race Day Plans,
-      Performance Lab measurements, Sweat Tests,
-      and hydration preferences are designed
-      to remain stored locally on your device.
-    </p>
-
-  </div>
-
-  <!-- FOOTER -->
+  <h2>Changes to This Policy</h2>
+  <p>
+    This page may be updated as EnduroPace changes. Material privacy changes
+    will be reflected in the published policy and, when appropriate, in the app.
+  </p>
 
   <footer>
-
-    EnduroPace is a planning and educational tool.
-
-    Actual results may vary based on fitness,
-    training, terrain, weather, elevation,
-    equipment, fueling, hydration,
-    fatigue, and race-day conditions.
-
+    <p>
+      EnduroPace provides planning and performance tools for informational
+      purposes and is not a substitute for professional medical, nutritional,
+      or coaching advice.
+    </p>
+    <p>&copy; 2026 GamaCoraggio LLC. All rights reserved.</p>
   </footer>
-
 </body>
 </html>
