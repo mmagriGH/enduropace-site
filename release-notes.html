@@ -2,13 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="EnduroPace release notes, including version 1.4 Race Day Intelligence and Performance Lab improvements." />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="EnduroPace release notes, including version 1.4 Race Day Intelligence and Performance Lab improvements."
+  />
+
   <title>Release Notes | EnduroPace</title>
 
   <style>
     :root {
-
       --background: #05090b;
       --surface: #12171a;
       --surface-secondary: #181e22;
@@ -23,10 +31,15 @@
       --amber: #f5b942;
       --purple: #a970ff;
       --sweat: #1fc7b8;
-
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -37,7 +50,6 @@
       color: var(--text);
       background: var(--background);
     }
-
 
     .site-header {
       margin-bottom: 30px;
@@ -88,30 +100,30 @@
       text-decoration: underline;
     }
 
-    .version-badge,
-    .eyebrow-brand {
-      display: inline-block;
-      color: var(--brand);
-      background: var(--brand-soft);
-      border: 1px solid rgba(255, 106, 0, 0.28);
-      border-radius: 999px;
-      padding: 5px 10px;
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+    h1,
+    h2,
+    h3 {
+      color: var(--text);
     }
 
-
-    h1, h2, h3 { color: var(--text); }
     h1 {
       font-size: clamp(2rem, 7vw, 2.8rem);
       letter-spacing: -0.035em;
       margin-bottom: 8px;
     }
-    h2 { margin-top: 0; }
-    h3 { margin-bottom: 7px; }
-    p, li { color: var(--secondary); }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    h3 {
+      margin-bottom: 7px;
+    }
+
+    p,
+    li {
+      color: var(--secondary);
+    }
 
     .subtitle {
       margin-top: 0;
@@ -128,10 +140,15 @@
     }
 
     .version.latest {
-      border-color: rgba(255,106,0,0.55);
-      box-shadow: 0 0 32px rgba(255,106,0,0.08);
+      border-color: rgba(255, 106, 0, 0.55);
+      box-shadow: 0 0 32px rgba(255, 106, 0, 0.08);
+
       background:
-        radial-gradient(circle at top right, rgba(255,106,0,0.12), transparent 34%),
+        radial-gradient(
+          circle at top right,
+          rgba(255, 106, 0, 0.12),
+          transparent 34%
+        ),
         var(--surface);
     }
 
@@ -141,229 +158,11 @@
       border-radius: 999px;
       background: var(--brand-soft);
       color: var(--brand);
-      border: 1px solid rgba(255,106,0,0.28);
+      border: 1px solid rgba(255, 106, 0, 0.28);
       font-size: 0.78rem;
       font-weight: 800;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    ul { padding-left: 22px; }
-    li { margin: 7px 0; }
-
-    footer {
-      margin-top: 48px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-      color: var(--secondary);
-      font-size: 0.92rem;
-    }
-
-    footer p { margin: 8px 0; }
-  </style>
-</head>
-
-<body>
-  <header class="site-header">
-    <div class="brand">
-      <a href="index.html">Enduro<span class="brand-pace">Pace</span></a>
-    </div>
-    <p class="brand-tagline">Analyze. Improve. Perform.</p>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="performance-lab.html">Performance Lab</a>
-    <a href="hydration-planner.html">Hydration Planner</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="support.html">Support</a>
-    <a href="release-notes.html">Release Notes</a>
-  </nav>
-  </header>
-
-  <main>
-    <h1>Release Notes</h1>
-    <p class="subtitle">See what’s new and improved in each EnduroPace release.</p>
-
-    <section class="version latest">
-      <div class="badge">Version 1.4</div>
-      <h2>Version 1.4 — Race Day Intelligence</h2>
-
-      <p>
-        Version 1.4 brings EnduroPace’s race-day planning experience together into a
-        more connected workflow, with a redesigned Home, expanded Race Day Planner,
-        deeper Performance Lab integration, and substantial polish throughout the app.
-      </p>
-
-      <h3>Race Day Planner</h3>
-      <ul>
-        <li>Expanded race-day planning with pacing, race conditions, hydration, sodium, fueling, transitions, and execution timeline.</li>
-        <li>Connected Performance Lab measurements and saved Sweat Tests to Race Day planning.</li>
-        <li>Added readiness guidance and Next Best Action to help identify incomplete planning inputs.</li>
-        <li>Improved race-plan editing, navigation, persistence, and consistency.</li>
-      </ul>
-
-      <h3>Home</h3>
-      <ul>
-        <li>Redesigned Home around the next race and current planning state.</li>
-        <li>Added Next Race, target finish, readiness, and Continue Planning presentation.</li>
-        <li>Added Next Best Action for contextual planning guidance.</li>
-        <li>Added Measure → Model → Plan → Execute progress.</li>
-        <li>Added quick access to Performance Lab, Race Day Planner, Training Tools, and Resources.</li>
-      </ul>
-
-      <h3>Performance Lab</h3>
-      <ul>
-        <li>Improved Run Threshold Pace, Bike FTP, and Swim CSS measurement workflows.</li>
-        <li>Added and refined Sweat Test support for hydration and sodium planning.</li>
-        <li>Improved saved measurement management and Race Day Planner integration.</li>
-        <li>Expanded educational resources for performance and hydration testing.</li>
-      </ul>
-
-      <h3>More, Privacy & Reliability</h3>
-      <ul>
-        <li>Refined Getting Started, Settings, Help & About, Support, Privacy, and Release Notes.</li>
-        <li>Added clearer unit presentation and Default Activity settings.</li>
-        <li>Added optional anonymous usage analytics, off by default.</li>
-        <li>Improved bottom-navigation spacing, visual consistency, accessibility, and reliability.</li>
-        <li>Continued local-first design with no account required for the current experience.</li>
-      </ul>
-    </section>
-
-    <section class="version">
-      <h2>Version 1.3 — Multisport, Performance Lab & Race Day Planning</h2>
-      <p>
-        EnduroPace 1.3 expanded the app into a broader endurance planning experience
-        for runners, cyclists, swimmers, and multisport athletes.
-      </p>
-
-      <h3>New</h3>
-      <ul>
-        <li>Added a complete Swim calculator with distance, time, pace, splits, and saved plans.</li>
-        <li>Added Brick, Duathlon, and Triathlon planning.</li>
-        <li>Added race-distance presets, custom multisport distances, and transition planning.</li>
-        <li>Added complete multisport target finish-time calculations.</li>
-        <li>Added Performance Lab for Run Threshold Pace, Bike FTP, and Swim CSS.</li>
-        <li>Added sport-specific training zones and measurement history.</li>
-        <li>Added Race Day Planner with race details, strategy, transitions, and target finish time.</li>
-        <li>Added a connected Home dashboard and broader navigation structure.</li>
-      </ul>
-
-      <h3>Improved</h3>
-      <ul>
-        <li>Redesigned Run, Bike, Swim, and multisport calculator interactions.</li>
-        <li>Redesigned navigation around Home, Calculate, Plans, Performance, and More.</li>
-        <li>Improved unit synchronization and distance-conversion precision.</li>
-        <li>Improved validation, persistence, saved-plan reliability, and accessibility.</li>
-        <li>Improved overall visual consistency and sport-specific styling.</li>
-      </ul>
-    </section>
-
-    <section class="version">
-      <h2>Version 1.2 — EnduroPace, Run + Bike Planning</h2>
-      <p>
-        This release expanded the app from a running pace calculator into a broader
-        endurance planning tool.
-      </p>
-      <ul>
-        <li>Rebranded the app from RunPace to EnduroPace.</li>
-        <li>Added Bike planning, speed/time/distance calculations, splits, and saved bike plans.</li>
-        <li>Added Run estimated-distance mode from goal time and goal pace.</li>
-        <li>Added cleaner Run and Bike detail sections and sport-specific colors.</li>
-        <li>Improved saved-plan handling and continued privacy-first, account-free use.</li>
-      </ul>
-    </section>
-
-    <section class="version">
-      <h2>Version 1.1 — Run Planning Improvements</h2>
-      <p>This release improved the original running calculator with more planning tools and a cleaner experience.</p>
-      <ul>
-        <li>Added run splits, pace zones, race-performance estimates, and same-pace finish estimates.</li>
-        <li>Added saved favorite race plans stored locally on the device.</li>
-        <li>Added Settings, unit management, calculator reset, and saved-plan management.</li>
-        <li>Improved Help & About content, layout, and calculated-result labeling.</li>
-      </ul>
-    </section>
-
-    <section class="version">
-      <h2>Version 1.0 — Initial RunPace Release</h2>
-      <p>This was the first public release of the app.</p>
-      <ul>
-        <li>Running pace calculator.</li>
-        <li>Support for 5K, 10K, Half Marathon, Marathon, and custom distances.</li>
-        <li>Miles and kilometers.</li>
-        <li>Calculate pace from distance and target time or finish time from distance and pace.</li>
-        <li>Show calculated speed.</li>
-        <li>Local calculations with no login or account required.</li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <p>
-      EnduroPace is a planning tool. Actual results may vary based on training,
-      terrain, weather, elevation, equipment, fueling, hydration, fatigue, and race-day conditions.
-    </p>
-    <p>&copy; 2026 GamaCoraggio LLC. All rights reserved.</p>
-  </footer>
-</body>
-</html>
-      flex-wrap: wrap;
-      gap: 16px;
-      margin: 24px 0 36px;
-    }
-
-    nav a {
-      color: var(--green);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    h1, h2, h3 {
-      color: var(--text);
-    }
-
-    h1 {
-      margin-bottom: 8px;
-    }
-
-    h2 {
-      margin-top: 0;
-    }
-
-    h3 {
-      margin-bottom: 8px;
-    }
-
-    .subtitle {
-      color: var(--secondary);
-      margin-top: 0;
-    }
-
-    .version {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 24px;
-      margin: 24px 0;
-    }
-
-    .version.latest {
-      border-color: rgba(97, 209, 61, 0.55);
-      box-shadow: 0 0 24px rgba(97, 209, 61, 0.08);
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(97, 209, 61, 0.12);
-      color: var(--green);
-      font-size: 0.82rem;
-      font-weight: 700;
       margin-bottom: 12px;
     }
 
@@ -372,161 +171,348 @@
     }
 
     li {
-      margin: 6px 0;
-      color: var(--secondary);
-    }
-
-    p {
-      color: var(--secondary);
+      margin: 7px 0;
     }
 
     footer {
       margin-top: 48px;
       padding-top: 24px;
       border-top: 1px solid var(--border);
-      font-size: 0.92rem;
       color: var(--secondary);
+      font-size: 0.92rem;
+    }
+
+    footer p {
+      margin: 8px 0;
     }
   </style>
 </head>
 
 <body>
-  <h1>EnduroPace Release Notes</h1>
-  <p class="subtitle">See what’s new and improved in each EnduroPace release.</p>
+  <header class="site-header">
+    <div class="brand">
+      <a href="index.html">
+        Enduro<span class="brand-pace">Pace</span>
+      </a>
+    </div>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="support.html">Support</a>
-    <a href="release-notes.html">Release Notes</a>
-  </nav>
+    <p class="brand-tagline">Analyze. Improve. Perform.</p>
 
-  <div class="version latest">
-    <div class="badge">Latest Release</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="performance-lab.html">Performance Lab</a>
+      <a href="hydration-planner.html">Hydration Planner</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="support.html">Support</a>
+      <a href="release-notes.html">Release Notes</a>
+    </nav>
+  </header>
 
-    <h2>Version 1.3 — Multisport, Performance Lab & Race Day Planning</h2>
+  <main>
+    <h1>Release Notes</h1>
 
-    <p>
-      EnduroPace 1.3 is the largest update yet, expanding EnduroPace into a
-      complete endurance planning experience for runners, cyclists, swimmers,
-      and multisport athletes.
+    <p class="subtitle">
+      See what’s new and improved in each EnduroPace release.
     </p>
 
-    <h3>New</h3>
-    <ul>
-      <li>Added a complete Swim calculator with distance, time, pace, splits, and saved plans.</li>
-      <li>Added Brick planning.</li>
-      <li>Added Duathlon planning.</li>
-      <li>Added Triathlon planning.</li>
-      <li>Added race-distance presets and custom multisport distances.</li>
-      <li>Added transition planning for multisport events.</li>
-      <li>Added complete multisport target finish-time calculations.</li>
-      <li>Added Performance Lab for Run threshold pace, Bike FTP, and Swim CSS.</li>
-      <li>Added sport-specific training zones.</li>
-      <li>Added Performance Lab measurement history.</li>
-      <li>Added Race Day Planner with race name, location, date, race type, strategy, transitions, and target finish time.</li>
-      <li>Added a connected Home dashboard with Next Race, Quick Start, Performance Anchors, Race Day Strategy, and recent saved plans.</li>
-    </ul>
+    <section class="version latest">
+      <div class="badge">Version 1.4</div>
 
-    <h3>Redesigned</h3>
-    <ul>
-      <li>Redesigned Run, Bike, and Swim calculators around the new Orbit interaction.</li>
-      <li>Redesigned multisport planning with sport-specific Orbit views.</li>
-      <li>Redesigned the app navigation around Home, Calculate, Plans, Performance, and More.</li>
-      <li>Redesigned Settings, Help & About, Support, Privacy, and Release Notes.</li>
-      <li>Improved saved-plan navigation and access throughout the app.</li>
-    </ul>
+      <h2>Version 1.4 — Race Day Intelligence</h2>
 
-    <h3>Improved</h3>
-    <ul>
-      <li>Improved unit synchronization across Run, Bike, Swim, Brick, Duathlon, and Triathlon.</li>
-      <li>Improved distance-conversion precision using canonical measurements.</li>
-      <li>Improved validation and error handling.</li>
-      <li>Improved persistence and saved-plan reliability.</li>
-      <li>Improved accessibility labels and navigation.</li>
-      <li>Improved calculator state handling and calculated-value promotion.</li>
-      <li>Improved overall visual consistency and sport-specific styling.</li>
-    </ul>
-  </div>
+      <p>
+        Version 1.4 brings EnduroPace’s race-day planning experience together
+        into a more connected workflow, with a redesigned Home,
+        expanded Race Day Planner, deeper Performance Lab integration,
+        and substantial polish throughout the app.
+      </p>
 
-  <div class="version">
-    <h2>Version 1.2 — EnduroPace, Run + Bike Planning</h2>
+      <h3>Race Day Planner</h3>
 
-    <p>
-      This release expanded the app from a running pace calculator into a broader
-      endurance planning tool.
-    </p>
+      <ul>
+        <li>
+          Expanded race-day planning with pacing, race conditions,
+          hydration, sodium, fueling, transitions, and execution timeline.
+        </li>
 
-    <h3>What’s New</h3>
-    <ul>
-      <li>Rebranded the app from RunPace to EnduroPace.</li>
-      <li>Added Bike planning.</li>
-      <li>Calculate bike average speed from ride distance and ride time.</li>
-      <li>Calculate estimated ride time from bike distance and average speed.</li>
-      <li>Calculate estimated bike distance from ride time and average speed.</li>
-      <li>Added bike splits.</li>
-      <li>Added same-speed bike finish estimates.</li>
-      <li>Added saved bike plans.</li>
-      <li>Added Run estimated distance mode from goal time and goal pace.</li>
-      <li>Added cleaner Run and Bike detail sections.</li>
-      <li>Added sport-specific colors for Run, Bike, Swim, Brick, and Triathlon.</li>
-      <li>Updated About, Help, and Settings wording for Run and Bike.</li>
-      <li>Improved saved plan handling for calculated distance modes.</li>
-      <li>Continued privacy-first design with no account required.</li>
-    </ul>
-  </div>
+        <li>
+          Connected Performance Lab measurements and saved Sweat Tests
+          to Race Day planning.
+        </li>
 
-  <div class="version">
-    <h2>Version 1.1 — Run Planning Improvements</h2>
+        <li>
+          Added readiness guidance and Next Best Action to help identify
+          incomplete planning inputs.
+        </li>
 
-    <p>
-      This release improved the original running calculator with more planning tools
-      and a cleaner experience.
-    </p>
+        <li>
+          Improved race-plan editing, navigation, persistence,
+          and consistency.
+        </li>
+      </ul>
 
-    <h3>What’s New</h3>
-    <ul>
-      <li>Added run splits.</li>
-      <li>Added pace zones based on goal pace.</li>
-      <li>Added race performance estimates.</li>
-      <li>Added same-pace finish estimates.</li>
-      <li>Added saved favorite race plans stored locally on the device.</li>
-      <li>Added a Settings screen.</li>
-      <li>Moved unit selection into Settings.</li>
-      <li>Added calculator reset.</li>
-      <li>Added saved plan management.</li>
-      <li>Improved About / Help content.</li>
-      <li>Improved layout and reduced screen clutter.</li>
-      <li>Improved result labels so the app clearly shows what was calculated.</li>
-      <li>Continued local-only calculations with no account required.</li>
-    </ul>
-  </div>
+      <h3>Home</h3>
 
-  <div class="version">
-    <h2>Version 1.0 — Initial RunPace Release</h2>
+      <ul>
+        <li>
+          Redesigned Home around the next race and current planning state.
+        </li>
 
-    <p>
-      This was the first public release of the app.
-    </p>
+        <li>
+          Added Next Race, target finish, readiness, and Continue Planning presentation.
+        </li>
 
-    <h3>What’s Included</h3>
-    <ul>
-      <li>Running pace calculator.</li>
-      <li>Support for 5K, 10K, Half Marathon, Marathon, and custom distances.</li>
-      <li>Miles and kilometers.</li>
-      <li>Calculate pace from race distance and goal finish time.</li>
-      <li>Calculate estimated finish time from race distance and goal pace.</li>
-      <li>Show calculated speed.</li>
-      <li>Simple privacy-first design.</li>
-      <li>No login or account required.</li>
-      <li>Calculations performed locally on the device.</li>
-    </ul>
-  </div>
+        <li>
+          Added Next Best Action for contextual planning guidance.
+        </li>
+
+        <li>
+          Added Measure → Model → Plan → Execute progress.
+        </li>
+
+        <li>
+          Added quick access to Performance Lab, Race Day Planner,
+          Training Tools, and Resources.
+        </li>
+      </ul>
+
+      <h3>Performance Lab</h3>
+
+      <ul>
+        <li>
+          Improved Run Threshold Pace, Bike FTP, and Swim CSS measurement workflows.
+        </li>
+
+        <li>
+          Added and refined Sweat Test support for hydration and sodium planning.
+        </li>
+
+        <li>
+          Improved saved measurement management and Race Day Planner integration.
+        </li>
+
+        <li>
+          Expanded educational resources for performance and hydration testing.
+        </li>
+      </ul>
+
+      <h3>More, Privacy & Reliability</h3>
+
+      <ul>
+        <li>
+          Refined Getting Started, Settings, Help & About,
+          Support, Privacy, and Release Notes.
+        </li>
+
+        <li>
+          Added clearer unit presentation and Default Activity settings.
+        </li>
+
+        <li>
+          Added optional anonymous usage analytics, off by default.
+        </li>
+
+        <li>
+          Improved bottom-navigation spacing, visual consistency,
+          accessibility, and reliability.
+        </li>
+
+        <li>
+          Continued local-first design with no account required
+          for the current experience.
+        </li>
+      </ul>
+    </section>
+
+    <section class="version">
+      <h2>
+        Version 1.3 — Multisport, Performance Lab & Race Day Planning
+      </h2>
+
+      <p>
+        EnduroPace 1.3 expanded the app into a broader endurance planning
+        experience for runners, cyclists, swimmers, and multisport athletes.
+      </p>
+
+      <h3>New</h3>
+
+      <ul>
+        <li>
+          Added a complete Swim calculator with distance, time, pace,
+          splits, and saved plans.
+        </li>
+
+        <li>
+          Added Brick, Duathlon, and Triathlon planning.
+        </li>
+
+        <li>
+          Added race-distance presets, custom multisport distances,
+          and transition planning.
+        </li>
+
+        <li>
+          Added complete multisport target finish-time calculations.
+        </li>
+
+        <li>
+          Added Performance Lab for Run Threshold Pace, Bike FTP,
+          and Swim CSS.
+        </li>
+
+        <li>
+          Added sport-specific training zones and measurement history.
+        </li>
+
+        <li>
+          Added Race Day Planner with race details, strategy,
+          transitions, and target finish time.
+        </li>
+
+        <li>
+          Added a connected Home dashboard and broader navigation structure.
+        </li>
+      </ul>
+
+      <h3>Improved</h3>
+
+      <ul>
+        <li>
+          Redesigned Run, Bike, Swim, and multisport calculator interactions.
+        </li>
+
+        <li>
+          Redesigned navigation around Home, Calculate, Plans,
+          Performance, and More.
+        </li>
+
+        <li>
+          Improved unit synchronization and distance-conversion precision.
+        </li>
+
+        <li>
+          Improved validation, persistence, saved-plan reliability,
+          and accessibility.
+        </li>
+
+        <li>
+          Improved overall visual consistency and sport-specific styling.
+        </li>
+      </ul>
+    </section>
+
+    <section class="version">
+      <h2>Version 1.2 — EnduroPace, Run + Bike Planning</h2>
+
+      <p>
+        This release expanded the app from a running pace calculator
+        into a broader endurance planning tool.
+      </p>
+
+      <ul>
+        <li>
+          Rebranded the app from RunPace to EnduroPace.
+        </li>
+
+        <li>
+          Added Bike planning, speed/time/distance calculations,
+          splits, and saved bike plans.
+        </li>
+
+        <li>
+          Added Run estimated-distance mode from goal time and goal pace.
+        </li>
+
+        <li>
+          Added cleaner Run and Bike detail sections and sport-specific colors.
+        </li>
+
+        <li>
+          Improved saved-plan handling and continued privacy-first,
+          account-free use.
+        </li>
+      </ul>
+    </section>
+
+    <section class="version">
+      <h2>Version 1.1 — Run Planning Improvements</h2>
+
+      <p>
+        This release improved the original running calculator
+        with more planning tools and a cleaner experience.
+      </p>
+
+      <ul>
+        <li>
+          Added run splits, pace zones, race-performance estimates,
+          and same-pace finish estimates.
+        </li>
+
+        <li>
+          Added saved favorite race plans stored locally on the device.
+        </li>
+
+        <li>
+          Added Settings, unit management, calculator reset,
+          and saved-plan management.
+        </li>
+
+        <li>
+          Improved Help & About content, layout,
+          and calculated-result labeling.
+        </li>
+      </ul>
+    </section>
+
+    <section class="version">
+      <h2>Version 1.0 — Initial RunPace Release</h2>
+
+      <p>
+        This was the first public release of the app.
+      </p>
+
+      <ul>
+        <li>Running pace calculator.</li>
+
+        <li>
+          Support for 5K, 10K, Half Marathon, Marathon,
+          and custom distances.
+        </li>
+
+        <li>Miles and kilometers.</li>
+
+        <li>
+          Calculate pace from distance and target time or finish time
+          from distance and pace.
+        </li>
+
+        <li>Show calculated speed.</li>
+
+        <li>
+          Local calculations with no login or account required.
+        </li>
+      </ul>
+    </section>
+  </main>
 
   <footer>
-    EnduroPace is a planning tool. Actual results may vary based on training,
-    terrain, weather, elevation, equipment, fueling, hydration, fatigue, and
-    race-day conditions.
+    <p>
+      EnduroPace is a planning tool. Actual results may vary based on training,
+      terrain, weather, elevation, equipment, fueling, hydration, fatigue,
+      and race-day conditions.
+    </p>
+
+    <p>
+      EnduroPace is developed and published by GamaCoraggio LLC.
+    </p>
+
+    <p>
+      EnduroPace technology is patent pending in the United States.
+    </p>
+
+    <p>
+      &copy; 2026 GamaCoraggio LLC. All rights reserved.
+    </p>
   </footer>
 </body>
 </html>
