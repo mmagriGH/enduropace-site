@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <meta
     name="description"
     content="Learn how EnduroPace turns a measured Sweat Test into an individualized hydration planning target."
   />
+
   <title>Hydration Planner Guide | EnduroPace</title>
 
   <style>
@@ -81,6 +83,40 @@
       text-decoration: underline;
     }
 
+    .site-header {
+      margin-bottom: 30px;
+    }
+
+    .brand {
+      font-size: clamp(2.15rem, 7vw, 3.1rem);
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.045em;
+      margin: 0;
+    }
+
+    .brand a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand-pace {
+      color: var(--brand);
+    }
+
+    .brand-tagline {
+      margin: 8px 0 0;
+      color: var(--secondary);
+      font-size: 1.03rem;
+      font-weight: 600;
+    }
+
+    .site-header nav {
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0;
+    }
+
     .tagline {
       margin-top: 0;
       color: var(--secondary);
@@ -92,11 +128,13 @@
       border-radius: 20px;
       margin: 28px 0 20px;
       border: 1px solid var(--border);
-      background: linear-gradient(
-        135deg,
-        rgba(31, 199, 184, 0.14),
-        rgba(97, 209, 61, 0.05)
-      );
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(31, 199, 184, 0.14),
+          rgba(97, 209, 61, 0.05)
+        );
     }
 
     .hero h2 {
@@ -162,26 +200,14 @@
     }
 
     .metric {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      color: var(--text);
-    }
+      font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        monospace;
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 12px;
-      color: var(--secondary);
-    }
-
-    th,
-    td {
-      padding: 10px 8px;
-      border-bottom: 1px solid var(--border);
-      text-align: left;
-      vertical-align: top;
-    }
-
-    th {
       color: var(--text);
     }
 
@@ -191,6 +217,10 @@
       border-top: 1px solid var(--border);
       font-size: 0.92rem;
       color: var(--secondary);
+    }
+
+    footer p {
+      margin: 8px 0;
     }
 
     @media (max-width: 680px) {
@@ -206,324 +236,337 @@
         padding: 20px;
       }
     }
-  
-    .site-header {
-      margin-bottom: 30px;
-    }
-
-    .brand {
-      font-size: clamp(2.15rem, 7vw, 3.1rem);
-      line-height: 1;
-      font-weight: 800;
-      letter-spacing: -0.045em;
-      margin: 0;
-    }
-
-    .brand a {
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .brand-pace {
-      color: var(--brand);
-    }
-
-    .brand-tagline {
-      margin: 8px 0 0;
-      color: var(--secondary);
-      font-size: 1.03rem;
-      font-weight: 600;
-    }
-
-    .site-header nav {
-      padding-bottom: 22px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 0;
-    }
-
-    .site-header nav a {
-      color: var(--brand);
-    }
-
   </style>
 </head>
 
-
 <body>
-
   <header class="site-header">
     <div class="brand">
-      <a href="index.html">Enduro<span class="brand-pace">Pace</span></a>
+      <a href="index.html">
+        Enduro<span class="brand-pace">Pace</span>
+      </a>
     </div>
+
     <p class="brand-tagline">Analyze. Improve. Perform.</p>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="performance-lab.html">Performance Lab</a>
-    <a href="hydration-planner.html">Hydration Planner</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="support.html">Support</a>
-    <a href="release-notes.html">Release Notes</a>
-  </nav>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="performance-lab.html">Performance Lab</a>
+      <a href="hydration-planner.html">Hydration Planner</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="support.html">Support</a>
+      <a href="release-notes.html">Release Notes</a>
+    </nav>
   </header>
 
   <main>
     <h1>Hydration Planner</h1>
 
     <p class="tagline">
-      Turn a measured Sweat Test into a practical fluid strategy for training and race day.
+      Turn a measured Sweat Test into a practical fluid strategy
+      for training and race day.
     </p>
 
-<div class="hero">
-    <h2>Measure first. Plan second.</h2>
+    <div class="hero">
+      <h2>Measure first. Plan second.</h2>
 
-    <p>
-      EnduroPace begins with a measured Sweat Test rather than assuming that every
-      athlete loses fluid at the same rate.
-    </p>
+      <p>
+        EnduroPace begins with a measured Sweat Test rather than assuming
+        that every athlete loses fluid at the same rate.
+      </p>
 
-    <p>
-      The Hydration Planner then combines your measured sweat rate, expected duration,
-      and selected Fluid Replacement percentage to build an hourly target and a simple
-      drinking schedule.
-    </p>
-  </div>
-
-  <div class="quick-links">
-    <a href="#source">Measured Sweat Rate</a>
-    <a href="#replacement">Fluid Replacement</a>
-    <a href="#calculation">How the Plan is Calculated</a>
-    <a href="#schedule">Drinking Schedule</a>
-    <a href="#balance">Fluid Balance Context</a>
-    <a href="#conditions">Conditions Matter</a>
-  </div>
-
-  <section class="section hydration" id="source">
-    <div class="eyebrow">Step 1</div>
-    <h2>Start with a measured Sweat Test</h2>
-
-    <p>
-      The Hydration Planner uses the sweat rate from one of your saved Sweat Tests.
-      Sweat rate represents the estimated amount of fluid lost per hour during that
-      specific test.
-    </p>
-
-    <p>
-      The test also preserves useful context such as activity, temperature, humidity,
-      and whether the session was performed indoors or outdoors.
-    </p>
-
-    <div class="note">
-      <strong>A Sweat Test is a measurement, not automatically a drinking prescription.</strong>
-      EnduroPace keeps the measured sweat rate separate from the fluid strategy you
-      choose to build from it.
+      <p>
+        The Hydration Planner then combines your measured sweat rate,
+        expected duration, and selected Fluid Replacement percentage
+        to build an hourly target and a simple drinking schedule.
+      </p>
     </div>
 
-    <p>
-      Learn how to perform the measurement on the
-      <a href="performance-lab.html#sweat-rate">Performance Lab Sweat Test guide</a>.
-    </p>
-  </section>
-
-  <section class="section hydration" id="replacement">
-    <div class="eyebrow">Step 2</div>
-    <h2>Choose Fluid Replacement</h2>
-
-    <p>
-      Fluid Replacement determines what percentage of the selected measured sweat
-      rate EnduroPace uses to calculate the planned fluid target.
-    </p>
-
-    <div class="formula">
-      <strong>Example:</strong><br />
-      Measured sweat rate =
-      <span class="metric">1,407 mL/hour</span><br />
-      Fluid Replacement =
-      <span class="metric">67%</span>
+    <div class="quick-links">
+      <a href="#source">Measured Sweat Rate</a>
+      <a href="#replacement">Fluid Replacement</a>
+      <a href="#calculation">How the Plan is Calculated</a>
+      <a href="#schedule">Drinking Schedule</a>
+      <a href="#balance">Fluid Balance Context</a>
+      <a href="#conditions">Conditions Matter</a>
     </div>
 
-    <div class="formula">
-      <span class="metric">
-        1,407 × 0.67 ≈ 943 mL/hour
-      </span>
-    </div>
+    <section class="section hydration" id="source">
+      <div class="eyebrow">Step 1</div>
 
-    <p>
-      EnduroPace currently uses 67% as an editable starting point. It is not intended
-      to be a universal prescription.
-    </p>
+      <h2>Start with a measured Sweat Test</h2>
 
-    <p>
-      Athletes may need to adjust the target based on experience, thirst,
-      gastrointestinal tolerance, intensity, fluid availability, and expected
-      conditions.
-    </p>
+      <p>
+        The Hydration Planner uses the sweat rate from one of your saved Sweat Tests.
+        Sweat rate represents the estimated amount of fluid lost per hour during
+        that specific test.
+      </p>
 
-    <div class="warning">
-      <strong>Measured loss does not mean 100% must always be replaced during exercise.</strong>
-      The planner allows the athlete to adjust the strategy while preventing a target
-      above 100% of the selected measured sweat rate.
-    </div>
-  </section>
+      <p>
+        The test also preserves useful context such as activity, temperature,
+        humidity, and whether the session was performed indoors or outdoors.
+      </p>
 
-  <section class="section hydration" id="calculation">
-    <div class="eyebrow">Calculation</div>
-    <h2>How is the Hydration Plan calculated?</h2>
+      <div class="note">
+        <strong>
+          A Sweat Test is a measurement, not automatically a drinking prescription.
+        </strong>
 
-    <h3>Planned Fluid Target</h3>
+        EnduroPace keeps the measured sweat rate separate from the fluid strategy
+        you choose to build from it.
+      </div>
 
-    <div class="formula">
-      <span class="metric">
-        Planned fluid/hour = measured sweat rate × Fluid Replacement
-      </span>
-    </div>
+      <p>
+        Learn how to perform the measurement on the
+        <a href="performance-lab.html#sweat-rate">
+          Performance Lab Sweat Test guide
+        </a>.
+      </p>
+    </section>
 
-    <h3>Estimated Sweat Loss</h3>
+    <section class="section hydration" id="replacement">
+      <div class="eyebrow">Step 2</div>
 
-    <div class="formula">
-      <span class="metric">
-        Estimated sweat loss = measured sweat rate × expected duration
-      </span>
-    </div>
+      <h2>Choose Fluid Replacement</h2>
 
-    <h3>Total Planned Fluid</h3>
+      <p>
+        Fluid Replacement determines what percentage of the selected measured
+        sweat rate EnduroPace uses to calculate the planned fluid target.
+      </p>
 
-    <div class="formula">
-      <span class="metric">
-        Total planned fluid = planned fluid/hour × expected duration
-      </span>
-    </div>
+      <div class="formula">
+        <strong>Example:</strong>
 
-    <h3>Modeled Unreplaced Fluid</h3>
+        <br />
 
-    <div class="formula">
-      <span class="metric">
-        Modeled unreplaced fluid = estimated sweat loss − total planned fluid
-      </span>
-    </div>
+        Measured sweat rate =
+        <span class="metric">1,407 mL/hour</span>
 
-    <div class="note">
-      These values are planning estimates. They assume that the measured sweat rate
-      remains reasonably representative of the planned activity.
-    </div>
-  </section>
+        <br />
 
-  <section class="section hydration" id="schedule">
-    <div class="eyebrow">Execution</div>
-    <h2>Drinking Schedule</h2>
+        Fluid Replacement =
+        <span class="metric">67%</span>
+      </div>
 
-    <p>
-      The hourly target can be translated into a simple 15-, 20-, or 30-minute
-      drinking interval.
-    </p>
+      <div class="formula">
+        <span class="metric">
+          1,407 × 0.67 ≈ 943 mL/hour
+        </span>
+      </div>
 
-    <div class="formula">
-      <span class="metric">
-        Fluid per interval =
-        planned fluid/hour × interval minutes ÷ 60
-      </span>
-    </div>
+      <p>
+        EnduroPace currently uses 67% as an editable starting point.
+        It is not intended to be a universal prescription.
+      </p>
 
-    <div class="example">
-      <strong>Example:</strong><br />
-      Planned target =
-      <span class="metric">943 mL/hour</span><br />
-      Interval =
-      <span class="metric">20 minutes</span><br /><br />
+      <p>
+        Athletes may need to adjust the target based on experience, thirst,
+        gastrointestinal tolerance, intensity, fluid availability,
+        and expected conditions.
+      </p>
 
-      <span class="metric">
-        943 × 20 ÷ 60 ≈ 314 mL every 20 minutes
-      </span>
-    </div>
-  </section>
+      <div class="warning">
+        <strong>
+          Measured loss does not mean 100% must always be replaced during exercise.
+        </strong>
 
-  <section class="section warning-section" id="balance">
-    <div class="eyebrow" style="color: var(--warning);">Context</div>
-    <h2>Fluid Balance and the 2% attention indicator</h2>
+        The planner allows the athlete to adjust the strategy while preventing
+        a target above 100% of the selected measured sweat rate.
+      </div>
+    </section>
 
-    <p>
-      EnduroPace compares modeled unreplaced fluid with the body mass recorded at the
-      start of the selected Sweat Test.
-    </p>
+    <section class="section hydration" id="calculation">
+      <div class="eyebrow">Calculation</div>
 
-    <div class="formula">
-      <span class="metric">
-        Modeled fluid deficit % ≈ unreplaced fluid (L) ÷ pre-test body mass (kg) × 100
-      </span>
-    </div>
+      <h2>How is the Hydration Plan calculated?</h2>
 
-    <p>
-      Because approximately one liter of water has a mass of about one kilogram, this
-      provides useful planning context.
-    </p>
+      <h3>Planned Fluid Target</h3>
 
-    <p>
-      When the modeled value exceeds 2% of the pre-test body mass, EnduroPace displays
-      an ATTENTION message so the athlete can review the expected duration, selected
-      Sweat Test, and Fluid Replacement.
-    </p>
+      <div class="formula">
+        <span class="metric">
+          Planned fluid/hour = measured sweat rate × Fluid Replacement
+        </span>
+      </div>
 
-    <div class="warning">
-      <strong>This is not a prediction of exact race-day body-weight change.</strong>
-      Actual body mass during prolonged exercise is affected by more than fluid balance
-      alone.
-    </div>
-  </section>
+      <h3>Estimated Sweat Loss</h3>
 
-  <section class="section hydration" id="conditions">
-    <div class="eyebrow">Context</div>
-    <h2>Conditions matter</h2>
+      <div class="formula">
+        <span class="metric">
+          Estimated sweat loss = measured sweat rate × expected duration
+        </span>
+      </div>
 
-    <p>
-      Sweat rate can change substantially with:
-    </p>
+      <h3>Total Planned Fluid</h3>
 
-    <ul>
-      <li>temperature</li>
-      <li>humidity</li>
-      <li>sport</li>
-      <li>exercise intensity</li>
-      <li>clothing and equipment</li>
-      <li>heat acclimation</li>
-      <li>indoor versus outdoor training</li>
-    </ul>
+      <div class="formula">
+        <span class="metric">
+          Total planned fluid = planned fluid/hour × expected duration
+        </span>
+      </div>
 
-    <p>
-      For that reason, EnduroPace stores multiple Sweat Tests and allows you to select
-      the test that best represents the planned activity.
-    </p>
+      <h3>Modeled Unreplaced Fluid</h3>
 
-    <div class="note">
-      <strong>EnduroPace does not currently apply an automatic weather multiplier.</strong>
-      A measured sweat rate is not silently increased or reduced because a planned
-      event is hotter, cooler, or more humid. Instead, the conditions remain visible
-      so the athlete can choose a more representative Sweat Test.
-    </div>
-  </section>
+      <div class="formula">
+        <span class="metric">
+          Modeled unreplaced fluid =
+          estimated sweat loss − total planned fluid
+        </span>
+      </div>
 
-  <section class="section hydration">
-    <div class="eyebrow">Units</div>
-    <h2>Metric and imperial display</h2>
+      <div class="note">
+        These values are planning estimates. They assume that the measured
+        sweat rate remains reasonably representative of the planned activity.
+      </div>
+    </section>
 
-    <p>
-      EnduroPace stores measurements canonically and can display hydration values as
-      milliliters, liters, or fluid ounces.
-    </p>
+    <section class="section hydration" id="schedule">
+      <div class="eyebrow">Execution</div>
 
-    <p>
-      Changing the display unit does not change the physical Sweat Test or Hydration Plan.
-    </p>
-  </section>
+      <h2>Drinking Schedule</h2>
 
+      <p>
+        The hourly target can be translated into a simple 15-, 20-, or
+        30-minute drinking interval.
+      </p>
+
+      <div class="formula">
+        <span class="metric">
+          Fluid per interval =
+          planned fluid/hour × interval minutes ÷ 60
+        </span>
+      </div>
+
+      <div class="example">
+        <strong>Example:</strong>
+
+        <br />
+
+        Planned target =
+        <span class="metric">943 mL/hour</span>
+
+        <br />
+
+        Interval =
+        <span class="metric">20 minutes</span>
+
+        <br /><br />
+
+        <span class="metric">
+          943 × 20 ÷ 60 ≈ 314 mL every 20 minutes
+        </span>
+      </div>
+    </section>
+
+    <section class="section warning-section" id="balance">
+      <div class="eyebrow" style="color: var(--warning);">
+        Context
+      </div>
+
+      <h2>Fluid Balance and the 2% attention indicator</h2>
+
+      <p>
+        EnduroPace compares modeled unreplaced fluid with the body mass recorded
+        at the start of the selected Sweat Test.
+      </p>
+
+      <div class="formula">
+        <span class="metric">
+          Modeled fluid deficit % ≈
+          unreplaced fluid (L) ÷ pre-test body mass (kg) × 100
+        </span>
+      </div>
+
+      <p>
+        Because approximately one liter of water has a mass of about one kilogram,
+        this provides useful planning context.
+      </p>
+
+      <p>
+        When the modeled value exceeds 2% of the pre-test body mass,
+        EnduroPace displays an ATTENTION message so the athlete can review
+        the expected duration, selected Sweat Test, and Fluid Replacement.
+      </p>
+
+      <div class="warning">
+        <strong>
+          This is not a prediction of exact race-day body-weight change.
+        </strong>
+
+        Actual body mass during prolonged exercise is affected by more
+        than fluid balance alone.
+      </div>
+    </section>
+
+    <section class="section hydration" id="conditions">
+      <div class="eyebrow">Context</div>
+
+      <h2>Conditions matter</h2>
+
+      <p>Sweat rate can change substantially with:</p>
+
+      <ul>
+        <li>temperature</li>
+        <li>humidity</li>
+        <li>sport</li>
+        <li>exercise intensity</li>
+        <li>clothing and equipment</li>
+        <li>heat acclimation</li>
+        <li>indoor versus outdoor training</li>
+      </ul>
+
+      <p>
+        For that reason, EnduroPace stores multiple Sweat Tests and allows you
+        to select the test that best represents the planned activity.
+      </p>
+
+      <div class="note">
+        <strong>
+          EnduroPace does not currently apply an automatic weather multiplier.
+        </strong>
+
+        A measured sweat rate is not silently increased or reduced because
+        a planned event is hotter, cooler, or more humid. Instead, the conditions
+        remain visible so the athlete can choose a more representative Sweat Test.
+      </div>
+    </section>
+
+    <section class="section hydration">
+      <div class="eyebrow">Units</div>
+
+      <h2>Metric and imperial display</h2>
+
+      <p>
+        EnduroPace stores measurements canonically and can display hydration
+        values as milliliters, liters, or fluid ounces.
+      </p>
+
+      <p>
+        Changing the display unit does not change the physical Sweat Test
+        or Hydration Plan.
+      </p>
+    </section>
   </main>
 
   <footer>
-    <strong>Important:</strong>
-    EnduroPace is a planning and educational tool. Sweat rate and hydration requirements
-    can vary between athletes and between sessions. Hydration planning should be adjusted
-    using experience, conditions, tolerance, and event logistics.
-  
-    <p style="margin-top: 16px;">&copy; 2026 GamaCoraggio LLC. All rights reserved.</p>
-  </footer>
+    <p>
+      <strong>Important:</strong>
+      EnduroPace is a planning and educational tool. Sweat rate and hydration
+      requirements can vary between athletes and between sessions.
+      Hydration planning should be adjusted using experience, conditions,
+      tolerance, and event logistics.
+    </p>
 
+    <p>
+      EnduroPace is developed and published by GamaCoraggio LLC.
+    </p>
+
+    <p>
+      EnduroPace technology is patent pending in the United States.
+    </p>
+
+    <p>
+      &copy; 2026 GamaCoraggio LLC. All rights reserved.
+    </p>
+  </footer>
 </body>
 </html>
