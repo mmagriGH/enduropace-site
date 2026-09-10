@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Support and troubleshooting for EnduroPace calculators, Performance Lab, Race Day Planner, hydration, fueling, plans, and settings." />
+  <meta
+    name="description"
+    content="Support and troubleshooting for EnduroPace calculators, Performance Lab, Race Day Planner, hydration, fueling, plans, and settings."
+  />
   <title>Support | EnduroPace</title>
 
   <style>
     :root {
-
       --background: #05090b;
       --surface: #12171a;
       --surface-secondary: #181e22;
@@ -23,10 +25,15 @@
       --amber: #f5b942;
       --purple: #a970ff;
       --sweat: #1fc7b8;
-
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -37,7 +44,6 @@
       color: var(--text);
       background: var(--background);
     }
-
 
     .site-header {
       margin-bottom: 30px;
@@ -88,8 +94,7 @@
       text-decoration: underline;
     }
 
-    .version-badge,
-    .eyebrow-brand {
+    .version-badge {
       display: inline-block;
       color: var(--brand);
       background: var(--brand-soft);
@@ -102,14 +107,22 @@
       text-transform: uppercase;
     }
 
+    h1,
+    h2,
+    h3 {
+      color: var(--text);
+    }
 
-    h1, h2, h3 { color: var(--text); }
     h1 {
       font-size: clamp(2rem, 7vw, 2.8rem);
       letter-spacing: -0.035em;
       margin-bottom: 8px;
     }
-    p, li { color: var(--secondary); }
+
+    p,
+    li {
+      color: var(--secondary);
+    }
 
     .tagline {
       margin-top: 0;
@@ -119,9 +132,13 @@
 
     .hero {
       background:
-        linear-gradient(135deg, rgba(66,165,245,0.14), rgba(255,106,0,0.06)),
+        linear-gradient(
+          135deg,
+          rgba(66, 165, 245, 0.14),
+          rgba(255, 106, 0, 0.06)
+        ),
         var(--surface);
-      border: 1px solid rgba(66,165,245,0.5);
+      border: 1px solid rgba(66, 165, 245, 0.5);
       border-radius: 20px;
       padding: 26px;
       margin: 24px 0;
@@ -141,15 +158,38 @@
       margin: 14px 0;
     }
 
-    .card h2, .card h3 { margin-top: 0; }
-    .green { border-top: 3px solid var(--green); }
-    .blue { border-top: 3px solid var(--blue); }
-    .sweat { border-top: 3px solid var(--sweat); }
-    .purple { border-top: 3px solid var(--purple); }
-    .orange { border-top: 3px solid var(--brand); }
+    .card h2,
+    .card h3 {
+      margin-top: 0;
+    }
 
-    .steps { padding-left: 21px; }
-    .steps li { margin: 7px 0; }
+    .green {
+      border-top: 3px solid var(--green);
+    }
+
+    .blue {
+      border-top: 3px solid var(--blue);
+    }
+
+    .sweat {
+      border-top: 3px solid var(--sweat);
+    }
+
+    .purple {
+      border-top: 3px solid var(--purple);
+    }
+
+    .orange {
+      border-top: 3px solid var(--brand);
+    }
+
+    .steps {
+      padding-left: 21px;
+    }
+
+    .steps li {
+      margin: 7px 0;
+    }
 
     footer {
       margin-top: 48px;
@@ -159,10 +199,14 @@
       font-size: 0.92rem;
     }
 
-    footer p { margin: 8px 0; }
+    footer p {
+      margin: 8px 0;
+    }
 
     @media (max-width: 680px) {
-      .grid { grid-template-columns: 1fr; }
+      .grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -170,35 +214,48 @@
 <body>
   <header class="site-header">
     <div class="brand">
-      <a href="index.html">Enduro<span class="brand-pace">Pace</span></a>
+      <a href="index.html">
+        Enduro<span class="brand-pace">Pace</span>
+      </a>
     </div>
+
     <p class="brand-tagline">Analyze. Improve. Perform.</p>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="performance-lab.html">Performance Lab</a>
-    <a href="hydration-planner.html">Hydration Planner</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="support.html">Support</a>
-    <a href="release-notes.html">Release Notes</a>
-  </nav>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="performance-lab.html">Performance Lab</a>
+      <a href="hydration-planner.html">Hydration Planner</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="support.html">Support</a>
+      <a href="release-notes.html">Release Notes</a>
+    </nav>
   </header>
 
   <main>
     <span class="version-badge">Version 1.4 Support</span>
+
     <h1>Need help?</h1>
-    <p class="tagline">Help with calculators, settings, saved plans, Performance Lab, and Race Day planning.</p>
+
+    <p class="tagline">
+      Help with calculators, settings, saved plans, Performance Lab, and Race Day planning.
+    </p>
 
     <section class="hero">
       <h2>Contact Support</h2>
+
       <p>
         For questions, feedback, feature requests, or support, email
-        <a href="mailto:mmagri@gmail.com">mmagri@gmail.com</a>.
+        <a href="mailto:support@gamacoraggio.com">
+          support@gamacoraggio.com
+        </a>.
       </p>
+
       <p>
         When reporting unexpected behavior, include the activity or screen you were
         using, the inputs you entered, what you expected, what you observed, and your
         device/iOS version when possible.
       </p>
+
       <p>
         Please do not send sensitive personal or health information unless it is
         necessary for your support request.
@@ -208,6 +265,7 @@
     <div class="grid">
       <section class="card green">
         <h3>Run, Bike & Swim</h3>
+
         <p>
           Calculate combinations of distance, time, pace, or speed; review splits and
           estimates; and save plans for later.
@@ -216,6 +274,7 @@
 
       <section class="card purple">
         <h3>Brick, Duathlon & Triathlon</h3>
+
         <p>
           Plan multiple disciplines, transitions, common race-distance presets, custom
           distances, and complete target finish times.
@@ -224,29 +283,39 @@
 
       <section class="card blue">
         <h3>Performance Lab</h3>
+
         <p>
           Save and review Run Threshold Pace, Bike FTP, Swim CSS, and Sweat Tests to
           build more personalized planning inputs.
         </p>
-        <a href="performance-lab.html">Performance Lab Guide →</a>
+
+        <a href="performance-lab.html">
+          Performance Lab Guide →
+        </a>
       </section>
 
       <section class="card sweat">
         <h3>Hydration & Sodium</h3>
+
         <p>
           Use saved Sweat Tests to model sweat rate, fluid replacement, hydration
           intervals, and sodium strategy when available.
         </p>
-        <a href="hydration-planner.html">Hydration Planner Guide →</a>
+
+        <a href="hydration-planner.html">
+          Hydration Planner Guide →
+        </a>
       </section>
     </div>
 
     <section class="card orange">
       <h2>Race Day Planner</h2>
+
       <p>
         Race Day Planner brings race details, pacing, conditions, transitions, fueling,
         hydration, sodium, and the execution timeline together in one connected plan.
       </p>
+
       <p>
         If something appears incomplete, review the race details and Performance Lab
         inputs connected to the plan. The Home screen’s readiness and Next Best Action
@@ -256,10 +325,12 @@
 
     <section class="card">
       <h2>Settings & Saved Plans</h2>
+
       <p>
         Open <strong>More → Settings</strong> to manage units, Default Activity,
         anonymous usage analytics, and calculator reset.
       </p>
+
       <p>
         Saved calculator plans can be managed from Plans. Race Day Plans can be
         managed from Race Day Planner.
@@ -268,23 +339,55 @@
 
     <section class="card">
       <h2>Quick Troubleshooting</h2>
+
       <ol class="steps">
-        <li>Confirm your selected activity, distance, units, and entered values.</li>
-        <li>Check whether a required Performance Lab measurement or Sweat Test is missing.</li>
-        <li>If a calculator appears stuck, use <strong>More → Settings → Reset All Calculators</strong>.</li>
-        <li>Close and reopen the app if the interface does not refresh as expected.</li>
-        <li>If the problem persists, contact support with the details listed above.</li>
+        <li>
+          Confirm your selected activity, distance, units, and entered values.
+        </li>
+
+        <li>
+          Check whether a required Performance Lab measurement or Sweat Test is missing.
+        </li>
+
+        <li>
+          If a calculator appears stuck, use
+          <strong>More → Settings → Reset All Calculators</strong>.
+        </li>
+
+        <li>
+          Close and reopen the app if the interface does not refresh as expected.
+        </li>
+
+        <li>
+          If the problem persists, contact support with the details listed above.
+        </li>
       </ol>
     </section>
 
     <section class="card">
       <h2>Privacy</h2>
+
       <p>
         No account is required for the current app experience. Core planning data is
         designed to remain local on your device. Optional anonymous usage analytics
         are off by default and can be controlled from Settings.
       </p>
-      <a href="privacy.html">Read the Privacy Policy →</a>
+
+      <a href="privacy.html">
+        Read the Privacy Policy →
+      </a>
+    </section>
+
+    <section class="card">
+      <h2>About EnduroPace</h2>
+
+      <p>
+        EnduroPace is developed and published by GamaCoraggio LLC.
+      </p>
+
+      <p>
+        EnduroPace technology is patent pending in the United States.
+      </p>
     </section>
   </main>
 
@@ -293,154 +396,18 @@
       EnduroPace provides planning and performance tools for informational purposes
       and is not a substitute for professional medical, nutritional, or coaching advice.
     </p>
-    <p>&copy; 2026 GamaCoraggio LLC. All rights reserved.</p>
-  </footer>
-</body>
-</html>
-      gap: 16px;
-      margin: 24px 0 36px;
-    }
-
-    nav a,
-    a {
-      color: var(--green);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    nav a:hover,
-    a:hover {
-      text-decoration: underline;
-    }
-
-    h1, h2 {
-      color: var(--text);
-    }
-
-    p, li {
-      color: var(--secondary);
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 24px;
-      margin: 20px 0;
-    }
-
-    .card h2 {
-      margin-top: 0;
-    }
-
-    footer {
-      margin-top: 48px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-      font-size: 0.92rem;
-      color: var(--secondary);
-    }
-  </style>
-</head>
-
-<body>
-  <h1>EnduroPace Support</h1>
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="support.html">Support</a>
-    <a href="release-notes.html">Release Notes</a>
-  </nav>
-
-  <div class="card">
-    <h2>Need Help?</h2>
 
     <p>
-      For questions, feedback, feature requests, or support, contact:
-      <a href="mailto:mmagri@gmail.com">mmagri@gmail.com</a>
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Run, Bike & Swim</h2>
-
-    <p>
-      EnduroPace provides dedicated calculators for Run, Bike, and Swim. Depending on
-      the sport, you can calculate combinations of distance, time, pace, or speed,
-      create splits, review estimates, and save plans.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Brick, Duathlon & Triathlon</h2>
-
-    <p>
-      Multisport calculators let you plan each discipline independently, include
-      transitions, use common race-distance presets or custom distances, and calculate
-      your complete target finish time.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Performance Lab</h2>
-
-    <p>
-      Performance Lab lets you record and review key endurance performance anchors:
-      Run threshold pace, Bike FTP, and Swim CSS.
+      EnduroPace is developed and published by GamaCoraggio LLC.
     </p>
 
     <p>
-      EnduroPace uses these measurements to display sport-specific training zones and
-      measurement history.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Race Day Planner</h2>
-
-    <p>
-      Race Day Planner combines your race details and multisport pacing strategy.
-      You can save race name, location, race date, race type, discipline targets,
-      transition times, and target finish time.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Saved Plans & Settings</h2>
-
-    <p>
-      Saved calculator plans can be revisited from EnduroPace and cleared from Settings.
-      Race Day Plans can be managed from Race Day Planner.
+      EnduroPace technology is patent pending in the United States.
     </p>
 
     <p>
-      Unit preferences for Run, Bike, and Swim can also be changed from Settings.
+      &copy; 2026 GamaCoraggio LLC. All rights reserved.
     </p>
-  </div>
-
-  <div class="card">
-    <h2>Privacy</h2>
-
-    <p>
-      No account is required. Calculations happen locally on your device, and EnduroPace
-      is designed to store app settings, saved plans, Race Day Plans, and Performance Lab
-      measurements locally.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Important Note</h2>
-
-    <p>
-      EnduroPace is a planning tool. Actual results may vary based on fitness, training,
-      terrain, weather, elevation, equipment, fueling, hydration, fatigue, and
-      race-day conditions.
-    </p>
-  </div>
-
-  <footer>
-    EnduroPace Support
   </footer>
 </body>
 </html>
