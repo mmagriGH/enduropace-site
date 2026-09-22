@@ -3,12 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="EnduroPace Privacy Policy and information about local data and optional anonymous usage analytics."
-  />
+  <meta name="description" content="EnduroPace Privacy Policy covering local data, Apple Health, Apple Weather, Apple Maps race imagery, Apple Intelligence, subscriptions, custom photos, and optional analytics." />
   <title>Privacy Policy | EnduroPace</title>
-
   <style>
     :root {
       --background: #05090b;
@@ -27,14 +23,391 @@
       --sweat: #1fc7b8;
     }
 
-    * {
-      box-sizing: border-box;
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 38px 20px 64px;
+      line-height: 1.62;
+      color: var(--text);
+      background: var(--background);
     }
 
-    html {
-      scroll-behavior: smooth;
+    .site-header { margin-bottom: 30px; }
+
+    .brand {
+      font-size: clamp(2.15rem, 7vw, 3.1rem);
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.045em;
+      margin: 0;
     }
 
+    .brand a { color: var(--text); text-decoration: none; }
+    .brand-pace { color: var(--brand); }
+
+    .brand-tagline {
+      margin: 8px 0 0;
+      color: var(--secondary);
+      font-size: 1.03rem;
+      font-weight: 600;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin: 24px 0 0;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav a, a {
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 650;
+    }
+
+    nav a:hover, a:hover { text-decoration: underline; }
+
+    h1, h2, h3 { color: var(--text); }
+
+    h1 {
+      font-size: clamp(2rem, 7vw, 3rem);
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      margin: 10px 0 14px;
+    }
+
+    h2 { margin: 0 0 10px; }
+    h3 { margin: 0 0 6px; }
+
+    p, li { color: var(--secondary); }
+
+    .version-badge,
+    .eyebrow {
+      display: inline-block;
+      color: var(--brand);
+      background: var(--brand-soft);
+      border: 1px solid rgba(255, 106, 0, 0.28);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      margin: 30px 0 22px;
+      padding: 30px;
+      border: 1px solid rgba(255, 106, 0, 0.45);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at top right, rgba(255, 106, 0, 0.18), transparent 36%),
+        linear-gradient(135deg, rgba(169, 112, 255, 0.07), rgba(31, 199, 184, 0.04)),
+        var(--surface);
+      box-shadow: 0 0 34px rgba(255, 106, 0, 0.07);
+    }
+
+    .hero p { max-width: 780px; font-size: 1.04rem; }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .button {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 10px 15px;
+      background: var(--brand);
+      color: #0b0d0f;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .button.secondary {
+      color: var(--text);
+      background: var(--surface-secondary);
+      border: 1px solid var(--border);
+    }
+
+    .button:hover { text-decoration: none; filter: brightness(1.06); }
+
+    .section-title { margin: 34px 0 12px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card,
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      margin: 14px 0;
+    }
+
+    .card.orange, .orange-accent { border-top: 3px solid var(--brand); }
+    .card.green, .green-accent { border-top: 3px solid var(--green); }
+    .card.blue, .blue-accent { border-top: 3px solid var(--blue); }
+    .card.purple, .purple-accent { border-top: 3px solid var(--purple); }
+    .card.sweat, .sweat-accent { border-top: 3px solid var(--sweat); }
+    .card.amber, .amber-accent { border-top: 3px solid var(--amber); }
+
+    .card-link { display: inline-block; margin-top: 8px; }
+
+    .note {
+      background: var(--surface-secondary);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 14px 16px;
+      margin: 14px 0;
+    }
+
+    .release-list { padding-left: 21px; margin-bottom: 0; }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--secondary);
+      font-size: 0.92rem;
+    }
+
+    footer p { margin: 8px 0; }
+
+    @media (max-width: 680px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero { padding: 23px; }
+    }
+</style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand">
+      <a href="index.html">Enduro<span class="brand-pace">Pace</span></a>
+    </div>
+    <p class="brand-tagline">Analyze. Improve. Perform.</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="performance-lab.html">Performance Lab</a>
+      <a href="hydration-planner.html">Hydration Planner</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="support.html">Support</a>
+      <a href="release-notes.html">Release Notes</a>
+    </nav>
+  </header>
+
+  <main>
+    <span class="version-badge">Updated for Version 1.5</span>
+    <h1>Privacy Policy</h1>
+    <p><strong>Effective date:</strong> September 22, 2026</p>
+
+    <section class="hero">
+      <h2>Private by design.</h2>
+      <p>
+        EnduroPace is designed around a local-first planning and performance
+        experience. No account or login is required to use the app.
+      </p>
+    </section>
+
+    <section class="section green-accent">
+      <h2>Local EnduroPace Data</h2>
+      <p>
+        App settings, calculator state, saved plans, Race Day Plans, Performance
+        Lab measurements, Sweat Tests, race checklists, nutrition strategies,
+        race-plan history, recommendation state, and related EnduroPace-owned data
+        are stored in the app's local persistence stores on your device.
+      </p>
+      <p>
+        EnduroPace is designed so that its deterministic calculators and core
+        locally saved planning data do not require continuous internet access.
+      </p>
+    </section>
+
+    <section class="section green-accent">
+      <h2>Apple Health</h2>
+      <p>
+        Apple Health access is optional and read-only. EnduroPace reads only the
+        Health data types you choose to make available to the app. It does not write
+        workouts or measurements back to Apple Health.
+      </p>
+      <p>
+        EnduroPace does not duplicate raw workout telemetry, heart-rate streams, or
+        GPS tracks into its own durable stores. Apple Health observations remain
+        read-only unless you explicitly choose to adopt a supported observation as
+        an EnduroPace performance measurement.
+      </p>
+      <p>
+        When you adopt a supported measurement, EnduroPace preserves source,
+        measurement date, import date, and related provenance so the value can be
+        distinguished from manually entered or EnduroPace-measured data.
+      </p>
+    </section>
+
+    <section class="section blue-accent">
+      <h2>Apple Weather and Saved Race Locations</h2>
+      <p>
+        When you request race weather, EnduroPace uses the verified race location
+        and race date saved with that event to request forecast or historical
+        temperature information from Apple Weather.
+      </p>
+      <p>
+        Weather-derived suggestions are presented for review. EnduroPace does not
+        silently replace athlete-entered race conditions or race-plan decisions.
+      </p>
+    </section>
+
+    <section class="section blue-accent">
+      <h2>Apple Maps Race Imagery</h2>
+      <p>
+        Automatic race backgrounds can use the verified race location saved with an
+        event to request scenic imagery through Apple Maps services. This feature
+        uses the location associated with the saved race rather than your device's
+        current location.
+      </p>
+      <p>
+        EnduroPace may cache generated race imagery locally to improve performance.
+      </p>
+    </section>
+
+    <section class="section purple-accent">
+      <h2>Custom Race Photos</h2>
+      <p>
+        If you choose a custom race background, EnduroPace receives access only to
+        the image you select through Apple's photo picker and saves an app-local copy
+        for that race.
+      </p>
+      <p>
+        EnduroPace does not upload your selected custom race photo.
+      </p>
+    </section>
+
+    <section class="section purple-accent">
+      <h2>Apple Intelligence Coach</h2>
+      <p>
+        On supported devices, EnduroPace Pro can use Apple's on-device intelligence
+        to generate natural-language explanations from deterministic EnduroPace
+        coaching facts and recommendation context.
+      </p>
+      <p>
+        EnduroPace calculations and deterministic engines remain the source of truth.
+        Generated wording does not silently change performance measurements, race
+        plans, fueling, hydration, sodium, or other athlete decisions.
+      </p>
+    </section>
+
+    <section class="section orange-accent">
+      <h2>Subscriptions and Purchases</h2>
+      <p>
+        EnduroPace Pro subscriptions, introductory-offer eligibility, purchases,
+        restores, and subscription management are handled through Apple's StoreKit
+        and App Store services.
+      </p>
+      <p>
+        EnduroPace receives the product and entitlement information required to
+        determine Pro access. EnduroPace does not receive your payment-card details.
+      </p>
+    </section>
+
+    <section class="section sweat-accent">
+      <h2>Optional Anonymous Usage Analytics</h2>
+      <p>
+        Anonymous product-usage analytics are <strong>off by default</strong>.
+        You can enable or disable them at any time in EnduroPace Settings.
+      </p>
+      <p>
+        When enabled, EnduroPace sends product-usage events through TelemetryDeck to
+        help improve the app. EnduroPace filters custom event properties through a
+        strict allowlist before they are sent.
+      </p>
+      <p>
+        Custom event properties do not include race names, saved race locations,
+        race dates and times, body data, performance values, Apple Health values,
+        fuel product names, notes, contact information, or user identifiers.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Data Control and Deletion</h2>
+      <p>
+        You can manage or delete saved plans, Race Day Plans, Performance Lab
+        measurements, Sweat Tests, strategies, and other supported local data from
+        their corresponding areas of the app.
+      </p>
+      <p>
+        Removing EnduroPace from your device may also remove locally stored app data,
+        subject to normal iOS device and backup behavior.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Internet Access</h2>
+      <p>
+        Network access is used for features such as Apple Weather, Apple Maps race
+        imagery, App Store subscription transactions and restores, EnduroPace web
+        and support resources, and optional analytics when enabled.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Advertising, Tracking, and Data Sales</h2>
+      <p>
+        EnduroPace does not include advertising networks, does not use app data for
+        cross-app advertising tracking, and does not sell personal information to
+        advertisers or data brokers.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Children's Privacy</h2>
+      <p>
+        EnduroPace does not require an account and is not designed to collect
+        personal information from children.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Changes to This Policy</h2>
+      <p>
+        This policy may be updated as EnduroPace changes. Material privacy changes
+        will be reflected in the published policy and, when appropriate, in the app.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Contact</h2>
+      <p>
+        For privacy questions, contact
+        <a href="mailto:support@gamacoraggio.com">support@gamacoraggio.com</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      EnduroPace provides planning and performance tools for informational purposes
+      and is not a substitute for professional medical, nutritional, or coaching advice.
+    </p>
+    <p>EnduroPace is developed and published by GamaCoraggio LLC.</p>
+    <p>EnduroPace technology is patent pending in the United States.</p>
+    <p>&copy; 2026 GamaCoraggio LLC. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       max-width: 940px;
