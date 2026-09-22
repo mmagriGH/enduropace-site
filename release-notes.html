@@ -2,19 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
-  <meta
-    name="description"
-    content="EnduroPace release notes, including version 1.4 Race Day Intelligence and Performance Lab improvements."
-  />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EnduroPace release notes, including version 1.5 EnduroPace Pro, Apple Health, Apple Intelligence Coach, race weather, advanced race planning, and intelligence features." />
   <title>Release Notes | EnduroPace</title>
-
   <style>
     :root {
       --background: #05090b;
@@ -33,13 +23,9 @@
       --sweat: #1fc7b8;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -51,9 +37,7 @@
       background: var(--background);
     }
 
-    .site-header {
-      margin-bottom: 30px;
-    }
+    .site-header { margin-bottom: 30px; }
 
     .brand {
       font-size: clamp(2.15rem, 7vw, 3.1rem);
@@ -63,14 +47,8 @@
       margin: 0;
     }
 
-    .brand a {
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .brand-pace {
-      color: var(--brand);
-    }
+    .brand a { color: var(--text); text-decoration: none; }
+    .brand-pace { color: var(--brand); }
 
     .brand-tagline {
       margin: 8px 0 0;
@@ -88,47 +66,130 @@
       border-bottom: 1px solid var(--border);
     }
 
-    nav a,
-    a {
+    nav a, a {
       color: var(--brand);
       text-decoration: none;
       font-weight: 650;
     }
 
-    nav a:hover,
-    a:hover {
-      text-decoration: underline;
-    }
+    nav a:hover, a:hover { text-decoration: underline; }
 
-    h1,
-    h2,
-    h3 {
-      color: var(--text);
-    }
+    h1, h2, h3 { color: var(--text); }
 
     h1 {
-      font-size: clamp(2rem, 7vw, 2.8rem);
+      font-size: clamp(2rem, 7vw, 3rem);
       letter-spacing: -0.035em;
-      margin-bottom: 8px;
+      line-height: 1.05;
+      margin: 10px 0 14px;
     }
 
-    h2 {
-      margin-top: 0;
+    h2 { margin: 0 0 10px; }
+    h3 { margin: 0 0 6px; }
+
+    p, li { color: var(--secondary); }
+
+    .version-badge,
+    .eyebrow {
+      display: inline-block;
+      color: var(--brand);
+      background: var(--brand-soft);
+      border: 1px solid rgba(255, 106, 0, 0.28);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
-    h3 {
-      margin-bottom: 7px;
+    .hero {
+      margin: 30px 0 22px;
+      padding: 30px;
+      border: 1px solid rgba(255, 106, 0, 0.45);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at top right, rgba(255, 106, 0, 0.18), transparent 36%),
+        linear-gradient(135deg, rgba(169, 112, 255, 0.07), rgba(31, 199, 184, 0.04)),
+        var(--surface);
+      box-shadow: 0 0 34px rgba(255, 106, 0, 0.07);
     }
 
-    p,
-    li {
+    .hero p { max-width: 780px; font-size: 1.04rem; }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .button {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 10px 15px;
+      background: var(--brand);
+      color: #0b0d0f;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .button.secondary {
+      color: var(--text);
+      background: var(--surface-secondary);
+      border: 1px solid var(--border);
+    }
+
+    .button:hover { text-decoration: none; filter: brightness(1.06); }
+
+    .section-title { margin: 34px 0 12px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card,
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      margin: 14px 0;
+    }
+
+    .card.orange, .orange-accent { border-top: 3px solid var(--brand); }
+    .card.green, .green-accent { border-top: 3px solid var(--green); }
+    .card.blue, .blue-accent { border-top: 3px solid var(--blue); }
+    .card.purple, .purple-accent { border-top: 3px solid var(--purple); }
+    .card.sweat, .sweat-accent { border-top: 3px solid var(--sweat); }
+    .card.amber, .amber-accent { border-top: 3px solid var(--amber); }
+
+    .card-link { display: inline-block; margin-top: 8px; }
+
+    .note {
+      background: var(--surface-secondary);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 14px 16px;
+      margin: 14px 0;
+    }
+
+    .release-list { padding-left: 21px; margin-bottom: 0; }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
       color: var(--secondary);
+      font-size: 0.92rem;
     }
 
-    .subtitle {
-      margin-top: 0;
-      color: var(--secondary);
-      font-size: 1.06rem;
+    footer p { margin: 8px 0; }
+
+    @media (max-width: 680px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero { padding: 23px; }
     }
 
     .version {
@@ -138,20 +199,13 @@
       padding: 25px;
       margin: 22px 0;
     }
-
     .version.latest {
       border-color: rgba(255, 106, 0, 0.55);
       box-shadow: 0 0 32px rgba(255, 106, 0, 0.08);
-
       background:
-        radial-gradient(
-          circle at top right,
-          rgba(255, 106, 0, 0.12),
-          transparent 34%
-        ),
+        radial-gradient(circle at top right, rgba(255, 106, 0, 0.12), transparent 34%),
         var(--surface);
     }
-
     .badge {
       display: inline-block;
       padding: 5px 10px;
@@ -165,39 +219,17 @@
       text-transform: uppercase;
       margin-bottom: 12px;
     }
-
-    ul {
-      padding-left: 22px;
-    }
-
-    li {
-      margin: 7px 0;
-    }
-
-    footer {
-      margin-top: 48px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-      color: var(--secondary);
-      font-size: 0.92rem;
-    }
-
-    footer p {
-      margin: 8px 0;
-    }
+    ul { padding-left: 22px; }
+    li { margin: 7px 0; }
   </style>
 </head>
-
 <body>
+
   <header class="site-header">
     <div class="brand">
-      <a href="index.html">
-        Enduro<span class="brand-pace">Pace</span>
-      </a>
+      <a href="index.html">Enduro<span class="brand-pace">Pace</span></a>
     </div>
-
     <p class="brand-tagline">Analyze. Improve. Perform.</p>
-
     <nav>
       <a href="index.html">Home</a>
       <a href="performance-lab.html">Performance Lab</a>
@@ -210,309 +242,125 @@
 
   <main>
     <h1>Release Notes</h1>
-
-    <p class="subtitle">
-      See what’s new and improved in each EnduroPace release.
-    </p>
+    <p>See what’s new and improved in each EnduroPace release.</p>
 
     <section class="version latest">
-      <div class="badge">Version 1.4</div>
-
-      <h2>Version 1.4 — Race Day Intelligence</h2>
-
+      <div class="badge">Version 1.5</div>
+      <h2>Version 1.5 — EnduroPace Pro & Connected Race Intelligence</h2>
       <p>
-        Version 1.4 brings EnduroPace’s race-day planning experience together
-        into a more connected workflow, with a redesigned Home,
-        expanded Race Day Planner, deeper Performance Lab integration,
-        and substantial polish throughout the app.
+        Version 1.5 is EnduroPace's first paid release and expands the app from
+        connected race planning into a deeper performance and race-intelligence
+        platform while keeping the core Free experience useful.
       </p>
 
-      <h3>Race Day Planner</h3>
-
+      <h3>EnduroPace Pro</h3>
       <ul>
-        <li>
-          Expanded race-day planning with pacing, race conditions,
-          hydration, sodium, fueling, transitions, and execution timeline.
-        </li>
-
-        <li>
-          Connected Performance Lab measurements and saved Sweat Tests
-          to Race Day planning.
-        </li>
-
-        <li>
-          Added readiness guidance and Next Best Action to help identify
-          incomplete planning inputs.
-        </li>
-
-        <li>
-          Improved race-plan editing, navigation, persistence,
-          and consistency.
-        </li>
+        <li>Added annual and monthly EnduroPace Pro subscriptions with a 3-day introductory trial when eligible.</li>
+        <li>Added Restore Purchases and Manage Subscription support through Apple StoreKit.</li>
+        <li>Kept the established 1.4 core experience available without Pro.</li>
       </ul>
 
-      <h3>Home</h3>
-
+      <h3>Apple Intelligence Coach</h3>
       <ul>
-        <li>
-          Redesigned Home around the next race and current planning state.
-        </li>
-
-        <li>
-          Added Next Race, target finish, readiness, and Continue Planning presentation.
-        </li>
-
-        <li>
-          Added Next Best Action for contextual planning guidance.
-        </li>
-
-        <li>
-          Added Measure → Model → Plan → Execute progress.
-        </li>
-
-        <li>
-          Added quick access to Performance Lab, Race Day Planner,
-          Training Tools, and Resources.
-        </li>
+        <li>Added Apple Intelligence Coach explanations on supported devices for Pro athletes.</li>
+        <li>Uses EnduroPace deterministic engines as the source of truth and generates natural-language context around those facts.</li>
+        <li>Added deterministic fallback when Apple Intelligence is unavailable or a generated response is not suitable.</li>
+        <li>Extended explanation support across Home, performance, hydration, fueling, and Race Plan History intelligence surfaces.</li>
       </ul>
 
-      <h3>Performance Lab</h3>
-
+      <h3>Apple Health & Connected Athlete Data</h3>
       <ul>
-        <li>
-          Improved Run Threshold Pace, Bike FTP, and Swim CSS measurement workflows.
-        </li>
-
-        <li>
-          Added and refined Sweat Test support for hydration and sodium planning.
-        </li>
-
-        <li>
-          Improved saved measurement management and Race Day Planner integration.
-        </li>
-
-        <li>
-          Expanded educational resources for performance and hydration testing.
-        </li>
+        <li>Added optional read-only Apple Health integration for Pro athletes.</li>
+        <li>Added granular data-use preferences and logical connection controls.</li>
+        <li>Added explicit adoption of supported Apple Health FTP observations into EnduroPace rather than automatic replacement.</li>
+        <li>Preserved source, measurement date, freshness, confidence, and provenance for connected measurements.</li>
+        <li>Added source-aware review so EnduroPace can explain which performance input is currently being used and why.</li>
       </ul>
 
-      <h3>More, Privacy & Reliability</h3>
-
+      <h3>Advanced Performance Intelligence</h3>
       <ul>
-        <li>
-          Refined Getting Started, Settings, Help & About,
-          Support, Privacy, and Release Notes.
-        </li>
+        <li>Expanded Run Threshold Pace, Bike FTP, and Swim CSS history with trend context, source, method, measured date, freshness, confidence, and plan usage.</li>
+        <li>Added richer performance history and actionable next-step guidance for Pro athletes.</li>
+        <li>Improved measurement editing and preservation of canonical history.</li>
+      </ul>
 
-        <li>
-          Added clearer unit presentation and Default Activity settings.
-        </li>
+      <h3>Race Weather & Location Intelligence</h3>
+      <ul>
+        <li>Added verified race-location workflows and stronger disambiguation for ambiguous or misspelled places.</li>
+        <li>Added Apple Weather lookup for supported race dates and locations.</li>
+        <li>Added reviewable weather suggestions without silently replacing athlete-entered race conditions.</li>
+        <li>Added location-aware race hero imagery with sport artwork fallback.</li>
+        <li>Added optional custom race photos stored locally for each race.</li>
+      </ul>
 
-        <li>
-          Added optional anonymous usage analytics, off by default.
-        </li>
+      <h3>Advanced Race Planning</h3>
+      <ul>
+        <li>Added Race Plan History and meaningful version comparison.</li>
+        <li>Added affected-plan detection when important upstream athlete data changes.</li>
+        <li>Added impact review with explicit Apply, Keep Existing, and Review Later decisions.</li>
+        <li>Added Race Checklist with built-in and custom items.</li>
+        <li>Improved cross-leg fueling, hydration, sodium, readiness, and execution-timeline intelligence.</li>
+      </ul>
 
-        <li>
-          Improved bottom-navigation spacing, visual consistency,
-          accessibility, and reliability.
-        </li>
+      <h3>Fueling, Hydration & Nutrition Strategy</h3>
+      <ul>
+        <li>Added advanced fueling assessment and race-level carbohydrate requirement context.</li>
+        <li>Added advanced hydration assessment using saved Sweat Test context, freshness, race-condition similarity, and better-match guidance.</li>
+        <li>Added reusable nutrition strategy templates and safer application to compatible Race Day Plans.</li>
+        <li>Kept all recommendation changes explicit and reviewable rather than silently mutating race plans.</li>
+      </ul>
 
-        <li>
-          Continued local-first design with no account required
-          for the current experience.
-        </li>
+      <h3>Privacy, Reliability & Polish</h3>
+      <ul>
+        <li>Added App Privacy Manifest declarations for required-reason APIs used by EnduroPace.</li>
+        <li>Expanded in-app privacy disclosures for Apple Health, Apple Weather, Apple Maps imagery, custom photos, subscriptions, and Apple Intelligence.</li>
+        <li>Improved persistence, entitlement startup behavior, async safety, unit consistency, testing, and regression coverage.</li>
+        <li>Optimized curated race hero assets while preserving visual quality.</li>
       </ul>
     </section>
 
     <section class="version">
-      <h2>
-        Version 1.3 — Multisport, Performance Lab & Race Day Planning
-      </h2>
-
+      <h2>Version 1.4 — Race Day Intelligence</h2>
       <p>
-        EnduroPace 1.3 expanded the app into a broader endurance planning
-        experience for runners, cyclists, swimmers, and multisport athletes.
+        Version 1.4 brought EnduroPace’s race-day planning experience together
+        into a connected workflow with a redesigned Home, expanded Race Day Planner,
+        Performance Lab integration, hydration, sodium, fueling, conditions, and timeline.
       </p>
+    </section>
 
-      <h3>New</h3>
-
-      <ul>
-        <li>
-          Added a complete Swim calculator with distance, time, pace,
-          splits, and saved plans.
-        </li>
-
-        <li>
-          Added Brick, Duathlon, and Triathlon planning.
-        </li>
-
-        <li>
-          Added race-distance presets, custom multisport distances,
-          and transition planning.
-        </li>
-
-        <li>
-          Added complete multisport target finish-time calculations.
-        </li>
-
-        <li>
-          Added Performance Lab for Run Threshold Pace, Bike FTP,
-          and Swim CSS.
-        </li>
-
-        <li>
-          Added sport-specific training zones and measurement history.
-        </li>
-
-        <li>
-          Added Race Day Planner with race details, strategy,
-          transitions, and target finish time.
-        </li>
-
-        <li>
-          Added a connected Home dashboard and broader navigation structure.
-        </li>
-      </ul>
-
-      <h3>Improved</h3>
-
-      <ul>
-        <li>
-          Redesigned Run, Bike, Swim, and multisport calculator interactions.
-        </li>
-
-        <li>
-          Redesigned navigation around Home, Calculate, Plans,
-          Performance, and More.
-        </li>
-
-        <li>
-          Improved unit synchronization and distance-conversion precision.
-        </li>
-
-        <li>
-          Improved validation, persistence, saved-plan reliability,
-          and accessibility.
-        </li>
-
-        <li>
-          Improved overall visual consistency and sport-specific styling.
-        </li>
-      </ul>
+    <section class="version">
+      <h2>Version 1.3 — Multisport, Performance Lab & Race Day Planning</h2>
+      <p>
+        Added Swim, Brick, Duathlon, Triathlon, Performance Lab, sport-specific
+        zones, Race Day Planner, and broader connected navigation.
+      </p>
     </section>
 
     <section class="version">
       <h2>Version 1.2 — EnduroPace, Run + Bike Planning</h2>
-
-      <p>
-        This release expanded the app from a running pace calculator
-        into a broader endurance planning tool.
-      </p>
-
-      <ul>
-        <li>
-          Rebranded the app from RunPace to EnduroPace.
-        </li>
-
-        <li>
-          Added Bike planning, speed/time/distance calculations,
-          splits, and saved bike plans.
-        </li>
-
-        <li>
-          Added Run estimated-distance mode from goal time and goal pace.
-        </li>
-
-        <li>
-          Added cleaner Run and Bike detail sections and sport-specific colors.
-        </li>
-
-        <li>
-          Improved saved-plan handling and continued privacy-first,
-          account-free use.
-        </li>
-      </ul>
+      <p>Rebranded RunPace to EnduroPace and expanded the app with Bike planning.</p>
     </section>
 
     <section class="version">
       <h2>Version 1.1 — Run Planning Improvements</h2>
-
-      <p>
-        This release improved the original running calculator
-        with more planning tools and a cleaner experience.
-      </p>
-
-      <ul>
-        <li>
-          Added run splits, pace zones, race-performance estimates,
-          and same-pace finish estimates.
-        </li>
-
-        <li>
-          Added saved favorite race plans stored locally on the device.
-        </li>
-
-        <li>
-          Added Settings, unit management, calculator reset,
-          and saved-plan management.
-        </li>
-
-        <li>
-          Improved Help & About content, layout,
-          and calculated-result labeling.
-        </li>
-      </ul>
+      <p>Added splits, pace zones, race estimates, saved plans, settings, and unit management.</p>
     </section>
 
     <section class="version">
       <h2>Version 1.0 — Initial RunPace Release</h2>
-
-      <p>
-        This was the first public release of the app.
-      </p>
-
-      <ul>
-        <li>Running pace calculator.</li>
-
-        <li>
-          Support for 5K, 10K, Half Marathon, Marathon,
-          and custom distances.
-        </li>
-
-        <li>Miles and kilometers.</li>
-
-        <li>
-          Calculate pace from distance and target time or finish time
-          from distance and pace.
-        </li>
-
-        <li>Show calculated speed.</li>
-
-        <li>
-          Local calculations with no login or account required.
-        </li>
-      </ul>
+      <p>The first public release of the running pace calculator.</p>
     </section>
   </main>
 
   <footer>
     <p>
-      EnduroPace is a planning tool. Actual results may vary based on training,
-      terrain, weather, elevation, equipment, fueling, hydration, fatigue,
-      and race-day conditions.
+      EnduroPace provides planning and performance tools for informational purposes
+      and is not a substitute for professional medical, nutritional, or coaching advice.
     </p>
-
-    <p>
-      EnduroPace is developed and published by GamaCoraggio LLC.
-    </p>
-
-    <p>
-      EnduroPace technology is patent pending in the United States.
-    </p>
-
-    <p>
-      &copy; 2026 GamaCoraggio LLC. All rights reserved.
-    </p>
+    <p>EnduroPace is developed and published by GamaCoraggio LLC.</p>
+    <p>EnduroPace technology is patent pending in the United States.</p>
+    <p>&copy; 2026 GamaCoraggio LLC. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
