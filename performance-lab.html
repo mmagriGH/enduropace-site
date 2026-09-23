@@ -309,6 +309,28 @@
       color: var(--text);
     }
 
+    details.advanced {
+      margin-top: 18px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--surface-secondary);
+      overflow: hidden;
+    }
+
+    details.advanced summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 16px;
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    details.advanced summary::-webkit-details-marker { display: none; }
+    details.advanced summary::after { content: "+"; float: right; color: var(--sweat); }
+    details.advanced[open] summary::after { content: "−"; }
+    .advanced-content { padding: 0 16px 16px; }
+    .advanced-content h3 { margin-top: 22px; }
+
     footer {
       margin-top: 44px;
       padding-top: 24px;
@@ -415,7 +437,7 @@
       <a href="#bike-ftp">Bike FTP</a>
       <a href="#swim-css">Swim CSS</a>
       <a href="#sweat-rate">Sweat Rate</a>
-      <a href="#sweat-sodium">Sweat Sodium</a>
+      <a href="#sweat-sodium">Sweat Sodium (Optional)</a>
       <a href="#lthr">Threshold Heart Rate</a>
     </div>
 
@@ -907,292 +929,185 @@
     </section>
 
     <section class="section hydration" id="sweat-sodium">
-      <div class="eyebrow hydration-text">
-        Hydration / Electrolytes
-      </div>
-
+      <div class="eyebrow hydration-text">Optional Precision Input</div>
       <h2>Sweat Sodium Concentration</h2>
 
-      <p>
-        Sweat sodium concentration estimates how much sodium
-        is present in each liter of your sweat.
-      </p>
-
-      <p>
-        EnduroPace expresses this value in
-        <span class="metric">mg/L</span>.
-      </p>
-
-      <p>
-        This is different from sweat rate.
-        Your normal Sweat Rate Test estimates how much fluid
-        you lose per hour, but it does not determine how much
-        sodium is present in that sweat.
-      </p>
-
-      <div class="formula">
-        <strong>Two separate measurements</strong>
-
+      <div class="note">
+        <strong>A sweat sodium test is nice to have, not required.</strong>
         <br /><br />
-
-        <span class="metric">
-          Sweat Rate = fluid lost per hour
-        </span>
-
-        <br /><br />
-
-        <span class="metric">
-          Sweat Sodium Concentration = sodium in each liter of sweat
-        </span>
-
-        <br /><br />
-
-        When both are known:
-
-        <br /><br />
-
-        <span class="metric">
-          Estimated Sodium Loss (mg/hour) =
-          Sweat Rate (L/hour)
-          ×
-          Sweat Sodium Concentration (mg/L)
-        </span>
+        Most athletes do not need to measure sweat sodium concentration to use EnduroPace.
+        You can build a Race Day sodium plan without this value. EnduroPace keeps the
+        concentration unknown rather than estimating it from sweat rate.
       </div>
-
-      <div class="example">
-        <strong>Example</strong>
-
-        <br /><br />
-
-        Sweat rate:
-
-        <br />
-
-        <span class="metric">1.2 L/hour</span>
-
-        <br /><br />
-
-        Sweat sodium concentration:
-
-        <br />
-
-        <span class="metric">900 mg/L</span>
-
-        <br /><br />
-
-        Estimated sodium loss:
-
-        <br />
-
-        <span class="metric">1.2 × 900 = 1,080 mg/hour</span>
-      </div>
-
-      <div class="warning">
-        <strong>
-          Estimated sodium loss is not automatically a sodium intake prescription.
-        </strong>
-
-        EnduroPace keeps estimated loss and planned intake
-        separate so you can build an individualized Race Day strategy.
-      </div>
-
-      <h3>How Is Sweat Sodium Measured?</h3>
 
       <div class="test-grid">
         <div class="mini-card">
-          <h3>Whole-Body Washdown</h3>
-
+          <h3>I don't know my sweat sodium</h3>
           <p>
-            Whole-body sweat collection is a reference research method
-            used to estimate electrolyte concentration across sweat lost
-            from the entire body.
+            That is a normal EnduroPace workflow. Build your planned sodium schedule
+            from products, training experience, coaching or nutrition guidance, and
+            individual tolerance.
           </p>
-
           <p>
-            The athlete exercises under carefully controlled collection
-            conditions and the total recovered sweat is analyzed.
-          </p>
-
-          <p>
-            This can provide a strong whole-body estimate, but it requires
-            specialized laboratory procedures and is not practical as a normal home test.
+            Estimated sodium loss and replacement percentage remain unavailable because
+            EnduroPace does not invent a concentration.
           </p>
         </div>
 
         <div class="mini-card">
-          <h3>Exercise Sweat Patch</h3>
-
+          <h3>I have a measured or reported value</h3>
           <p>
-            A clean absorbent patch can collect sweat from a specific skin
-            location while you exercise.
+            Enter the value reported by a reputable sports-science laboratory, professional
+            sweat-testing service, validated patch or sensor, or another reliable source.
           </p>
-
           <p>
-            The collected sweat is then analyzed for sodium concentration.
-          </p>
-
-          <p>
-            Sodium concentration varies by body location.
-            A raw regional patch value should therefore not automatically
-            be treated as your whole-body concentration.
-          </p>
-
-          <p>
-            Validated testing methods may use the collection site together
-            with an appropriate equation or normalization method to estimate
-            a whole-body-equivalent concentration.
-          </p>
-        </div>
-
-        <div class="mini-card">
-          <h3>Pilocarpine Sweat Test</h3>
-
-          <p>
-            Some professional testing services use pilocarpine iontophoresis
-            to stimulate sweat from a small skin area while the athlete is at rest.
-          </p>
-
-          <p>
-            The collected sweat is analyzed for sodium concentration
-            without requiring an exercise session.
-          </p>
-
-          <p>
-            This can provide a practical and repeatable estimate,
-            although it should not be assumed to reproduce every
-            exercise intensity or race condition perfectly.
-          </p>
-        </div>
-
-        <div class="mini-card">
-          <h3>Wearable Sweat Sensors</h3>
-
-          <p>
-            Some consumer sensors collect and analyze local sweat during
-            exercise and estimate fluid and electrolyte losses.
-          </p>
-
-          <p>
-            These systems can make testing more accessible,
-            but measurements and whole-body extrapolation algorithms
-            are device-specific.
-          </p>
-
-          <p>
-            Treat the result as the estimate produced by that validated
-            system rather than assuming it is identical to laboratory
-            whole-body testing.
+            Adding a reliable value is an optional precision upgrade. EnduroPace can combine
+            it with measured sweat rate to estimate sodium loss.
           </p>
         </div>
       </div>
 
-      <h3>Can I Measure Sweat Sodium at Home?</h3>
-
       <p>
-        A useful Sweat Rate Test can be performed at home with
-        a reliable scale, a known exercise duration, and accurate
-        measurement of fluid consumed.
+        Sweat sodium concentration estimates how much sodium is present in each liter of
+        sweat. EnduroPace expresses this value in <span class="metric">mg/L</span>.
       </p>
 
       <p>
-        Sweat sodium concentration is more difficult.
-        Collecting the sweat sample is only one part of the measurement.
-      </p>
-
-      <p>
-        The sample must also be analyzed for sodium, and the result
-        can be affected by collection location, contamination,
-        evaporation, sample handling, and the analysis technique.
-      </p>
-
-      <div class="note">
-        <strong>Recommended approach</strong>
-
-        <br /><br />
-
-        If you want a quantitative sweat sodium value for EnduroPace
-        Sodium Strategy, use a result from a reputable sports-science
-        laboratory, professional sweat-testing service, or validated
-        consumer measurement system when possible.
-      </div>
-
-      <h3>Regional vs. Whole-Body Values</h3>
-
-      <p>
-        Sweat sodium concentration is not identical everywhere on the body.
-      </p>
-
-      <p>
-        A forearm, chest, back, thigh, or other regional sample may measure
-        differently from the body's average sweat sodium concentration.
-      </p>
-
-      <p>
-        Research has shown that regional measurements can be related
-        to whole-body concentration, but the relationship depends
-        on the collection site and testing method.
-      </p>
-
-      <div class="warning">
-        <strong>
-          Do not enter an arbitrary patch value as a whole-body value
-          unless the testing method supports that interpretation.
-        </strong>
-
-        Whenever possible, use a professionally measured or appropriately
-        normalized whole-body-equivalent result.
-      </div>
-
-      <h3>mmol/L to mg/L</h3>
-
-      <p>
-        Some sweat-testing reports express sodium concentration
-        in millimoles per liter rather than milligrams per liter.
+        This is different from sweat rate. Your Sweat Rate Test estimates how much fluid
+        you lose per hour, but it does not determine how much sodium is present in that sweat.
       </p>
 
       <div class="formula">
-        <strong>Conversion</strong>
-
-        <br /><br />
-
+        <strong>Two separate measurements</strong><br /><br />
+        <span class="metric">Sweat Rate = fluid lost per hour</span><br /><br />
+        <span class="metric">Sweat Sodium Concentration = sodium in each liter of sweat</span><br /><br />
+        When both are known:<br /><br />
         <span class="metric">
-          Sodium mg/L = Sodium mmol/L × 22.99
+          Estimated Sodium Loss (mg/hour) = Sweat Rate (L/hour) × Sweat Sodium Concentration (mg/L)
         </span>
       </div>
 
       <div class="example">
-        <strong>Example</strong>
-
-        <br /><br />
-
-        Sweat sodium result:
-
-        <br />
-
-        <span class="metric">50 mmol/L</span>
-
-        <br /><br />
-
-        Calculation:
-
-        <br />
-
-        <span class="metric">50 × 22.99 = 1,149.5 mg/L</span>
-
-        <br /><br />
-
-        Enter in EnduroPace:
-
-        <br />
-
-        <span class="metric">≈ 1,150 mg/L</span>
+        <strong>Example</strong><br /><br />
+        Sweat rate: <span class="metric">1.2 L/hour</span><br /><br />
+        Sweat sodium concentration: <span class="metric">900 mg/L</span><br /><br />
+        Estimated sodium loss: <span class="metric">1.2 × 900 = 1,080 mg/hour</span>
       </div>
 
       <div class="warning">
-        <strong>Do not estimate sweat sodium from sweat rate alone.</strong>
+        <strong>Estimated sodium loss is not automatically a sodium intake prescription.</strong>
+        EnduroPace keeps estimated loss and planned intake separate so you can build and
+        practice an individualized Race Day strategy.
+      </div>
 
-        Two athletes can lose similar amounts of fluid per hour
-        while having substantially different sweat sodium concentrations.
+      <details class="advanced">
+        <summary>Advanced: How sweat sodium is measured</summary>
+        <div class="advanced-content">
+          <p>
+            Sweat sodium concentration is harder to measure than sweat rate. Collecting the
+            sample is only one part of the process; the sample also has to be analyzed for sodium.
+            Collection location, contamination, evaporation, sample handling, and analysis method
+            can affect the result.
+          </p>
+
+          <div class="test-grid">
+            <div class="mini-card">
+              <h3>Whole-Body Washdown</h3>
+              <p>
+                Whole-body sweat collection is a reference research method used to estimate
+                electrolyte concentration across sweat lost from the entire body.
+              </p>
+              <p>
+                It can provide a strong whole-body estimate, but it requires specialized
+                laboratory procedures and is not practical as a normal home test.
+              </p>
+            </div>
+
+            <div class="mini-card">
+              <h3>Exercise Sweat Patch</h3>
+              <p>
+                An absorbent patch collects sweat from a specific skin location during exercise,
+                and the sample is analyzed for sodium concentration.
+              </p>
+              <p>
+                Sodium concentration varies by body location. A raw regional value should not
+                automatically be treated as whole-body concentration unless the method supports
+                that interpretation or provides a normalized estimate.
+              </p>
+            </div>
+
+            <div class="mini-card">
+              <h3>Pilocarpine Sweat Test</h3>
+              <p>
+                Some professional services use pilocarpine iontophoresis to stimulate sweat from
+                a small skin area while the athlete is at rest, then analyze the sample for sodium.
+              </p>
+              <p>
+                This can provide a practical and repeatable estimate, although it should not be
+                assumed to reproduce every exercise intensity or race condition perfectly.
+              </p>
+            </div>
+
+            <div class="mini-card">
+              <h3>Wearable Sweat Sensors</h3>
+              <p>
+                Some consumer sensors analyze local sweat during exercise and estimate fluid and
+                electrolyte losses. Measurements and whole-body extrapolation are device-specific.
+              </p>
+              <p>
+                Treat the result as the estimate produced by that validated system rather than
+                assuming it is identical to laboratory whole-body testing.
+              </p>
+            </div>
+          </div>
+
+          <h3>Can I measure sweat sodium at home?</h3>
+          <p>
+            A useful Sweat Rate Test can be performed at home with a reliable scale, a known
+            exercise duration, and accurate measurement of fluid consumed. Sweat sodium
+            concentration is more difficult because the sample must also be analyzed for sodium.
+          </p>
+
+          <div class="note">
+            <strong>Recommended approach</strong><br /><br />
+            If you want a quantitative sweat sodium value for EnduroPace, use a result from a
+            reputable sports-science laboratory, professional sweat-testing service, validated
+            patch or sensor, or another reliable measurement system when possible.
+          </div>
+
+          <h3>Regional vs. whole-body values</h3>
+          <p>
+            Sweat sodium concentration is not identical everywhere on the body. A forearm, chest,
+            back, thigh, or other regional sample may differ from the body's average concentration.
+          </p>
+          <p>
+            Regional measurements can be related to whole-body concentration, but the relationship
+            depends on the collection site and testing method.
+          </p>
+
+          <div class="warning">
+            <strong>Do not enter an arbitrary patch value as a whole-body value unless the testing method supports that interpretation.</strong>
+            Whenever possible, use the value or whole-body-equivalent estimate supplied by the
+            validated testing method.
+          </div>
+
+          <h3>mmol/L to mg/L</h3>
+          <p>Some reports express sodium concentration in millimoles per liter rather than milligrams per liter.</p>
+          <div class="formula">
+            <strong>Conversion</strong><br /><br />
+            <span class="metric">Sodium mg/L = Sodium mmol/L × 22.99</span>
+          </div>
+          <div class="example">
+            <strong>Example</strong><br /><br />
+            <span class="metric">50 mmol/L × 22.99 = 1,149.5 mg/L ≈ 1,150 mg/L</span>
+          </div>
+        </div>
+      </details>
+
+      <div class="warning">
+        <strong>Do not estimate sweat sodium from sweat rate alone.</strong>
+        Two athletes can lose similar amounts of fluid per hour while having substantially
+        different sweat sodium concentrations.
       </div>
     </section>
 
