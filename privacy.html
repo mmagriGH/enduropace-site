@@ -214,7 +214,8 @@
   <main>
     <span class="version-badge">Updated for Version 1.5</span>
     <h1>Privacy Policy</h1>
-    <p><strong>Effective date:</strong> September 23, 2026</p>
+    <p><strong>Effective date:</strong> October 22, 2026</p>
+    <!-- Privacy and Analytics Disclosure — October 22, 2026 -->
 
     <section class="hero">
       <h2>Private by design.</h2>
@@ -279,6 +280,35 @@
         When you adopt a supported measurement, EnduroPace preserves source,
         measurement date, import date, and related provenance so the value can be
         distinguished from manually entered or EnduroPace-measured data.
+      </p>
+    </section>
+
+    <section class="section purple-accent">
+      <h2>Planned Garmin Connect Integration — Not Yet Available</h2>
+      <p>
+        GamaCoraggio has applied for Garmin Connect developer access. The direct
+        Garmin integration is not active in the current EnduroPace app. If approved
+        and released, Garmin connection will be optional and require the user's
+        authorization. Depending on the features and approved permissions, the
+        app may request completed activity summaries, workouts, training metrics,
+        heart-rate and recovery data, and other supported wellness information.
+      </p>
+      <p>
+        Garmin data would be used to provide athlete insights and race-planning
+        context, not for advertising, sale to data brokers, or unrelated marketing.
+        We do not plan to include Garmin health or activity measurements in
+        TelemetryDeck analytics events. Direct Garmin connectivity may require
+        a secure cloud service for authentication, access tokens, data delivery,
+        and limited processing. The provider, retention periods and final deletion
+        processes have not been selected; they will be described in this policy
+        before any production Garmin connection becomes available.
+      </p>
+      <p>
+        If Garmin connectivity launches, users will be able to disconnect the
+        account and stop future authorized synchronization. The release policy
+        will explain how already imported data can be removed and how to submit
+        access or deletion requests. Until the feature launches, EnduroPace
+        does not access your Garmin Connect account directly.
       </p>
     </section>
 
@@ -348,27 +378,45 @@
     </section>
 
     <section class="section sweat-accent">
-      <h2>Optional Anonymous Usage Analytics</h2>
+      <h2>Product Usage Analytics (TelemetryDeck)</h2>
       <p>
-        Anonymous product-usage analytics are <strong>enabled by default</strong>
-        to help improve EnduroPace. You can disable or re-enable them at any time
-        in EnduroPace Settings.
+        EnduroPace version 1.5 includes optional product-usage analytics through
+        TelemetryDeck. In the current release, analytics is enabled by default
+        for new installations and can be disabled or re-enabled at any time
+        using More &rarr; Settings &rarr; Anonymous Usage Analytics.
       </p>
       <p>
-        When enabled, EnduroPace sends product-usage events through TelemetryDeck to
-        help improve the app. EnduroPace filters custom event properties through a
-        strict allowlist before they are sent.
+        When enabled, product analytics can include app launches and broad interactions
+        with calculators, Race Day Planning, Performance Lab, fueling and hydration
+        tools, subscriptions, settings, and other features. For example, EnduroPace
+        can record whether a user opened a feature, selected a broad sport category,
+        or completed a workflow. We use this information to understand feature
+        adoption, reliability, and subscription conversion and to improve the app.
       </p>
       <p>
-        Custom event properties do not include race names, saved race locations,
-        race dates and times, body data, performance values, Apple Health values,
-        fuel product names, notes, contact information, or user identifiers.
+        TelemetryDeck receives an anonymized app-installation identifier, event
+        names, approximate event times, app and device metadata, and optional
+        broad event properties. EnduroPace filters custom properties using an
+        allowlist. It is not designed to send race names, saved race locations,
+        free-text notes, precise performance or body measurements, raw Apple
+        Health data, GPS tracks, payment-card details, or contact information
+        as event properties. No identifying account is required for EnduroPace.
       </p>
-      <div class="note">
-        The <strong>Export My Data</strong> and
-        <strong>Delete All EnduroPace Data</strong> actions are intentionally
-        not instrumented as product analytics events.
-      </div>
+      <p>
+        Product-usage events may also count that a local-data export or deletion
+        workflow was started, completed, failed, or cancelled. The contents of
+        exported files and deleted local records are not included in those events.
+      </p>
+      <p>
+        Turning analytics off stops future app-initiated usage events. It does
+        not remove anonymized records previously received by TelemetryDeck.
+        TelemetryDeck manages historical event retention, including archived
+        storage, according to its own published policies. Because events are
+        anonymized, individual historical event deletion may not be available.
+        For details, see
+        <a href="https://telemetrydeck.com/docs/guides/privacy-faq/">TelemetryDeck's privacy FAQ</a>
+        or contact our support team.
+      </p>
     </section>
 
     <section class="section">
@@ -384,9 +432,11 @@
         EnduroPace-owned local data from the device.
       </p>
       <p>
-        Delete All EnduroPace Data does not revoke Apple Health permissions and
-        does not delete App Store subscription or purchase history. Those are
-        managed by Apple.
+        Delete All EnduroPace Data does not revoke Apple Health permissions,
+        delete App Store subscription or purchase history, or remove anonymized
+        usage analytics already received by TelemetryDeck. Apple manages its
+        own Health permissions and App Store records; you can turn off future
+        analytics in EnduroPace Settings.
       </p>
       <p>
         Removing EnduroPace from your device may also remove locally stored app data,
@@ -447,5 +497,6 @@
     <p>&copy; 2026 GamaCoraggio LLC. All rights reserved.</p>
   </footer>
 
+  <!-- GC 2026-10-22 coordinated Garmin + four-app privacy update -->
 </body>
 </html>
