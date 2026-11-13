@@ -3,103 +3,207 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Free running pace converter, min/mile to min/km and km/h, swim pace yards-to-meters converter, and race finish time calculator. No login. No ads.">
-<title>Free Pace & Swim Converter | EnduroPace</title>
+<meta name="description" content="Free Swim, Bike and Run pace calculator: enter any two independent values for distance, time, pace or speed. Convert miles, kilometers, meters and yards instantly. No login or tracking.">
+<title>Swim, Bike & Run Pace Calculator | EnduroPace</title>
 <style>
-:root{color-scheme:dark;--bg:#05090b;--card:#141a1f;--line:#303a40;--text:#f6f8f9;--muted:#afb9bf;--brand:#ff6a00}
+:root{color-scheme:dark;--bg:#05090b;--card:#141a1f;--line:#303a40;--text:#f6f8f9;--muted:#b2bec5;--brand:#ff6a00;--input:#0b1013}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-main,header,footer{max-width:800px;margin:auto;padding:24px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header,main,footer{max-width:860px;margin:auto;padding:24px}
 header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;border-bottom:1px solid var(--line)}
-a{color:var(--brand)}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #ffac6e;outline-offset:2px}
-.brand{font-size:1.6rem;font-weight:800;text-decoration:none;color:var(--text)}.brand span{color:var(--brand)}
-h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.14;margin:.35em 0}
-h2{font-size:1.25rem;margin:0 0 12px}
+.brand{font-size:1.6rem;font-weight:800;letter-spacing:-.025em;text-decoration:none;color:var(--text)}.brand span{color:var(--brand)}
+nav a,a{color:var(--brand)}
+h1{font-size:clamp(2rem,6vw,3.3rem);line-height:1.13;margin:8px 0 12px}
+h2{font-size:1.3rem;margin:0}
 p,small{color:var(--muted)}
-.eyebrow{letter-spacing:.1em;font-size:.76rem;font-weight:800;color:var(--brand)}
+.eyebrow{font-size:.8rem;letter-spacing:.12em;font-weight:800;color:var(--brand)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;margin:20px 0}
+.calc-head{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-bottom:18px}
+button{font:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #ffc095;outline-offset:2px}
+.clear{border:1px solid var(--line);border-radius:12px;padding:9px 16px;background:var(--input);color:var(--brand);font-weight:750}
+.sport-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;background:#080e11;padding:5px;border:1px solid var(--line);border-radius:14px;margin:14px 0 20px}
+.sport-tabs button{border:0;background:transparent;border-radius:10px;color:var(--muted);padding:12px 10px;font-weight:750}
+.sport-tabs button[aria-selected="true"]{background:var(--brand);color:#101112}
+.units{display:flex;align-items:center;justify-content:space-between;gap:14px;border-bottom:1px solid var(--line);padding:0 0 16px}
+.units strong{font-size:.94rem}
+.unit-options{display:flex;gap:4px;padding:4px;background:#080e11;border-radius:12px;border:1px solid var(--line)}
+.unit-options button{border:0;border-radius:9px;min-width:64px;padding:7px 12px;background:transparent;color:var(--muted);font-weight:750}
+.unit-options button[aria-pressed="true"]{background:#f1f5f6;color:#141a1f}
+.units-note{font-size:.85rem;margin:9px 0}
+.metric{display:grid;grid-template-columns:minmax(140px,1fr) minmax(110px,170px) minmax(52px,78px);gap:10px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+.metric:last-of-type{border-bottom:0}
+.metric label{font-weight:750;display:flex;align-items:center;gap:12px}
+.metric-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:#29343c;color:var(--brand);font-weight:850}
+.metric input{min-width:0;width:100%;font-size:1.23rem;font-variant-numeric:tabular-nums;text-align:right;font-weight:750;padding:9px 10px;background:var(--input);border:1px solid #728088;border-radius:9px;color:var(--text)}
+.metric .suffix{font-weight:650;color:var(--muted);font-size:.91rem}
+.metric.entered input{border-color:var(--brand)}
+.guidance{font-size:.93rem;margin:14px 0 2px}
+.note{font-size:.83rem;margin:9px 0 0}
+.section-heading{font-size:1.25rem;font-weight:750;margin:0 0 12px}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.card{padding:22px;border:1px solid var(--line);background:var(--card);border-radius:18px;margin:22px 0}
-label{display:block;font-weight:650;margin-bottom:6px}
-input,select{width:100%;background:#0b1013;border:1px solid #68757c;color:var(--text);border-radius:10px;padding:12px;font-size:1.05rem;min-height:48px}
-.output{background:#080e11;border-radius:12px;padding:12px 16px;border:1px solid var(--line);min-width:0}
-.output .number{font-size:1.65rem;line-height:1.2;font-variant-numeric:tabular-nums;font-weight:750;overflow-wrap:anywhere}
-.output .unit{font-size:.82rem;color:var(--muted)}
-.notice{font-size:.91rem;margin:10px 0 0}
-button,.cta{border:0;background:var(--brand);color:#101112;border-radius:99px;padding:13px 19px;font-weight:800;font-size:1rem;cursor:pointer;display:inline-block;text-decoration:none}
-footer{margin-top:30px;border-top:1px solid var(--line);font-size:.85rem}
-@media(max-width:560px){.grid{grid-template-columns:1fr}.card{padding:18px}}
+label.basic{display:block;font-weight:700;margin:0 0 7px}
+.grid input,.grid select{width:100%;background:var(--input);border:1px solid #68757c;color:var(--text);border-radius:10px;padding:12px;font-size:1.05rem;min-height:48px}
+.output{background:#080e11;border-radius:12px;padding:15px;border:1px solid var(--line);margin-top:16px}
+.output strong{font-size:1.65rem;display:block;font-variant-numeric:tabular-nums}
+.cta{display:inline-block;background:var(--brand);color:#151515;font-weight:800;text-decoration:none;border-radius:100px;padding:12px 20px}
+footer{margin-top:28px;border-top:1px solid var(--line);font-size:.85rem}
+@media(max-width:540px){
+  header,main,footer{padding:17px}
+  .card{padding:17px}
+  .metric{grid-template-columns:minmax(105px,1fr) minmax(94px,125px) minmax(42px,65px);gap:7px}
+  .metric label{gap:6px;font-size:.92rem}
+  .metric-icon{width:27px;height:27px}
+  .metric input{font-size:1rem;padding:9px 6px}
+  .metric .suffix{font-size:.78rem}
+  .grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
-<header><a class="brand" href="index.html">Enduro<span>Pace</span></a><nav><a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a></nav></header>
+<header>
+<a class="brand" href="index.html">Enduro<span>Pace</span></a>
+<nav><a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a></nav>
+</header>
 <main>
-<p class="eyebrow">FREE · NO LOGIN · NO TRACKING</p>
-<h1>Every pace. Every split. Instantly.</h1>
-<p>Convert running pace, swimming yards and meters, and projected race time without completing a race plan first. Everything runs in your browser.</p>
+<p class="eyebrow">ALWAYS FREE · NO LOGIN · NO TRACKING</p>
+<h1>One calculator. Three sports.</h1>
+<p>Enter any two independent values to calculate the others instantly. Switch miles, kilometers, meters or yards without changing your underlying workout.</p>
 
-<section class="card" aria-labelledby="runheading">
-<h2 id="runheading">Running pace & speed</h2>
-<div class="grid">
-<div><label for="run">Your pace (m:ss)</label><input id="run" inputmode="numeric" value="8:00" autocomplete="off"></div>
-<div><label for="rununit">Pace is per</label><select id="rununit"><option value="mile">Mile</option><option value="km">Kilometer</option></select></div>
-</div>
-<div class="grid" style="margin-top:16px">
-<div class="output"><div class="unit">Equivalent pace</div><div class="number" id="runresult" aria-live="polite">4:58 /km</div></div>
-<div class="output"><div class="unit">Speed</div><div class="number" id="speedresult" aria-live="polite">12.07 km/h</div></div>
-</div>
-<p class="notice">Pure pace conversion, not a performance prediction.</p>
-</section>
+<section class="card" aria-labelledby="calchead">
+  <div class="calc-head">
+    <h2 id="calchead">Pace calculator</h2>
+    <button type="button" class="clear" id="clear" aria-label="Clear current sport inputs">Clear</button>
+  </div>
 
-<section class="card" aria-labelledby="swimheading">
-<h2 id="swimheading">Swimming yards ↔ meters</h2>
-<div class="grid">
-<div><label for="swim">Pace per 100 (m:ss)</label><input id="swim" inputmode="numeric" value="1:30" autocomplete="off"></div>
-<div><label for="swimunit">Pace is per</label><select id="swimunit"><option value="yards">100 yards</option><option value="meters">100 meters</option></select></div>
-</div>
-<div class="output" style="margin-top:16px"><div class="unit">Equivalent pace</div><div class="number" id="swimresult" aria-live="polite">1:38 /100m</div></div>
-<p class="notice">Distance-only conversion. Short-course meters and yards also differ in turns; a time converted here is not a guaranteed pool-course equivalent.</p>
+  <div class="sport-tabs" role="tablist" aria-label="Choose sport">
+    <button type="button" role="tab" data-sport="swim" aria-selected="false" aria-controls="calculator-panel">Swim</button>
+    <button type="button" role="tab" data-sport="bike" aria-selected="false" aria-controls="calculator-panel">Bike</button>
+    <button type="button" role="tab" data-sport="run" aria-selected="true" aria-controls="calculator-panel">Run</button>
+  </div>
+
+  <div id="calculator-panel" role="tabpanel" aria-label="Linked distance, time, pace and speed">
+    <div class="units">
+      <strong>Distance units</strong>
+      <div class="unit-options" role="group" aria-label="Distance and pace units">
+        <button type="button" id="unit-a" aria-pressed="true">mi</button>
+        <button type="button" id="unit-b" aria-pressed="false">km</button>
+      </div>
+    </div>
+    <p class="units-note">Distance, pace and speed change together. Elapsed time stays the same.</p>
+
+    <div class="metric" data-row="distance">
+      <label for="calc-distance"><span class="metric-icon" aria-hidden="true">↗</span>Distance</label>
+      <input type="text" inputmode="decimal" id="calc-distance" autocomplete="off" spellcheck="false" aria-describedby="unit-distance">
+      <span class="suffix" id="unit-distance">mi</span>
+    </div>
+    <div class="metric" data-row="time">
+      <label for="calc-time"><span class="metric-icon" aria-hidden="true">◴</span>Time</label>
+      <input type="text" inputmode="text" id="calc-time" autocomplete="off" spellcheck="false" aria-describedby="unit-time">
+      <span class="suffix" id="unit-time">h:m:s</span>
+    </div>
+    <div class="metric" data-row="pace">
+      <label for="calc-pace"><span class="metric-icon" aria-hidden="true">◷</span>Pace</label>
+      <input type="text" inputmode="text" id="calc-pace" autocomplete="off" spellcheck="false" aria-describedby="unit-pace">
+      <span class="suffix" id="unit-pace">/mi</span>
+    </div>
+    <div class="metric" data-row="speed">
+      <label for="calc-speed"><span class="metric-icon" aria-hidden="true">➜</span>Speed</label>
+      <input type="text" inputmode="decimal" id="calc-speed" autocomplete="off" spellcheck="false" aria-describedby="unit-speed">
+      <span class="suffix" id="unit-speed">mi/h</span>
+    </div>
+    <p class="guidance" id="guidance" role="status" aria-live="polite">All values are linked.</p>
+    <p class="note" id="swim-note" hidden>Swim pace is per 100 m or per 100 yd. This is a mathematical conversion; pool length and turns may affect actual performance.</p>
+  </div>
 </section>
 
 <section class="card" aria-labelledby="raceheading">
-<h2 id="raceheading">Race finish-time projection</h2>
-<div class="grid">
-<div><label for="racepace">Running pace (m:ss per km)</label><input id="racepace" inputmode="numeric" value="5:00" autocomplete="off"></div>
-<div><label for="racedistance">Race distance</label><select id="racedistance"><option value="5">5K</option><option value="10">10K</option><option value="21.0975" selected>Half Marathon</option><option value="42.195">Marathon</option></select></div>
-</div>
-<div class="output" style="margin-top:16px"><div class="unit">Even-pace projected finish</div><div class="number" id="raceresult" aria-live="polite">1:45:29</div></div>
-<p class="notice">Assumes a constant pace and makes no claim about achievable performance.</p>
+  <h2 class="section-heading" id="raceheading">Bonus: Race finish-time projection</h2>
+  <div class="grid">
+    <div><label class="basic" for="racepace">Running pace (m:ss per km)</label>
+      <input id="racepace" inputmode="text" value="5:00" autocomplete="off"></div>
+    <div><label class="basic" for="racedistance">Race distance</label>
+      <select id="racedistance">
+        <option value="5">5K</option><option value="10">10K</option>
+        <option value="21.0975" selected>Half Marathon</option><option value="42.195">Marathon</option>
+      </select>
+    </div>
+  </div>
+  <div class="output"><small>Even-pace projected finish</small><strong id="raceresult" role="status" aria-live="polite">1:45:29</strong></div>
+  <p class="note">Assumes constant pacing. This is a mathematical estimate, not a fitness or performance prediction.</p>
 </section>
 
 <p><a class="cta" href="https://apps.apple.com/us/app/enduropace/id6779810332">Plan your race with EnduroPace</a></p>
-<p>In the app, go beyond simple conversions: build a Race Day Plan, organize fueling and hydration, and review performance-informed planning tools.</p>
+<p>The EnduroPace app includes the same calculator, interval planning, fueling and hydration strategies, and race-day tools.</p>
 </main>
-<footer><p>Made by GamaCoraggio LLC. No personal inputs are sent to a server by this calculator. © 2026 GamaCoraggio LLC.</p></footer>
+<footer><p>Made by GamaCoraggio LLC. Calculations run locally in your browser. No inputs are transmitted by this page. © 2026 GamaCoraggio LLC.</p></footer>
+
+<script src="pace-calculator-engine.js"></script>
 <script>
 "use strict";
-const $=id=>document.getElementById(id);
-function parseClock(text){
- const parts=text.trim().split(":");
- if(parts.length<1||parts.length>3||!parts.every(x=>/^\d+$/.test(x)))return null;
- const n=parts.map(Number);
- if((n.length>1&&n[n.length-1]>=60)||(n.length===3&&n[1]>=60))return null;
- const v=n.reduce((sum,x)=>sum*60+x,0);
- return Number.isFinite(v)&&v>0?v:null;
+const engine = window.EnduroPacePace;
+const $ = id => document.getElementById(id);
+const states = {
+  swim: engine.start("swim"), bike: engine.start("bike"), run: engine.start("run")
+};
+let activeSport = "run";
+function state() { return states[activeSport]; }
+function render(editingField = null) {
+  const current = state(), opts = engine.sports[activeSport].units;
+  document.querySelectorAll("[data-sport]").forEach(button => {
+    const selected = button.dataset.sport === activeSport;
+    button.setAttribute("aria-selected", String(selected));
+    button.tabIndex = selected ? 0 : -1;
+  });
+  [ "unit-a", "unit-b" ].forEach((id, index) => {
+    const button = $(id), value = opts[index];
+    button.textContent = value;
+    button.dataset.unit = value;
+    button.setAttribute("aria-pressed", String(current.unit === value));
+  });
+  engine.fields.forEach(field => {
+    const input = $("calc-" + field);
+    if (field !== editingField) input.value = engine.text(current, field);
+    $("unit-" + field).textContent = engine.suffix(current, field);
+    document.querySelector('[data-row="' + field + '"]').classList.toggle("entered", !!current.inputs[field]);
+  });
+  $("guidance").textContent = engine.guidance(current);
+  $("swim-note").hidden = activeSport !== "swim";
 }
-function clock(v){
- if(!Number.isFinite(v)||v<0)return "—";
- const n=Math.round(v),m=Math.floor(n/60),s=n%60,h=Math.floor(m/60);
- return h? h+":"+String(m%60).padStart(2,"0")+":"+String(s).padStart(2,"0") : m+":"+String(s).padStart(2,"0");
+document.querySelectorAll("[data-sport]").forEach(button => {
+  button.addEventListener("click", () => { activeSport = button.dataset.sport; render(); });
+  button.addEventListener("keydown", event => {
+    if (!["ArrowRight", "ArrowLeft", "Home", "End"].includes(event.key)) return;
+    const names = ["swim", "bike", "run"];
+    const index = names.indexOf(activeSport);
+    const next = event.key === "Home" ? 0 : event.key === "End" ? 2
+      : (index + (event.key === "ArrowRight" ? 1 : 2)) % 3;
+    activeSport = names[next];
+    render();
+    document.querySelector('[data-sport="' + activeSport + '"]').focus();
+    event.preventDefault();
+  });
+});
+[ "unit-a", "unit-b" ].forEach(id => {
+  $(id).addEventListener("click", () => { engine.changeUnit(state(), $(id).dataset.unit); render(); });
+});
+engine.fields.forEach(field => {
+  $("calc-" + field).addEventListener("input", event => {
+    engine.edit(state(), field, event.target.value);
+    render(field);
+  });
+});
+$("clear").addEventListener("click", () => { engine.clear(state()); render(); $("calc-distance").focus(); });
+
+function renderRace() {
+  const pace = engine.parseClock($("racepace").value), distance = Number($("racedistance").value);
+  $("raceresult").textContent = pace && Number.isFinite(distance) && distance > 0
+    ? engine.clock(pace * distance) : "Enter a valid pace";
 }
-function render(){
- const run=parseClock($("run").value), mile=$("rununit").value==="mile";
- $("runresult").textContent=run?clock(run*(mile?1/1.609344:1.609344))+(mile?" /km":" /mi"):"Enter a valid pace";
- $("speedresult").textContent=run?(3600*(mile?1.609344:1)/run).toFixed(2)+" km/h":"—";
- const swim=parseClock($("swim").value),yards=$("swimunit").value==="yards";
- $("swimresult").textContent=swim?clock(swim*(yards?1/0.9144:0.9144))+(yards?" /100m":" /100yd"):"Enter a valid pace";
- const pace=parseClock($("racepace").value),km=Number($("racedistance").value);
- $("raceresult").textContent=pace?clock(pace*km):"Enter a valid pace";
-}
-document.querySelectorAll("input,select").forEach(el=>el.addEventListener("input",render));
+$("racepace").addEventListener("input", renderRace);
+$("racedistance").addEventListener("change", renderRace);
 render();
+renderRace();
 </script>
-</body></html>
+</body>
+</html>
