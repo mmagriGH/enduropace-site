@@ -118,19 +118,19 @@ footer{margin-top:28px;border-top:1px solid var(--line);font-size:.85rem}
 </section>
 
 <section class="card" aria-labelledby="raceheading">
-  <h2 class="section-heading" id="raceheading">Bonus: Race finish-time projection</h2>
+  <h2 class="section-heading" id="raceheading">Bonus: Run finish-time projection</h2>
+  <p class="units-note" id="race-context">Sport, distance units and pace units follow the calculator above.</p>
   <div class="grid">
-    <div><label class="basic" for="racepace">Running pace (m:ss per km)</label>
-      <input id="racepace" inputmode="text" value="5:00" autocomplete="off"></div>
+    <div><label class="basic" id="racepace-label" for="racepace">Running pace (m:ss per mi)</label>
+      <input id="racepace" inputmode="text" value="8:00" autocomplete="off" spellcheck="false" aria-describedby="race-context"></div>
     <div><label class="basic" for="racedistance">Race distance</label>
-      <select id="racedistance">
-        <option value="5">5K</option><option value="10">10K</option>
-        <option value="21.0975" selected>Half Marathon</option><option value="42.195">Marathon</option>
+      <select id="racedistance" aria-describedby="race-context">
+        <option value="half" selected>Half marathon · 13.11 mi</option>
       </select>
     </div>
   </div>
-  <div class="output"><small>Even-pace projected finish</small><strong id="raceresult" role="status" aria-live="polite">1:45:29</strong></div>
-  <p class="note">Assumes constant pacing. This is a mathematical estimate, not a fitness or performance prediction.</p>
+  <div class="output"><small>Even-pace projected finish</small><strong id="raceresult" role="status" aria-live="polite">1:44:52</strong></div>
+  <p class="note" id="race-note">Assumes a constant pace over the selected distance. Mathematical estimate only; not a performance prediction.</p>
 </section>
 
 <p><a class="cta" href="https://apps.apple.com/us/app/enduropace/id6779810332">Plan your race with EnduroPace</a></p>
@@ -146,8 +146,18 @@ const $ = id => document.getElementById(id);
 const states = {
   swim: engine.start("swim"), bike: engine.start("bike"), run: engine.start("run")
 };
+// Each sport keeps an independent projection pace, selected race and canonical
+// rate. Unit changes convert the visible pace without rounding the model.
+const projections = Object.fromEntries(Object.entries(engine.projectionDefaults).map(([sport, config]) => [
+  sport, {
+    paceText: config.pace,
+    secondsPerMeter: engine.projectionRate(config.pace, sport, engine.sports[sport].defaultUnit),
+    raceID: config.raceID
+  }
+]));
 let activeSport = "run";
 function state() { return states[activeSport]; }
+function projection() { return projections[activeSport]; }
 function render(editingField = null) {
   const current = state(), opts = engine.sports[activeSport].units;
   document.querySelectorAll("[data-sport]").forEach(button => {
@@ -169,6 +179,7 @@ function render(editingField = null) {
   });
   $("guidance").textContent = engine.guidance(current);
   $("swim-note").hidden = activeSport !== "swim";
+  renderRace();
 }
 document.querySelectorAll("[data-sport]").forEach(button => {
   button.addEventListener("click", () => { activeSport = button.dataset.sport; render(); });
@@ -185,7 +196,16 @@ document.querySelectorAll("[data-sport]").forEach(button => {
   });
 });
 [ "unit-a", "unit-b" ].forEach(id => {
-  $(id).addEventListener("click", () => { engine.changeUnit(state(), $(id).dataset.unit); render(); });
+  $(id).addEventListener("click", () => {
+    const nextUnit = $(id).dataset.unit, current = state(), p = projection();
+    if (current.unit !== nextUnit) {
+      engine.changeUnit(current, nextUnit);
+      // Preserve canonical seconds per meter, not the rounded label.
+      p.paceText = p.secondsPerMeter == null
+        ? "" : engine.projectionPace(p.secondsPerMeter, activeSport, nextUnit);
+    }
+    render();
+  });
 });
 engine.fields.forEach(field => {
   $("calc-" + field).addEventListener("input", event => {
@@ -195,15 +215,47 @@ engine.fields.forEach(field => {
 });
 $("clear").addEventListener("click", () => { engine.clear(state()); render(); $("calc-distance").focus(); });
 
-function renderRace() {
-  const pace = engine.parseClock($("racepace").value), distance = Number($("racedistance").value);
-  $("raceresult").textContent = pace && Number.isFinite(distance) && distance > 0
-    ? engine.clock(pace * distance) : "Enter a valid pace";
+function renderRaceResult() {
+  const calculated = engine.raceProjection(activeSport, projection().raceID, projection().secondsPerMeter);
+  $("raceresult").textContent = calculated ? calculated.clock : "Enter a valid pace";
 }
-$("racepace").addEventListener("input", renderRace);
-$("racedistance").addEventListener("change", renderRace);
+function renderRace() {
+  const sportLabels = { swim: "Swim", bike: "Bike", run: "Run" };
+  const paceLabels = { swim: "Swimming", bike: "Cycling", run: "Running" };
+  const current = state(), p = projection();
+  $("raceheading").textContent = "Bonus: " + sportLabels[activeSport] + " finish-time projection";
+  const basis = activeSport === "swim" ? "per 100 " : "per ";
+  $("racepace-label").textContent = paceLabels[activeSport] + " pace (m:ss " + basis + current.unit + ")";
+  $("race-context").textContent =
+    "Showing " + sportLabels[activeSport].toLowerCase() + " distances in " + current.unit +
+    ". Changing units above converts pace and distance here automatically.";
+
+  const select = $("racedistance");
+  select.replaceChildren();
+  engine.racePresets[activeSport].forEach(race => {
+    const option = document.createElement("option");
+    option.value = race.id;
+    option.textContent = engine.raceDistanceLabel(race, current.unit);
+    select.append(option);
+  });
+  select.value = p.raceID;
+  $("racepace").value = p.paceText;
+  $("race-note").textContent = activeSport === "swim"
+    ? "Assumes a steady swim pace. Open-water conditions, pool turns and transitions are not included."
+    : "Assumes a constant pace over the selected distance. Mathematical estimate only; not a performance prediction.";
+  renderRaceResult();
+}
+$("racepace").addEventListener("input", event => {
+  const p = projection();
+  p.paceText = event.target.value;
+  p.secondsPerMeter = engine.projectionRate(p.paceText, activeSport, state().unit);
+  renderRaceResult();
+});
+$("racedistance").addEventListener("change", event => {
+  projection().raceID = event.target.value;
+  renderRaceResult();
+});
 render();
-renderRace();
 </script>
 </body>
 </html>
