@@ -48,7 +48,7 @@
   const projectionDefaults = {
     swim: { pace: "1:40", raceID: "olympic" },
     bike: { pace: "3:00", raceID: "olympic" },
-    run:  { pace: "8:00", raceID: "half" }
+    run:  { pace: "6:52", raceID: "half" }
   };
   const fields = ["distance", "time", "pace", "speed"];
 
