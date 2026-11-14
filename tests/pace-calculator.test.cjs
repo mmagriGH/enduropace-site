@@ -88,3 +88,70 @@ test("invalid values are not treated as valid measurements", () => {
   assert.equal(calc.solve(s).timeSeconds, null);
   assert.equal(calc.solve(s).complete, false);
 });
+
+
+test("website defaults to miles for Run and Bike and yards for Swim", () => {
+  assert.equal(calc.start("run").unit, "mi");
+  assert.equal(calc.start("bike").unit, "mi");
+  assert.equal(calc.start("swim").unit, "yd");
+  assert.equal(calc.text(calc.start("swim"), "distance"), "500");
+  assert.equal(calc.text(calc.start("bike"), "distance"), "25");
+});
+
+test("each sport offers only race-appropriate distance presets", () => {
+  const swimIDs = calc.racePresets.swim.map(r => r.id);
+  const bikeIDs = calc.racePresets.bike.map(r => r.id);
+  const runIDs = calc.racePresets.run.map(r => r.id);
+  assert.ok(swimIDs.includes("olympic"));
+  assert.ok(bikeIDs.includes("century"));
+  assert.ok(runIDs.includes("marathon"));
+  assert.ok(!swimIDs.includes("marathon"));
+  assert.ok(!bikeIDs.includes("marathon"));
+  for (const sport of ["swim", "bike", "run"]) {
+    assert.ok(calc.racePresets[sport].every(r => Number.isFinite(r.meters) && r.meters > 0));
+    assert.ok(calc.racePresets[sport].some(r => r.id === calc.projectionDefaults[sport].raceID));
+  }
+});
+
+test("swim projection uses pace per 100 yards, not per yard", () => {
+  const pace = calc.projectionRate("1:40", "swim", "yd");
+  assert.equal(calc.raceProjection("swim", "pool500", pace).clock, "8:20");
+  assert.equal(calc.raceProjection("swim", "pool100", pace).clock, "1:40");
+  assert.equal(calc.projectionPace(pace, "swim", "m"), "1:49");
+  assert.match(calc.raceDistanceLabel(calc.racePresets.swim[0], "yd"), /100 yd/);
+  assert.match(calc.raceDistanceLabel(calc.racePresets.swim[0], "m"), /91 m/);
+});
+
+test("bike projection uses selected unit rather than hard-coded run kilometers", () => {
+  const pace = calc.projectionRate("3:00", "bike", "mi");
+  assert.equal(calc.raceProjection("bike", "tt10", pace).clock, "30:00");
+  assert.equal(calc.projectionPace(pace, "bike", "km"), "1:52");
+  assert.match(calc.raceDistanceLabel(calc.racePresets.bike.find(r => r.id === "olympic"), "mi"), /24\.85 mi/);
+  assert.match(calc.raceDistanceLabel(calc.racePresets.bike.find(r => r.id === "olympic"), "km"), /40 km/);
+});
+
+test("run projection uses selected mile and kilometer pace units", () => {
+  const pace = calc.projectionRate("8:00", "run", "mi");
+  const marathon = calc.raceProjection("run", "marathon", pace);
+  assert.ok(marathon.seconds > 3 * 3600);
+  assert.equal(calc.projectionPace(pace, "run", "km"), "4:58");
+  assert.match(calc.raceDistanceLabel(calc.racePresets.run.find(r => r.id === "5k"), "mi"), /3\.11 mi/);
+  assert.match(calc.raceDistanceLabel(calc.racePresets.run.find(r => r.id === "5k"), "km"), /5 km/);
+});
+
+test("canonical race projection is identical across units and invalid input remains invalid", () => {
+  for (const sport of ["swim", "bike", "run"]) {
+    const initialUnit = calc.start(sport).unit;
+    const original = calc.projectionRate(calc.projectionDefaults[sport].pace, sport, initialUnit);
+    const raceID = calc.projectionDefaults[sport].raceID;
+    const initial = calc.raceProjection(sport, raceID, original);
+    const otherUnit = calc.sports[sport].units.find(x => x !== initialUnit);
+    const converted = calc.projectionPace(original, sport, otherUnit);
+    assert.ok(calc.parseClock(converted) > 0);
+    assert.equal(calc.raceProjection(sport, raceID, original).seconds, initial.seconds);
+  }
+  assert.equal(calc.projectionRate("1:60", "swim", "yd"), null);
+  assert.equal(calc.raceProjection("swim", "olympic", null), null);
+  assert.equal(calc.raceProjection("run", "olympic", 0.5), null);
+  assert.equal(calc.projectionRate("5:00", "run", "yd"), null);
+});
