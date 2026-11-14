@@ -21,6 +21,7 @@ test("all five independent pairs yield identical distance/time/rate", () => {
   ];
   for (const [a, av, b, bv] of cases) {
     const s = calc.start("bike", false);
+    calc.changeUnit(s, "km"); // Explicit metric fixture; website now defaults to miles.
     calc.edit(s, a, av); calc.edit(s, b, bv);
     assert.equal(calc.solve(s).complete, true, a + " + " + b);
     assert.ok(Math.abs(calc.solve(s).distanceMeters - 10000) < 0.001);
