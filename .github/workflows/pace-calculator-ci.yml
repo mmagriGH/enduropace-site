@@ -1,0 +1,44 @@
+name: Pace calculator verification
+
+on:
+  pull_request:
+    paths:
+      - 'pace-calculator.html'
+      - 'pace-calculator-engine.js'
+      - 'tests/pace-calculator.test.cjs'
+      - '.github/workflows/pace-calculator-ci.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'pace-calculator.html'
+      - 'pace-calculator-engine.js'
+      - 'tests/pace-calculator.test.cjs'
+      - '.github/workflows/pace-calculator-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Linked calculator regression and JS syntax
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify JavaScript syntax
+        run: |
+          node --check pace-calculator-engine.js
+          node --check tests/pace-calculator.test.cjs
+      - name: Run math and state tests
+        run: node --test tests/pace-calculator.test.cjs
+      - name: Check site calculator dependencies and privacy
+        run: |
+          test -f pace-calculator.html
+          grep -q 'src="pace-calculator-engine.js"' pace-calculator.html
+          grep -q 'data-sport="swim"' pace-calculator.html
+          grep -q 'data-sport="bike"' pace-calculator.html
+          grep -q 'data-sport="run"' pace-calculator.html
