@@ -11,9 +11,44 @@
   "use strict";
   const units = { mi: 1609.344, km: 1000, m: 1, yd: 0.9144 };
   const sports = {
-    swim: { units: ["m", "yd"], defaultUnit: "m", distance: "1500", time: "30:00" },
-    bike: { units: ["mi", "km"], defaultUnit: "km", distance: "40", time: "1:00:00" },
+    swim: { units: ["yd", "m"], defaultUnit: "yd", distance: "500", time: "8:20" },
+    bike: { units: ["mi", "km"], defaultUnit: "mi", distance: "25", time: "1:15:00" },
     run:  { units: ["mi", "km"], defaultUnit: "mi", distance: "26.219", time: "3:00:00" }
+  };
+
+  // Canonical race distances are meters. Displayed distances follow the
+  // athlete's currently selected unit, without changing the actual course.
+  // Keep the catalog sport-specific: no marathon option for Swim or Bike.
+  const racePresets = {
+    swim: [
+      { id: "pool100", title: "Pool swim · 100 yd", meters: 100 * units.yd },
+      { id: "pool500", title: "Pool swim · 500 yd", meters: 500 * units.yd },
+      { id: "sprint", title: "Sprint triathlon swim", meters: 750 },
+      { id: "olympic", title: "Olympic triathlon swim", meters: 1500 },
+      { id: "half", title: "70.3 triathlon swim", meters: 1.2 * units.mi },
+      { id: "full", title: "Full-distance triathlon swim", meters: 2.4 * units.mi }
+    ],
+    bike: [
+      { id: "tt10", title: "10-mile time trial", meters: 10 * units.mi },
+      { id: "sprint", title: "Sprint triathlon bike", meters: 20000 },
+      { id: "olympic", title: "Olympic triathlon bike", meters: 40000 },
+      { id: "half", title: "70.3 triathlon bike", meters: 56 * units.mi },
+      { id: "full", title: "Full-distance triathlon bike", meters: 112 * units.mi },
+      { id: "century", title: "Century ride", meters: 100 * units.mi }
+    ],
+    run: [
+      { id: "mile", title: "1-mile run", meters: units.mi },
+      { id: "5k", title: "5K", meters: 5000 },
+      { id: "10k", title: "10K", meters: 10000 },
+      { id: "half", title: "Half marathon", meters: 21097.5 },
+      { id: "marathon", title: "Marathon", meters: 42195 }
+    ]
+  };
+
+  const projectionDefaults = {
+    swim: { pace: "1:40", raceID: "olympic" },
+    bike: { pace: "3:00", raceID: "olympic" },
+    run:  { pace: "8:00", raceID: "half" }
   };
   const fields = ["distance", "time", "pace", "speed"];
 
@@ -65,6 +100,39 @@
       default: return null;
     }
     return Number.isFinite(result) && result > 0 ? result : null;
+  }
+
+  function paceBasisMeters(sport, unit) {
+    if (!sports[sport] || !sports[sport].units.includes(unit)) return null;
+    return units[unit] * (sport === "swim" ? 100 : 1);
+  }
+
+  function projectionRate(paceText, sport, unit) {
+    const seconds = parseClock(paceText), distance = paceBasisMeters(sport, unit);
+    return seconds !== null && distance ? seconds / distance : null;
+  }
+
+  function projectionPace(rateSecondsPerMeter, sport, unit) {
+    const distance = paceBasisMeters(sport, unit);
+    return rateSecondsPerMeter > 0 && Number.isFinite(rateSecondsPerMeter) && distance
+      ? clock(rateSecondsPerMeter * distance) : "";
+  }
+
+  function raceDistanceLabel(race, unit) {
+    if (!race || !units[unit] || !Number.isFinite(race.meters)) return "";
+    const d = race.meters / units[unit];
+    const digits = unit === "m" || unit === "yd" ? 0 : 2;
+    return race.title + " · " + new Intl.NumberFormat("en-US", {
+      maximumFractionDigits: digits
+    }).format(d) + " " + unit;
+  }
+
+  function raceProjection(sport, raceID, rateSecondsPerMeter) {
+    const race = racePresets[sport]?.find(item => item.id === raceID);
+    if (!race || !(rateSecondsPerMeter > 0) || !Number.isFinite(rateSecondsPerMeter)) return null;
+    const seconds = race.meters * rateSecondsPerMeter;
+    return Number.isFinite(seconds) && seconds > 0 && seconds <= Number.MAX_SAFE_INTEGER
+      ? { seconds, clock: clock(seconds), meters: race.meters, raceID: race.id } : null;
   }
 
   function start(sport, example = true) {
@@ -181,5 +249,9 @@
       : "Enter two independent values, such as distance and time, distance and pace, or time and speed.";
   }
 
-  return { start, edit, solve, text, changeUnit, clear, suffix, guidance, parseClock, clock, sports, fields };
+  return {
+    start, edit, solve, text, changeUnit, clear, suffix, guidance,
+    parseClock, clock, sports, fields, racePresets, projectionDefaults,
+    paceBasisMeters, projectionRate, projectionPace, raceDistanceLabel, raceProjection
+  };
 });
