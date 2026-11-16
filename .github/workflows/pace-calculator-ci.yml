@@ -38,7 +38,7 @@ jobs:
       - name: Check site calculator dependencies and privacy
         run: |
           test -f pace-calculator.html
-          grep -q 'src="pace-calculator-engine.js"' pace-calculator.html
+          grep -q 'src="pace-calculator-engine.js' pace-calculator.html
           grep -q 'data-sport="swim"' pace-calculator.html
           grep -q 'data-sport="bike"' pace-calculator.html
           grep -q 'data-sport="run"' pace-calculator.html
