@@ -47,10 +47,12 @@
 
   const projectionDefaults = {
     swim: { pace: "1:40", raceID: "olympic" },
-    bike: { pace: "3:00", raceID: "olympic" },
+    bike: { speed: "20", raceID: "olympic" },
     run:  { pace: "6:52", raceID: "half" }
   };
   const fields = ["distance", "time", "pace", "speed"];
+  const visibleFields = sport => sport === "bike"
+    ? ["distance", "time", "speed"] : fields;
 
   function parseClock(text) {
     const parts = String(text).trim().split(":");
@@ -72,7 +74,7 @@
   }
 
   function number(text) {
-    const trimmed = String(text).trim();
+    const trimmed = String(text).trim().replace(",", ".");
     if (!/^(?:\d+(?:\.\d*)?|\.\d+)$/.test(trimmed)) return null;
     const result = Number(trimmed);
     return Number.isFinite(result) && result > 0 ? result : null;
@@ -116,6 +118,19 @@
     const distance = paceBasisMeters(sport, unit);
     return rateSecondsPerMeter > 0 && Number.isFinite(rateSecondsPerMeter) && distance
       ? clock(rateSecondsPerMeter * distance) : "";
+  }
+
+  // Cycling projections use distance ÷ speed, never minutes per mile.
+  function projectionSpeedRate(speedText, unit) {
+    if (!sports.bike.units.includes(unit)) return null;
+    const speed = number(speedText);
+    return speed === null ? null : 3600 / (speed * units[unit]);
+  }
+
+  function projectionSpeed(rateSecondsPerMeter, unit) {
+    if (!sports.bike.units.includes(unit) || !(rateSecondsPerMeter > 0) ||
+        !Number.isFinite(rateSecondsPerMeter)) return "";
+    return decimal(3600 / (rateSecondsPerMeter * units[unit]), 2);
   }
 
   function raceDistanceLabel(race, unit) {
@@ -241,6 +256,9 @@
   }
 
   function guidance(state) {
+    if (state.sport === "bike") return solve(state).complete
+      ? "Distance, time and speed stay linked. Edit any value to recalculate."
+      : "Enter two values: distance and time, distance and speed, or time and speed.";
     if (state.anchors.length === 2 && state.anchors.every(x => x === "pace" || x === "speed")) {
       return "Pace and speed describe the same rate. Enter distance or time to calculate the full workout.";
     }
@@ -251,7 +269,8 @@
 
   return {
     start, edit, solve, text, changeUnit, clear, suffix, guidance,
-    parseClock, clock, sports, fields, racePresets, projectionDefaults,
-    paceBasisMeters, projectionRate, projectionPace, raceDistanceLabel, raceProjection
+    parseClock, clock, sports, fields, visibleFields, racePresets, projectionDefaults,
+    paceBasisMeters, projectionRate, projectionPace, projectionSpeedRate, projectionSpeed,
+    raceDistanceLabel, raceProjection
   };
 });
