@@ -91,6 +91,31 @@ test("invalid values are not treated as valid measurements", () => {
 });
 
 
+test("Bike shows distance, time and speed (no pace field)", () => {
+  assert.deepEqual(calc.visibleFields("bike"), ["distance", "time", "speed"]);
+  assert.deepEqual(calc.visibleFields("run"), calc.fields);
+  assert.deepEqual(calc.visibleFields("swim"), calc.fields);
+  const bike = calc.start("bike", false);
+  calc.edit(bike, "distance", "39");
+  calc.edit(bike, "speed", "19.5");
+  assert.equal(calc.text(bike, "time"), "2:00:00");
+  calc.edit(bike, "speed", "20.5");
+  assert.equal(calc.text(bike, "time"), "1:54:09");
+  assert.match(calc.guidance(bike), /distance, time and speed/i);
+});
+
+test("Bike race projection uses speed and preserves units", () => {
+  const speedRate = calc.projectionSpeedRate("20", "mi");
+  assert.ok(speedRate > 0);
+  assert.equal(calc.raceProjection("bike", "tt10", speedRate).clock, "30:00");
+  assert.equal(calc.projectionSpeed(speedRate, "km"), "32.19");
+  assert.equal(calc.projectionSpeedRate("19.5", "mi"),
+               calc.projectionSpeedRate("19,5", "mi"));
+  assert.equal(calc.projectionSpeedRate("19.5.5", "mi"), null);
+  assert.equal(calc.projectionSpeedRate("0", "mi"), null);
+  assert.equal(calc.projectionSpeedRate("20", "yd"), null);
+});
+
 test("website defaults to miles for Run and Bike and yards for Swim", () => {
   assert.equal(calc.start("run").unit, "mi");
   assert.equal(calc.start("bike").unit, "mi");
@@ -143,12 +168,20 @@ test("run projection uses selected mile and kilometer pace units", () => {
 test("canonical race projection is identical across units and invalid input remains invalid", () => {
   for (const sport of ["swim", "bike", "run"]) {
     const initialUnit = calc.start(sport).unit;
-    const original = calc.projectionRate(calc.projectionDefaults[sport].pace, sport, initialUnit);
+    const original = sport === "bike"
+      ? calc.projectionSpeedRate(calc.projectionDefaults[sport].speed, initialUnit)
+      : calc.projectionRate(calc.projectionDefaults[sport].pace, sport, initialUnit);
     const raceID = calc.projectionDefaults[sport].raceID;
     const initial = calc.raceProjection(sport, raceID, original);
     const otherUnit = calc.sports[sport].units.find(x => x !== initialUnit);
-    const converted = calc.projectionPace(original, sport, otherUnit);
-    assert.ok(calc.parseClock(converted) > 0);
+    const converted = sport === "bike"
+      ? calc.projectionSpeed(original, otherUnit)
+      : calc.projectionPace(original, sport, otherUnit);
+    assert.ok(sport === "bike" ? Number(converted) > 0 : calc.parseClock(converted) > 0);
+    const approximateRate = sport === "bike"
+      ? calc.projectionSpeedRate(converted, otherUnit)
+      : calc.projectionRate(converted, sport, otherUnit);
+    assert.ok(Math.abs(approximateRate - original) / original < 0.001);
     assert.equal(calc.raceProjection(sport, raceID, original).seconds, initial.seconds);
   }
   assert.equal(calc.projectionRate("1:60", "swim", "yd"), null);
