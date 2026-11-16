@@ -163,6 +163,7 @@ function state() { return states[activeSport]; }
 function projection() { return projections[activeSport]; }
 function render(editingField = null) {
   const current = state(), opts = engine.sports[activeSport].units;
+  $("calchead").textContent = activeSport === "bike" ? "Bike speed calculator" : "Pace calculator";
   document.querySelectorAll("[data-sport]").forEach(button => {
     const selected = button.dataset.sport === activeSport;
     button.setAttribute("aria-selected", String(selected));
