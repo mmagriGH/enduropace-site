@@ -181,7 +181,10 @@ test("canonical race projection is identical across units and invalid input rema
     const approximateRate = sport === "bike"
       ? calc.projectionSpeedRate(converted, otherUnit)
       : calc.projectionRate(converted, sport, otherUnit);
-    assert.ok(Math.abs(approximateRate - original) / original < 0.001);
+    // Clock labels are rounded to the nearest second, so pace conversions
+    // can be less precise than the two-decimal bike speed display.
+    assert.ok(Math.abs(approximateRate - original) / original <
+              (sport === "bike" ? 0.001 : 0.01));
     assert.equal(calc.raceProjection(sport, raceID, original).seconds, initial.seconds);
   }
   assert.equal(calc.projectionRate("1:60", "swim", "yd"), null);
