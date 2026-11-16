@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Free Swim, Bike and Run pace calculator: enter any two independent values for distance, time, pace or speed. Convert miles, kilometers, meters and yards instantly. No login or tracking.">
+<meta name="description" content="Free EnduroPace calculator: swim and run pace, cycling speed, distance and finish time. Convert miles, kilometers, meters and yards instantly. No login or tracking.">
 <title>Swim, Bike & Run Pace Calculator | EnduroPace</title>
 <style>
 :root{color-scheme:dark;--bg:#05090b;--card:#141a1f;--line:#303a40;--text:#f6f8f9;--muted:#b2bec5;--brand:#ff6a00;--input:#0b1013}
@@ -33,6 +33,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 .units-note{font-size:.85rem;margin:9px 0}
 .metric{display:grid;grid-template-columns:minmax(140px,1fr) minmax(110px,170px) minmax(52px,78px);gap:10px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
 .metric:last-of-type{border-bottom:0}
+.metric[hidden]{display:none}
 .metric label{font-weight:750;display:flex;align-items:center;gap:12px}
 .metric-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:#29343c;color:var(--brand);font-weight:850}
 .metric input{min-width:0;width:100%;font-size:1.23rem;font-variant-numeric:tabular-nums;text-align:right;font-weight:750;padding:9px 10px;background:var(--input);border:1px solid #728088;border-radius:9px;color:var(--text)}
@@ -82,15 +83,15 @@ footer{margin-top:28px;border-top:1px solid var(--line);font-size:.85rem}
     <button type="button" role="tab" data-sport="run" aria-selected="true" aria-controls="calculator-panel">Run</button>
   </div>
 
-  <div id="calculator-panel" role="tabpanel" aria-label="Linked distance, time, pace and speed">
+  <div id="calculator-panel" role="tabpanel" aria-label="Linked sport calculator">
     <div class="units">
       <strong>Distance units</strong>
-      <div class="unit-options" role="group" aria-label="Distance and pace units">
+      <div class="unit-options" role="group" aria-label="Distance units">
         <button type="button" id="unit-a" aria-pressed="true">mi</button>
         <button type="button" id="unit-b" aria-pressed="false">km</button>
       </div>
     </div>
-    <p class="units-note">Distance, pace and speed change together. Elapsed time stays the same.</p>
+    <p class="units-note" id="units-explanation">Distance, pace and speed change together. Elapsed time stays the same.</p>
 
     <div class="metric" data-row="distance">
       <label for="calc-distance"><span class="metric-icon" aria-hidden="true">↗</span>Distance</label>
@@ -134,7 +135,7 @@ footer{margin-top:28px;border-top:1px solid var(--line);font-size:.85rem}
 </section>
 
 <p><a class="cta" href="https://apps.apple.com/us/app/enduropace/id6779810332">Plan your race with EnduroPace</a></p>
-<p>The EnduroPace app includes the same calculator, interval planning, fueling and hydration strategies, and race-day tools.</p>
+<p>The EnduroPace 1.7 update will bring this Swim/Run pace and Bike speed calculator into the app, alongside fueling, hydration, and race-day tools.</p>
 </main>
 <footer><p>Made by GamaCoraggio LLC. Calculations run locally in your browser. No inputs are transmitted by this page. © 2026 GamaCoraggio LLC.</p></footer>
 
@@ -146,12 +147,14 @@ const $ = id => document.getElementById(id);
 const states = {
   swim: engine.start("swim"), bike: engine.start("bike"), run: engine.start("run")
 };
-// Each sport keeps an independent projection pace, selected race and canonical
-// rate. Unit changes convert the visible pace without rounding the model.
+// Each sport keeps an independent projection input and canonical seconds/meter.
+// Bike uses speed; Swim/Run use pace. Unit changes never re-parse rounded labels.
 const projections = Object.fromEntries(Object.entries(engine.projectionDefaults).map(([sport, config]) => [
   sport, {
-    paceText: config.pace,
-    secondsPerMeter: engine.projectionRate(config.pace, sport, engine.sports[sport].defaultUnit),
+    paceText: sport === "bike" ? config.speed : config.pace,
+    secondsPerMeter: sport === "bike"
+      ? engine.projectionSpeedRate(config.speed, engine.sports[sport].defaultUnit)
+      : engine.projectionRate(config.pace, sport, engine.sports[sport].defaultUnit),
     raceID: config.raceID
   }
 ]));
@@ -172,12 +175,17 @@ function render(editingField = null) {
     button.setAttribute("aria-pressed", String(current.unit === value));
   });
   engine.fields.forEach(field => {
+    document.querySelector('[data-row="' + field + '"]').hidden =
+      !engine.visibleFields(activeSport).includes(field);
     const input = $("calc-" + field);
     if (field !== editingField) input.value = engine.text(current, field);
     $("unit-" + field).textContent = engine.suffix(current, field);
     document.querySelector('[data-row="' + field + '"]').classList.toggle("entered", !!current.inputs[field]);
   });
   $("guidance").textContent = engine.guidance(current);
+  $("units-explanation").textContent = activeSport === "bike"
+    ? "Distance and speed convert together. Elapsed time stays the same."
+    : "Distance, pace and speed convert together. Elapsed time stays the same.";
   $("swim-note").hidden = activeSport !== "swim";
   renderRace();
 }
@@ -201,8 +209,10 @@ document.querySelectorAll("[data-sport]").forEach(button => {
     if (current.unit !== nextUnit) {
       engine.changeUnit(current, nextUnit);
       // Preserve canonical seconds per meter, not the rounded label.
-      p.paceText = p.secondsPerMeter == null
-        ? "" : engine.projectionPace(p.secondsPerMeter, activeSport, nextUnit);
+      p.paceText = p.secondsPerMeter == null ? ""
+        : activeSport === "bike"
+          ? engine.projectionSpeed(p.secondsPerMeter, nextUnit)
+          : engine.projectionPace(p.secondsPerMeter, activeSport, nextUnit);
     }
     render();
   });
@@ -217,18 +227,24 @@ $("clear").addEventListener("click", () => { engine.clear(state()); render(); $(
 
 function renderRaceResult() {
   const calculated = engine.raceProjection(activeSport, projection().raceID, projection().secondsPerMeter);
-  $("raceresult").textContent = calculated ? calculated.clock : "Enter a valid pace";
+  $("raceresult").textContent = calculated ? calculated.clock
+    : activeSport === "bike" ? "Enter a valid speed" : "Enter a valid pace";
 }
 function renderRace() {
   const sportLabels = { swim: "Swim", bike: "Bike", run: "Run" };
-  const paceLabels = { swim: "Swimming", bike: "Cycling", run: "Running" };
+  const paceLabels = { swim: "Swimming", run: "Running" };
   const current = state(), p = projection();
   $("raceheading").textContent = "Bonus: " + sportLabels[activeSport] + " finish-time projection";
   const basis = activeSport === "swim" ? "per 100 " : "per ";
-  $("racepace-label").textContent = paceLabels[activeSport] + " pace (m:ss " + basis + current.unit + ")";
+  $("racepace-label").textContent = activeSport === "bike"
+    ? "Cycling speed (" + current.unit + "/h)"
+    : paceLabels[activeSport] + " pace (m:ss " + basis + current.unit + ")";
+  $("racepace").inputMode = activeSport === "bike" ? "decimal" : "text";
   $("race-context").textContent =
     "Showing " + sportLabels[activeSport].toLowerCase() + " distances in " + current.unit +
-    ". Changing units above converts pace and distance here automatically.";
+    (activeSport === "bike"
+      ? ". Changing units above converts speed and distance here automatically."
+      : ". Changing units above converts pace and distance here automatically.");
 
   const select = $("racedistance");
   select.replaceChildren();
@@ -242,13 +258,17 @@ function renderRace() {
   $("racepace").value = p.paceText;
   $("race-note").textContent = activeSport === "swim"
     ? "Assumes a steady swim pace. Open-water conditions, pool turns and transitions are not included."
-    : "Assumes a constant pace over the selected distance. Mathematical estimate only; not a performance prediction.";
+    : activeSport === "bike"
+      ? "Assumes a constant cycling speed. Hills, wind and conditions may change actual results."
+      : "Assumes a constant pace over the selected distance. Mathematical estimate only; not a performance prediction.";
   renderRaceResult();
 }
 $("racepace").addEventListener("input", event => {
   const p = projection();
   p.paceText = event.target.value;
-  p.secondsPerMeter = engine.projectionRate(p.paceText, activeSport, state().unit);
+  p.secondsPerMeter = activeSport === "bike"
+    ? engine.projectionSpeedRate(p.paceText, state().unit)
+    : engine.projectionRate(p.paceText, activeSport, state().unit);
   renderRaceResult();
 });
 $("racedistance").addEventListener("change", event => {
